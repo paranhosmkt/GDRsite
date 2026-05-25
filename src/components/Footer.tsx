@@ -106,20 +106,20 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="space-y-4">
               {/* Actual Logo Image Placeholder Slot */}
               {logoUrl ? (
-                <div className="max-w-[240px] group">
+                <div className="max-w-[480px] group">
                   <img
                     src={logoUrl}
                     alt="Gouvêa dos Reis Advogados"
-                    className="max-h-16 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    className="max-h-32 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
                     referrerPolicy="no-referrer"
                   />
                 </div>
               ) : (
-                <div className="border border-dashed border-white/20 p-4 bg-white/5 flex flex-col items-center justify-center rounded-sm max-w-[240px] group transition-all duration-300 hover:border-gdr-beige/40">
-                  <span className="text-[8px] tracking-[0.3em] font-mono text-gdr-beige uppercase block mb-1">
+                <div className="border border-dashed border-white/20 p-8 bg-white/5 flex flex-col items-center justify-center rounded-sm max-w-[480px] group transition-all duration-300 hover:border-gdr-beige/40">
+                  <span className="text-[16px] tracking-[0.3em] font-mono text-gdr-beige uppercase block mb-2">
                     [ IMAGEM DA LOGO REAL ]
                   </span>
-                  <span className="text-[7.5px] text-white/40 block leading-none font-mono tracking-widest uppercase">
+                  <span className="text-[15px] text-white/40 block leading-none font-mono tracking-widest uppercase">
                     gdr_logo_footer.png
                   </span>
                 </div>
