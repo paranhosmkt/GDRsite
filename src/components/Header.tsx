@@ -45,7 +45,6 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
     { label: "Equipe", id: "equipe" },
     { label: "Portfólio", id: "portfolio" },
     { label: "Blog", id: "blog" },
-    { label: "Contato", id: "contato" },
   ];
 
   const handleLinkClick = (id: string) => {
