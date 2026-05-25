@@ -75,13 +75,13 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
                 alt="Gouvêa dos Reis Advogados"
                 className="h-24 w-auto object-contain transition-all duration-300"
                 onError={() => {
-                  // Se o arquivo local /gdr_logo_header.png ainda não existir, ativa o texto fallback elegante
+                  // If we tried loading /gdr_logo_header.png and it's not present yet, trigger fallback text block
                   setHasLogoError(true);
                 }}
                 referrerPolicy="no-referrer"
               />
             ) : (
-              /* Texto institucional elegante caso a imagem ainda não tenha sido enviada */
+              /* Graceful stylized typographic fallback if files are not uploaded yet */
               <div className="flex flex-col items-start justify-center py-1 select-none pr-4">
                 <span className="text-xl font-serif tracking-[0.08em] font-medium text-gdr-dark leading-none">
                   Gouvêa dos Reis
