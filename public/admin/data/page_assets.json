@@ -1,5 +1,9 @@
 {
   "headerLogo": "/uploads/logo-gdr-2-.png",
   "footerLogo": "/uploads/logo-gdr-1-.png",
-  "seals": []
+  "seals": [
+    {
+      "image": "https://ibb.co/GQ35j71t"
+    }
+  ]
 }
