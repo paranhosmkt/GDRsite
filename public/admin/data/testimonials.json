@@ -1,0 +1,28 @@
+{
+  "testimonials": [
+    {
+      "id": "t1",
+      "author": "Dr. Roberto Albuquerque",
+      "position": "Diretor Jurídico de Holding Siderúrgica",
+      "company": "Grupo Albuquerque S/A",
+      "text": "O Gouvêa dos Reis salvou a nossa governança societária em um momento de profunda transição familiar. A capacidade técnica e a discrição deles foram exemplares. O acompanhamento humanizado e o refinamento das estruturas criadas deram segurança para as próximas três gerações.",
+      "isAnonymized": false
+    },
+    {
+      "id": "t2",
+      "author": "Executivo Anônimo",
+      "position": "C-Level de Multi-indústria Alimentícia",
+      "company": "Grupo Alimentar Premium",
+      "text": "Em termos de contencioso trabalhista de alto risco, a equipe do GDR demonstrou um conhecimento do STF que mudou o panorama de nossa contingência fiscal de forma decisiva. Recomendo para qualquer empresa que veja a advocacia como investimento e blindagem estratégica.",
+      "isAnonymized": true
+    },
+    {
+      "id": "t3",
+      "author": "Mariana L. de Castro",
+      "position": "Fundadora de Family Office de Luxo",
+      "company": "Castro & Associados Patrimônio",
+      "text": "A assessoria no planejamento tributário nacional e aduaneiro deles reduziu nossa exposição corporativa em milhões de forma estritamente legal. Uma abordagem limpa, altamente corporativa e com prazos respeitados milimetricamente.",
+      "isAnonymized": false
+    }
+  ]
+}

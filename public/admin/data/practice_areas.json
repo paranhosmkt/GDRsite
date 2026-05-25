@@ -1,0 +1,200 @@
+{
+  "areas": [
+    {
+      "id": "administrativo",
+      "title": "Administrativo",
+      "slug": "administrativo",
+      "description": "Assessoria estratégica nas relações lícitas com o poder público, licitações corporativas e processos regulatórios complexos.",
+      "extendedDescription": "Atuamos tanto no contencioso administrativo e judicial quanto no plano consultivo de vanguarda. Elaboramos pareceres sofisticados, recursos para licitações de grande escala, e defesa de interesses perante os Tribunais de Contas e agências reguladoras.",
+      "howWeAct": [
+        "Assessoria em editais de licitações públicas federais, estaduais e municipais",
+        "Modelagem e manutenção de contratos de concessionão e parcerias (PPPs)",
+        "Defesa de empresas e servidores em processos de improbidade e administrativos",
+        "Elaboração de pareceres técnicos específicos para tomadas de decisão",
+        "Representação focada em agências reguladoras nacionais"
+      ]
+    },
+    {
+      "id": "imobiliario",
+      "title": "Imobiliário",
+      "slug": "imobiliario",
+      "description": "Segurança total em operações de aquisição, locações complexas, estruturação de condomínios e incorporações imobiliárias.",
+      "extendedDescription": "Oferecemos assessoria jurídica de ponta em todas as fases de transações imobiliárias corporativas. Nosso rigor de Due Diligence imobiliária garante a mitigação de litígios ocultos e viabiliza empreendimentos residenciais, comerciais e industriais.",
+      "howWeAct": [
+        "Due Diligence imobiliária minuciosa e desprovida de riscos patrimoniais",
+        "Estruturação jurídica de incorporações de alto padrão e condomínios fechados",
+        "Contratos comerciais de locação, arrendamento e built-to-suit personalizados",
+        "Regularização fundiária de posses e cadeias de propriedade de grande porte",
+        "Representação em assembleias corporativas e litígios possessórios"
+      ]
+    },
+    {
+      "id": "tributario",
+      "title": "Tributário",
+      "slug": "tributario",
+      "description": "Planejamento fiscal preventivo inteligência analítica na recuperação de créditos e defesas de autuações excessivas.",
+      "extendedDescription": "Aliamos rigor técnico e criatividades legítimas sob a legislação para mapear oportunidades tributárias e contornar contingências fiscais de alta complexidade. Protegemos o patrimônio empresarial de modo transparente e proativo.",
+      "howWeAct": [
+        "Planejamento tributário estratégico focado na elisão fiscal legítima",
+        "Auditoria jurídica preventiva para identificar créditos acumulados e fraudes",
+        "Defesas de elevadíssimo nível técnico no contencioso administrativo e judicial",
+        "Adequação empresarial estratégica frente à nova Reforma Tributária Nacional",
+        "Gestão inteligente e parcelamento planejado de passivos tributários"
+      ]
+    },
+    {
+      "id": "empresarial",
+      "title": "Empresarial",
+      "slug": "empresarial",
+      "description": "Estruturação societária, elaboração de contratos complexos, governança corporativa e transações de M&A.",
+      "extendedDescription": "Nossa advocacia comercial viabiliza negócios nacionais e estrangeiros. Oferecemos segurança absoluta para dissolvimento de sociedades, transações de fusões, e desenhos de acordos comerciais de alto valor comercial.",
+      "howWeAct": [
+        "Constituição e reestruturação de Sociedades Anônimas e de responsabilidade limitada",
+        "Assessoria minuciosa em Fusões e Aquisições (M&A) e Due Diligence",
+        "Elaboração, análise e blindagem contratual de transações comerciais robustas",
+        "Mediação jurídica especializada e técnica de impasses entre sócios",
+        "Implementação de regimentos internos e conselhos de administração eficientes"
+      ]
+    },
+    {
+      "id": "familia",
+      "title": "Família (Patrimonial e Estratégico)",
+      "slug": "familia",
+      "description": "Blindagem do patrimônio familiar e planejamento matrimonial com absoluta discrição e respeito às relações afetivas.",
+      "extendedDescription": "Atuamos com imensa discrição e ética de ponta na elaboração de planejamentos de regime de bens, contratos de partilha e uniões estáveis. Nosso foco é manter a perenidade dos recursos familiares e resguardar a intimidade do núcleo.",
+      "howWeAct": [
+        "Assessoria com regime de bens e acordos pré-nupciais sob medida",
+        "Planejamento patrimonial familiar focado na blindagem lícita de ativos",
+        "Condução humanizada de inventários extrajudiciais e partilhas amigáveis",
+        "Acompanhamento sutil em divórcios consensuais estratégicos",
+        "Assessoria em pactos de convivência e proteção intergeracional de recursos"
+      ]
+    },
+    {
+      "id": "criminal-empresarial",
+      "title": "Criminal Empresarial",
+      "slug": "criminal-empresarial",
+      "description": "Assessoria consultiva criminal, compliance penal corporativo e representação técnica voltada à defesa dos interesses empresariais.",
+      "extendedDescription": "Nossa área criminal tem um olhar focado na blindagem criminal de diretores e corpo diretivo. Auxiliamos empresas a auditar e mitigar riscos relacionados a infrações financeiras, ambientais e tributárias na esfera punitiva.",
+      "howWeAct": [
+        "Defesa corporativa qualificada em inquéritos policiais e ações penais públicas",
+        "Planejamento consultivo anticorrupção e implementação de compliance criminal",
+        "Atuação centrada contra fraudes corporativas internas e vazamento de segredos",
+        "Treinamentos corporativos preventivos para executivos e administradores",
+        "Suporte legal em auditorias e investigações internas confidenciais"
+      ]
+    },
+    {
+      "id": "lgpd-dpo",
+      "title": "LGPD / DPO",
+      "slug": "lgpd-dpo",
+      "description": "Adequação integral às exigências da LGPD, privacidade de dados por design e assessoria na atuação de DPO.",
+      "extendedDescription": "Auxiliamos empresas a criarem fluxos de processamento em total harmonia com a Lei Geral de Proteção de Dados (LGPD). Atuamos no mapeamento de dados (data mapping), criação de políticas internas de privacidade e representação perante a ANPD.",
+      "howWeAct": [
+        "Implementação completa do programa de privacidade e proteção de dados pessoais",
+        "Treinamento contínuo de equipes corporativas (DPO as a Service)",
+        "Análise minuciosa de impactos à proteção de dados e relatórios técnicos (RIPD)",
+        "Elaboração de termos de uso, políticas de privacidade e contratos digitais",
+        "Defesa administrativa de sanções aplicadas pela ANPD e órgãos fiscalizadores"
+      ]
+    },
+    {
+      "id": "previdenciario",
+      "title": "Previdenciário",
+      "slug": "previdenciario",
+      "description": "Planejamento previdenciário de executivos, cálculos analíticos de alta renda e gestão de benefícios corporativos.",
+      "extendedDescription": "Estruturamos planos previdenciários sofisticados e individuais para acionistas e diretores de alto nível. Além disso, atuamos nas esferas administrativa e contenciosa de benefícios previdenciários e contestações patronais.",
+      "howWeAct": [
+        "Estudo de viabilidade de aposentadorias diferenciadas de alto padrão técnico",
+        "Planejamento previdenciário minucioso contendo pareceres matemáticos",
+        "Defesas administrativas e judiciais para concessão e revisão de benefícios",
+        "Assessoria sob regimes próprios de previdência social e fundos fechados",
+        "Contestação judicial de encargos patronais previdenciários desproporcionais"
+      ]
+    },
+    {
+      "id": "relacoes-gov",
+      "title": "Relações Governamentais",
+      "slug": "relacoes-gov",
+      "description": "Interface jurídica técnica lícita, monitoramento regulatório setorial e assessoramento institucional perante o legislativo.",
+      "extendedDescription": "Conduzimos diagnósticos finos sobre impactos regulatórios e representamos interesses legítimos de diversos setores corporativos junto a legisladores e comitês setoriais com absoluto compliance.",
+      "howWeAct": [
+        "Mapeamento constante de proposições legais e alterações regulatórias",
+        "Elaboração de notas técnicas fundamentadas para subsidiar o debate regulatório",
+        "Representação em audiências públicas e comitês setoriais oficiais",
+        "Assessoria em compliance de relações no setor público de forma legítima",
+        "Mediação técnica na modelagem de novos marcos regulatórios industriais"
+      ]
+    },
+    {
+      "id": "valuation-due-diligence",
+      "title": "Due Diligence e Valuation",
+      "slug": "valuation-due-diligence",
+      "description": "Auditoria contábil-jurídica integrada de passivos latentes e avaliação pautada no resguardo em fusões.",
+      "extendedDescription": "Nosso setor realiza o levantamento preciso de todo o patrimônio tangível e intangível de empresas durante operações de investimento para resguardo das obrigações contratuais assumidas em aquisições.",
+      "howWeAct": [
+        "Identificação milimétrica de passivos ocultos em esferas cível e tributária",
+        "Avaliação jurídica de marcas, patentes e ativos imateriais relevantes",
+        "Elaboração de relatórios técnicos de Due Diligence em curto espaço de tempo",
+        "Definição de salvaguardas contratuais baseadas nos riscos constatados",
+        "Coordenação de transições operacionais sob auditorias qualificadas"
+      ]
+    },
+    {
+      "id": "saude",
+      "title": "Direito da Saúde",
+      "slug": "saude",
+      "description": "Defesa técnica regulatória administrativa e contenciosa voltada para operadoras, hospitais e clínicas sob a ANS.",
+      "extendedDescription": "Representamos operadoras de planos de saúde, redes de clínicas privadas e laboratórios em autuações regulatórias, defesas frente à ANS e órgãos de defesa do consumidor, e demandas civis de alta complexidade médica.",
+      "howWeAct": [
+        "Defesas contundentes perante a ANS relativas à regulação e reembolsos",
+        "Contratos de alta complexidade regulatória entre operadoras e prestadores",
+        "Compliance institucional com base em diretrizes médicas internacionais",
+        "Defesa de erros técnicos atribuídos e processos de responsabilidade em saúde",
+        "Assessoria jurídica preventiva em governança de riscos sanitários locais"
+      ]
+    },
+    {
+      "id": "responsabilidade-civil",
+      "title": "Responsabilidade Civil",
+      "slug": "responsabilidade-civil",
+      "description": "Gestão técnica de reparações pecuniárias, proteção à reputação de marcas e contencioso cível indenizatório.",
+      "extendedDescription": "Especializados no resguardo de prejuízos extraordinários de grandes marcas comerciais. Oferecemos defesas processuais eficientes em demandas de compensação civil e danos materiais em toda a federação brasileira.",
+      "howWeAct": [
+        "Análise preventiva de riscos cíveis geradores de passivos de indenização",
+        "Defesa em ações coletivas cíveis de grande alcance de opinião pública",
+        "Pareceres técnicos em contratos de seguro de diretores e executivos (D&O)",
+        "Atuação firme na preservação e reparabilidade de imagem perante mídias",
+        "Gestão sob litígios contratuais complexos envolvendo inadimplemento civil"
+      ]
+    },
+    {
+      "id": "trabalhista-empresarial",
+      "title": "Trabalhista Empresarial",
+      "slug": "trabalhista-empresarial",
+      "description": "Segurança total no gerenciamento das relações de trabalho, compliance preventivo e blindagem do passivo.",
+      "extendedDescription": "Nosso campo de atuação no Direito Trabalhista vai desde o consultivo, preventivo, administrativo, até o judicial. Atuamos de forma estratégica para mitigar conflitos laborais e blindar o passivo de empresas com rigor processual e controle de contingências.",
+      "howWeAct": [
+        "Consultoria preventiva diária de condutas laborais e RH",
+        "Auditoria jurídica detalhada de práticas de admissão e demissão",
+        "Estruturação de políticas de remuneração variável e compliances",
+        "Defesa contenciosa qualificada com teses focadas nos Tribunais Superiores",
+        "Gestão estratégica de passivo e mitigação de reparações pecuniárias"
+      ]
+    },
+    {
+      "id": "sucessao-familiar",
+      "title": "Sucessão Familiar",
+      "slug": "sucessao-familiar",
+      "description": "Estratégia legal refinada para perpetuar patrimônio, valores familiares e o legado imaterial de geração em geração.",
+      "extendedDescription": "A sucessão é o conjunto de princípios e de normas que regem a transferência do patrimônio aos herdeiros. Atuamos de maneira estruturada no planejamento sucessório para garantir a perenidade de empresas familiares e fortunas consolidadas.",
+      "howWeAct": [
+        "Desenho e estruturação de Holdings Familiares e Patrimoniais",
+        "Elaboração de acordos de sócios complexos e protocolos de herança",
+        "Condução técnica de processo sucessório com resguardo de herdeiros",
+        "Estruturação de doações com reserva de usufruto e restrições jurídicas",
+        "Organização de transferências societárias e governança preventiva"
+      ]
+    }
+  ]
+}
