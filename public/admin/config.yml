@@ -82,7 +82,6 @@ collections:
               - label: "Como Atuamos (Item por item)"
                 name: "howWeAct"
                 widget: "list"
-                field: { label: "Descrever Ação", widget: "string" }
 
       - file: "public/admin/data/portfolio_cases.json"
         label: "Casos de Sucesso (Portfólio)"
@@ -100,7 +99,6 @@ collections:
               - label: "Destaques / Soluções (Legenda da direita)"
                 name: "highlights"
                 widget: "list"
-                field: { label: "Destaque", widget: "string" }
 
       - file: "public/admin/data/materials.json"
         label: "E-books e Blog"
@@ -140,4 +138,4 @@ collections:
               - { label: "É Sócio Fundador In Memoriam?", name: "isHonorary", widget: "boolean", default: false }
               - { label: "Biografia Resumida", name: "bio", widget: "text" }
               - { label: "Categoria Funcional", name: "category", widget: "select", options: ["juridico", "conselho", "founder", "administrativo"] }
-              - { label: "Títulos de Credenciais (Ex: Graduado pela UNISUL)", name: "credentials", widget: "list", field: { label: "Novo Título", widget: "string" }, required: false }
+              - { label: "Títulos de Credenciais (Ex: Graduado pela UNISUL)", name: "credentials", widget: "list", required: false }
