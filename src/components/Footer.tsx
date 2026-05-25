@@ -10,6 +10,7 @@ interface FooterProps {
 
 export default function Footer({ onNavigate }: FooterProps) {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
+  const [hasLogoError, setHasLogoError] = useState(false);
   const [seals, setSeals] = useState<SanitySeal[]>([]);
   const [addresses, setAddresses] = useState<OfficeAddress[]>(OFFICE_ADDRESSES);
 
@@ -20,12 +21,14 @@ export default function Footer({ onNavigate }: FooterProps) {
           const fLogo = getSanityImageUrl(assets.footerLogo);
           if (fLogo) {
             setLogoUrl(fLogo);
+            return;
           }
         }
         if (assets.seals && assets.seals.length > 0) {
           setSeals(assets.seals);
         }
       }
+      setLogoUrl("/gdr_logo_footer.png");
     });
 
     getOfficeAddresses().then((data) => {
@@ -105,23 +108,27 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               {/* Actual Logo Image Placeholder Slot */}
-              {logoUrl ? (
+              {logoUrl && !hasLogoError ? (
                 <div className="max-w-[480px] group">
                   <img
                     src={logoUrl}
                     alt="Gouvêa dos Reis Advogados"
                     className="max-h-32 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    onError={() => {
+                      setHasLogoError(true);
+                    }}
                     referrerPolicy="no-referrer"
                   />
                 </div>
               ) : (
-                <div className="border border-dashed border-white/20 p-8 bg-white/5 flex flex-col items-center justify-center rounded-sm max-w-[480px] group transition-all duration-300 hover:border-gdr-beige/40">
-                  <span className="text-[16px] tracking-[0.3em] font-mono text-gdr-beige uppercase block mb-2">
-                    [ IMAGEM DA LOGO REAL ]
-                  </span>
-                  <span className="text-[15px] text-white/40 block leading-none font-mono tracking-widest uppercase">
-                    gdr_logo_footer.png
-                  </span>
+                /* Sophisticated typographic brand insignia */
+                <div className="flex flex-col items-start justify-center py-2 select-none">
+                  <h4 className="text-2xl font-serif tracking-[0.08em] font-medium text-white leading-none">
+                    Gouvêa dos Reis
+                  </h4>
+                  <p className="text-xs font-sans tracking-[0.4em] font-bold text-gdr-beige uppercase mt-2.5 leading-none pl-[2px]">
+                    Advogados
+                  </p>
                 </div>
               )}
             </div>
