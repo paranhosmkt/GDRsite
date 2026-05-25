@@ -1,0 +1,14 @@
+{
+  "addresses": [
+    {
+      "city": "Florianópolis",
+      "state": "SC",
+      "street": "Avenida Rio Branco, 691",
+      "suite": "3º Andar — Centro Executivo Atlantis — Centro",
+      "zipCode": "88015-203",
+      "phone": "+55 (48) 3222-9696",
+      "email": "gdr@gdr.adv.br",
+      "workingHours": "Segunda a Sexta, das 08h às 12h e das 13h30 às 18h"
+    }
+  ]
+}

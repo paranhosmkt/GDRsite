@@ -1,0 +1,143 @@
+backend:
+  name: git-gateway
+  branch: main # Change this to your default git branch if needed
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "site_content"
+    label: "Conteúdo do Site"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "public/admin/data/page_texts.json"
+        label: "Slogans e Textos Gerais"
+        name: "page_texts"
+        fields:
+          - { label: "Título Principal (Hero)", name: "hero_title", widget: "string" }
+
+      - file: "public/admin/data/page_assets.json"
+        label: "Logotipos e Selos"
+        name: "page_assets"
+        fields:
+          - { label: "Logotipo do Cabeçalho", name: "headerLogo", widget: "image", required: false }
+          - { label: "Logotipo do Rodapé", name: "footerLogo", widget: "image", required: false }
+          - label: "Selos e Chancelas (Exatamente 9 itens recomendados)"
+            name: "seals"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Imagem do Selo", name: "image", widget: "image" }
+              - { label: "Nome/Legenda", name: "label", widget: "string", required: false }
+
+      - file: "public/admin/data/office_addresses.json"
+        label: "Endereço e Contato"
+        name: "office_addresses"
+        fields:
+          - label: "Sede Executiva"
+            name: "addresses"
+            widget: "list"
+            summary: "{{fields.city}} - {{fields.street}}"
+            fields:
+              - { label: "Cidade", name: "city", widget: "string" }
+              - { label: "Estado (Sigla)", name: "state", widget: "string" }
+              - { label: "Rua e Número", name: "street", widget: "string" }
+              - { label: "Complemento / Sala", name: "suite", widget: "string" }
+              - { label: "CEP", name: "zipCode", widget: "string" }
+              - { label: "Telefone Corporativo", name: "phone", widget: "string" }
+              - { label: "E-mail Geral", name: "email", widget: "string" }
+              - { label: "Horário de Atendimento", name: "workingHours", widget: "string" }
+
+      - file: "public/admin/data/testimonials.json"
+        label: "Depoimentos de Clientes"
+        name: "testimonials"
+        fields:
+          - label: "Depoimentos"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{fields.author}} — {{fields.company}}"
+            fields:
+              - { label: "Autor (Nome)", name: "author", widget: "string" }
+              - { label: "Cargo do Autor", name: "position", widget: "string" }
+              - { label: "Empresa", name: "company", widget: "string" }
+              - { label: "Texto do Depoimento", name: "text", widget: "text" }
+              - { label: "Deseja ocultar dados e manter o autor Anônimo?", name: "isAnonymized", widget: "boolean", default: false }
+
+      - file: "public/admin/data/practice_areas.json"
+        label: "Áreas de Atuação"
+        name: "practice_areas"
+        fields:
+          - label: "Áreas de Atuação"
+            name: "areas"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Identificador Único (Ex: administrativo, imobiliario)", name: "id", widget: "string" }
+              - { label: "Título da Área", name: "title", widget: "string" }
+              - { label: "Link de acesso (Slug)", name: "slug", widget: "string" }
+              - { label: "Descrição Curta (No Card)", name: "description", widget: "text" }
+              - { label: "Descrição Detalhada (No Modal)", name: "extendedDescription", widget: "text" }
+              - label: "Como Atuamos (Item por item)"
+                name: "howWeAct"
+                widget: "list"
+                field: { name: "value", label: "Descrever Ação", widget: "string" }
+
+      - file: "public/admin/data/portfolio_cases.json"
+        label: "Casos de Sucesso (Portfólio)"
+        name: "portfolio_cases"
+        fields:
+          - label: "Lista de Casos"
+            name: "cases"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "ID Correspondente (Ex: nr-1, lpgd-compliance)", name: "id", widget: "string" }
+              - { label: "Nome do Setor / Caso", name: "name", widget: "string" }
+              - { label: "Representatividade Curta", name: "representativeness", widget: "string" }
+              - { label: "Descrição Inteira", name: "description", widget: "text" }
+              - label: "Destaques / Soluções (Legenda da direita)"
+                name: "highlights"
+                widget: "list"
+                field: { name: "value", label: "Destaque", widget: "string" }
+
+      - file: "public/admin/data/materials.json"
+        label: "E-books e Blog"
+        name: "materials"
+        fields:
+          - label: "E-books, Vídeos e Artigos"
+            name: "materials"
+            widget: "list"
+            summary: "[{{fields.categoryLabel}}] {{fields.title}}"
+            fields:
+              - { label: "id", name: "id", widget: "string" }
+              - { label: "Categoria", name: "category", widget: "select", options: ["ebooks", "artigos", "videos", "palestras", "publicacoes", "noticias"] }
+              - { label: "Nome da Categoria (Ex: E-book)", name: "categoryLabel", widget: "string" }
+              - { label: "Título do Material", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Texto do Botão / Badge", name: "badge", widget: "string" }
+              - { label: "Data", name: "date", widget: "string" }
+              - { label: "Autor do Material", name: "author", widget: "string" }
+              - { label: "Tempo ou Páginas (Ex: 42 páginas)", name: "readTimeOrDuration", widget: "string" }
+              - { label: "Foto de Destaque (Opcional)", name: "imageUrl", widget: "image", required: false }
+
+      - file: "public/admin/data/team_members.json"
+        label: "Membros da Equipe"
+        name: "team_members"
+        fields:
+          - label: "Profissionais"
+            name: "team"
+            widget: "list"
+            summary: "({{fields.category}}) {{fields.name}}"
+            fields:
+              - { label: "Nome Completo", name: "name", widget: "string" }
+              - { label: "Cargo / Função", name: "role", widget: "string" }
+              - { label: "E-mail Corporativo", name: "email", widget: "string" }
+              - { label: "Telefone (Opcional)", name: "phone", widget: "string", required: false }
+              - { label: "Foto Profissional", name: "imageRef", widget: "image", required: false }
+              - { label: "Área de Foco", name: "area", widget: "string" }
+              - { label: "É Sócio Fundador In Memoriam?", name: "isHonorary", widget: "boolean", default: false }
+              - { label: "Biografia Resumida", name: "bio", widget: "text" }
+              - { label: "Categoria Funcional", name: "category", widget: "select", options: ["juridico", "conselho", "founder", "administrativo"] }
+              - { label: "Títulos de Credenciais (Ex: Graduado pela UNISUL)", name: "credentials", widget: "list", field: { name: "value", label: "Novo Título", widget: "string" }, required: false }
