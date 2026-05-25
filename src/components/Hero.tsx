@@ -23,7 +23,7 @@ export default function Hero({ onLearnMore, onContact }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-white pt-24 pb-16 flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen bg-white pt-36 sm:pt-40 lg:pt-44 pb-16 flex flex-col justify-center overflow-hidden"
     >
       {/* Editorial delicate background grid (golden geometry line assets) */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -107,16 +107,6 @@ export default function Hero({ onLearnMore, onContact }: HeroProps) {
                 className="w-full h-full object-cover grayscale opacity-95 transition-all duration-750 group-hover:scale-105 group-hover:grayscale-0"
                 referrerPolicy="no-referrer"
               />
-              
-              {/* Overlay with subtle branding label - no cluttered system text */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gdr-dark/85 to-transparent p-6 text-left">
-                <span className="text-[8px] tracking-[0.3em] text-gdr-beige font-semibold uppercase block mb-1">
-                  Unidade Florianópolis &mdash; SC
-                </span>
-                <span className="text-[10px] text-white/50 tracking-wider font-mono uppercase">
-                  Square Corporate SC
-                </span>
-              </div>
             </div>
           </div>
 
