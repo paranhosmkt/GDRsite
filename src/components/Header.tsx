@@ -11,6 +11,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
+  const [hasLogoError, setHasLogoError] = useState(false);
 
   useEffect(() => {
     getPageAssets().then((assets) => {
@@ -18,8 +19,10 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
         const url = getSanityImageUrl(assets.headerLogo);
         if (url) {
           setLogoUrl(url);
+          return;
         }
       }
+      setLogoUrl("/gdr_logo_header.png");
     });
   }, []);
 
@@ -66,21 +69,25 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             className="flex items-center space-x-3 cursor-pointer group"
             onClick={() => handleLinkClick("hero")}
           >
-            {logoUrl ? (
+            {logoUrl && !hasLogoError ? (
               <img
                 src={logoUrl}
                 alt="Gouvêa dos Reis Advogados"
-                className="h-10 w-auto object-contain transition-all duration-300"
+                className="h-24 w-auto object-contain transition-all duration-300"
+                onError={() => {
+                  // Se o arquivo local /gdr_logo_header.png ainda não existir, ativa o texto fallback elegante
+                  setHasLogoError(true);
+                }}
                 referrerPolicy="no-referrer"
               />
             ) : (
-              /* Elegant Image placeholder box forHeader Real Logo */
-              <div className="border border-dashed border-gdr-dark/20 p-2 bg-gdr-gray shrink-0 flex flex-col items-center justify-center rounded-sm transition-all duration-300 group-hover:border-gdr-beige">
-                <span className="text-[7px] tracking-widest font-mono text-gdr-beige uppercase font-bold leading-none">
-                  [ LOGO REAL ]
+              /* Texto institucional elegante caso a imagem ainda não tenha sido enviada */
+              <div className="flex flex-col items-start justify-center py-1 select-none pr-4">
+                <span className="text-xl font-serif tracking-[0.08em] font-medium text-gdr-dark leading-none">
+                  Gouvêa dos Reis
                 </span>
-                <span className="text-[5.5px] text-gdr-dark/40 font-mono tracking-widest uppercase leading-none mt-0.5">
-                  gdr_logo_header.png
+                <span className="text-[10px] font-sans tracking-[0.4em] font-bold text-gdr-beige uppercase mt-1 leading-none pl-[2px]">
+                  Advogados
                 </span>
               </div>
             )}
