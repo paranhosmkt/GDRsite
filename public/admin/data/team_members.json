@@ -161,7 +161,7 @@
     {
       "name": "Thamires Assis",
       "role": "Diretora Estratégica e Comercial",
-      "email": "thamires@gdr.adv.br",
+      "email": "gerencia@gdr.adv.br",
       "imageRef": "image-e3f500af8e95c378aad9c8b66bdc2b199d734221-2640x3960-jpg",
       "area": "Gestão Operacional, Comercial e Estratégia de Atendimento",
       "isHonorary": false,
@@ -171,7 +171,7 @@
     {
       "name": "Alcioneide Rodrigues",
       "role": "Secretária Executiva",
-      "email": "alcioneide@gdr.adv.br",
+      "email": "secretaria@gdr.adv.br",
       "imageRef": "image-b59785ec0741ebf4e6eb354a6bcb40da06f6e6b0-1280x1794-jpg",
       "area": "Apoio Institucional, Recepção e Fluxos de Atendimento",
       "isHonorary": false,
@@ -180,12 +180,12 @@
     },
     {
       "name": "Guilherme Paranhos",
-      "role": "Analista de Comunicação & Marketing",
-      "email": "guilherme@gdr.adv.br",
-      "imageRef": "image-45512feef2c5815189f1d0b73e505834b79100ee-3960x2640-jpg",
-      "area": "Produção de Conteúdo, Relacionamento Digital e Mídia",
+      "role": "Design, branding e tecnologia",
+      "email": "edicao@gdr.adv.br",
+      "imageRef": "https://i.ibb.co/Rt9mhSq/Gui.png",
+      "area": "Estratégia de design e branding",
       "isHonorary": false,
-      "bio": "Analista de comunicação responsável pelo posicionamento corporativo institucional do Gouvêa dos Reis nas mídias digitais e canais de divulgação oficiais. Guilherme lidera a curadoria e produção de artigos jurídicos de utilidade pública do nosso blog, a edição técnica de cartilhas institucionais e ebooks do escritório, e zela pela identidade e comunicação visual corporativa em todos os canais institucionais.",
+      "bio": "Graduado em Marketing pelo Centro Universitário de Maringá (UNICESUMAR). Pós-graduando em Experiência do usuário e Design de interfaces (UI/UX). ",
       "category": "administrativo"
     }
   ]
