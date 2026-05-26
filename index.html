@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GDR Advogados</title>
-    <!-- Netlify Identity Widget para autenticação com o Decap CMS -->
+    <title>My Google AI Studio App</title>
+    <!-- Netlify Identity Widget for authentication with Decap CMS -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Redirect to /admin/ once logged in via Identity Widget -->
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
@@ -23,3 +24,4 @@
     </script>
   </body>
 </html>
+

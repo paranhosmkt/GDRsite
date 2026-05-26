@@ -30,17 +30,41 @@ Se você hospedar o projeto no **Netlify**, o login com e-mail/senha funciona au
 
 ---
 
-### Opção B: Hospedar pelo Vercel ou GitHub Pages (Usando GitHub OAuth)
-Se você preferir hospedar na **Vercel**, você poderá autenticar os editores utilizando o login direto com a conta do GitHub.
+### Opção B: Hospedar pela Vercel (Autenticação Gratuita e Integrada com GitHub)
+Como o Netlify Identity tem limites de tráfego e créditos, nós configuramos um **serviço de autenticação próprio e 100% gratuito** instalado diretamente dentro do seu projeto na Vercel!
 
-1. No `public/admin/config.yml`, substitua as linhas do `backend:` por:
-   ```yaml
-   backend:
-     name: github
-     repo: seu-usuario-github/seu-repositorio-gdr
-     branch: main
-   ```
-2. Instale um assistente de autenticação gratuito (como o [Decap OAuth Gateway](https://github.com/vkyru/decap-cms-oauth-provider-node) ou o [GitHub OAuth App Launcher](https://decapcms.org/docs/github-backend/)) para mediar de forma segura o token do repositório.
+Para ativá-lo, siga estes passos simples:
+
+#### Passo 1: Criar um aplicativo OAuth no GitHub
+1. Acesse o seu GitHub, clique na sua foto de perfil no canto superior direito e vá em **Settings** (Configurações).
+2. Na barra lateral esquerda, clique em **Developer Settings** (embaixo de tudo).
+3. Selecione **OAuth Apps** e clique em **New OAuth App** (ou Register a new application).
+4. Preencha os campos exatamente assim:
+   - **Application Name**: GDR Advogados CMS
+   - **Homepage URL**: `https://seu-site.vercel.app` (substitua pela URL definitiva que você usa na Vercel)
+   - **Authorization callback URL**: `https://seu-site.vercel.app/api/callback` (precisa terminar com `/api/callback`)
+5. Clique em **Register application**.
+6. Guarde o **Client ID** gerado.
+7. Clique em **Generate a new client secret** e copie o código secreto gerado imediatamente (ele só aparece uma vez!).
+
+#### Passo 2: Cadastrar as variáveis no painel da Vercel
+1. Abra o painel do seu projeto na **Vercel**.
+2. Vá na aba **Settings** > **Environment Variables** (Variáveis de Ambiente).
+3. Adicione duas novas variáveis:
+   - Nome: `GITHUB_CLIENT_ID` | Valor: *(cole o Client ID do Passo 1)*
+   - Nome: `GITHUB_CLIENT_SECRET` | Valor: *(cole o Client Secret do Passo 1)*
+4. Salve e faça um novo deploy (ou re-deploy) na Vercel para que as mudanças façam efeito!
+
+#### Passo 3: Configurar o repositório no arquivo config.yml
+No arquivo `/public/admin/config.yml` do seu código, edite estas linhas do `backend:` para apontar para o seu repositório oficial:
+```yaml
+backend:
+  name: github
+  repo: seu-usuario-github/seu-repositorio-gdr  # Exemplo: paranhosmkt/gdr-advogados
+  branch: main
+  base_url: https://seu-site.vercel.app         # URL do seu site na Vercel (sem barra no final)
+  auth_endpoint: api/auth
+```
 
 ---
 

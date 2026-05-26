@@ -67,7 +67,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             </p>
           </div>
 
-          {/* 9 Seals Grid */}
+          {/* 9 Seals Grid - small size as requested */}
           <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-4">
             {Array.from({ length: 9 }).map((_, index) => {
               const customSeal = seals[index];
@@ -111,6 +111,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           
           <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
+              {/* Actual Logo Image Placeholder Slot */}
               {logoUrl && !hasLogoError ? (
                 <div className="max-w-[480px] group">
                   <img

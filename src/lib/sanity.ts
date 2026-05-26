@@ -377,7 +377,7 @@ export interface SanityPageAssets {
  */
 export async function getPageAssets(): Promise<SanityPageAssets> {
   const localData = await fetchLocalCMSData<SanityPageAssets>("page_assets.json");
-  if (localData) {
+  if (localData && (localData.headerLogo || localData.footerLogo || (localData.seals && localData.seals.length > 0))) {
     return localData;
   }
 

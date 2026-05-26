@@ -47,7 +47,7 @@ export default function Hero({ onLearnMore, onContact }: HeroProps) {
                 </span>
               </div>
  
-              {/* Sophisticated dual typography title */}
+              {/* Sophisticated dual typography title (reduced size & simplified) */}
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-sans text-gdr-dark font-light leading-[1.35] tracking-tight">
                 {sentences.map((sentence, idx) => {
                   const words = sentence.split(" ");
@@ -95,8 +95,9 @@ export default function Hero({ onLearnMore, onContact }: HeroProps) {
             </div>
           </div>
  
-          {/* Premium Architectural Frame on Right Side */}
+          {/* Premium Architectural and Editorial Frame on Right Side (Larger size) */}
           <div className="lg:col-span-6 relative self-center">
+            {/* Elegant physical borders and picture offset layout resembling professional architectural portfolio boards */}
             <div className="absolute inset-0 border border-gdr-beige/40 translate-x-4 translate-y-4 pointer-events-none" />
             
             <div className="relative aspect-[4/5] w-full border border-gdr-dark/10 bg-gdr-gray overflow-hidden shadow-sm group">

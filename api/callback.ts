@@ -14,7 +14,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // Troca o código temporário por um token definitivo
+    // Exchange the temporary auth code for a permanent access token
     const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
       method: 'POST',
       headers: {
@@ -37,7 +37,7 @@ export default async function handler(req: any, res: any) {
 
     const token = data.access_token;
 
-    // Renderiza a tela de sucesso que envia o token de volta para o Decap CMS
+    // Render HTML page that communicates the token back to Decap CMS through postMessage
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.status(200).send(`
       <!DOCTYPE html>
@@ -73,6 +73,7 @@ export default async function handler(req: any, res: any) {
         <p>Conectando ao painel do Decap CMS, por favor aguarde...</p>
         <div class="spinner"></div>
         <script>
+          // Since the app sits on the same origin (Vercel), we can post back safely
           const targetOrigin = window.location.origin;
           const tokenData = {
             token: "${token}",
