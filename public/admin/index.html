@@ -67,6 +67,60 @@
           }
           return originalSend.apply(this, args);
         };
+
+        // Intercept postMessage to manually persist login session on same origin domain
+        window.addEventListener('message', function(e) {
+          if (e.data && typeof e.data === 'string' && e.data.startsWith('authorization:github:success:')) {
+            console.log("Interceptado postMessage de login com sucesso:", e.data);
+            try {
+              const jsonStr = e.data.substring('authorization:github:success:'.length);
+              const data = JSON.parse(jsonStr);
+              if (data && data.token) {
+                const userStr = JSON.stringify({
+                  backendName: "github",
+                  token: data.token,
+                  useLocalRepository: false
+                });
+                localStorage.setItem('decap-cms-user', userStr);
+                localStorage.setItem('netlify-cms-user', userStr);
+                console.log("Token de autenticação persistido via EventListener. Recarregando...");
+                
+                const notify = document.createElement('div');
+                notify.style.cssText = "position:fixed; bottom:20px; right:20px; background:#10b981; color:#fff; padding:12px 20px; border-radius:6px; font-family:sans-serif; font-size:14px; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.15); z-index:999999;";
+                notify.textContent = "Conectado ao GitHub com sucesso! Atualizando painel...";
+                document.body.appendChild(notify);
+                
+                setTimeout(function() {
+                  window.location.reload();
+                }, 1000);
+              }
+            } catch(err) {
+              console.error("Erro ao tratar postMessage interceptado:", err);
+            }
+          }
+        }, false);
+
+        // Intercept localSharedStorage changes (e.g. popups writing same-domain localStorage values)
+        window.addEventListener('storage', function(e) {
+          if ((e.key === 'decap-cms-user' || e.key === 'netlify-cms-user') && e.newValue) {
+            console.log("Sincronização de localStorage de autenticação detectada!");
+            try {
+              const uData = JSON.parse(e.newValue);
+              if (uData && uData.token) {
+                const notify = document.createElement('div');
+                notify.style.cssText = "position:fixed; bottom:20px; right:20px; background:#10b981; color:#fff; padding:12px 20px; border-radius:6px; font-family:sans-serif; font-size:14px; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.15); z-index:999999;";
+                notify.textContent = "Autenticação concluída! Atualizando painel...";
+                document.body.appendChild(notify);
+                
+                setTimeout(function() {
+                  window.location.reload();
+                }, 1000);
+              }
+            } catch(ex) {
+              console.error("Erro de sincronização storage event:", ex);
+            }
+          }
+        }, false);
       })();
     </script>
   </head>

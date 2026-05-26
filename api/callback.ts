@@ -97,6 +97,33 @@ export default async function handler(req: any, res: any) {
             provider: "github"
           };
 
+          const userObj = {
+            backendName: "github",
+            token: "${token}",
+            useLocalRepository: false
+          };
+          const userStr = JSON.stringify(userObj);
+
+          // 1. Write immediately to our local web origin storage (shared since same domain)
+          try {
+            localStorage.setItem("decap-cms-user", userStr);
+            localStorage.setItem("netlify-cms-user", userStr);
+            console.log("Token gravado no localStorage local com sucesso!");
+          } catch (e) {
+            console.error("Falha ao gravar no localStorage local:", e);
+          }
+
+          // 2. Try to write directly to parent (opener) local storage
+          if (window.opener) {
+            try {
+              window.opener.localStorage.setItem("decap-cms-user", userStr);
+              window.opener.localStorage.setItem("netlify-cms-user", userStr);
+              console.log("Token gravado no localStorage do opener!");
+            } catch (e) {
+              console.error("Falha ao gravar no localStorage do opener:", e);
+            }
+          }
+
           const message = "authorization:github:success:" + JSON.stringify(tokenData);
           let sentSuccessfully = false;
 
@@ -137,16 +164,11 @@ export default async function handler(req: any, res: any) {
             if (attempts >= 5 || sentSuccessfully) {
               clearInterval(intervalId);
 
-              if (sentSuccessfully || window.opener) {
-                console.log("Fechando a janela de autenticação de forma automática...");
-                setTimeout(() => {
-                  window.close();
-                }, 1000);
-              } else {
-                // If it failed completely and window.opener is null
-                document.getElementById('spinner').style.display = 'none';
-                document.getElementById('error-box').style.display = 'block';
-              }
+              // Close the authentication window automatically in 1 second
+              console.log("Fechando a janela de autenticação de forma automática...");
+              setTimeout(() => {
+                window.close();
+              }, 1000);
             }
           }, 200);
         </script>
