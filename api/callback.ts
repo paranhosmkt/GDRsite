@@ -73,8 +73,7 @@ export default async function handler(req: any, res: any) {
         <p>Conectando ao painel do Decap CMS, por favor aguarde...</p>
         <div class="spinner"></div>
         <script>
-          // Since the app sits on the same origin (Vercel), we can post back safely
-          const targetOrigin = window.location.origin;
+          // Post message to opener with '*' to support cross-origin previews and Vercel domains
           const tokenData = {
             token: "${token}",
             provider: "github"
@@ -82,7 +81,7 @@ export default async function handler(req: any, res: any) {
           
           window.opener.postMessage(
             "authorization:github:success:" + JSON.stringify(tokenData),
-            targetOrigin
+            "*"
           );
           
           setTimeout(() => {
