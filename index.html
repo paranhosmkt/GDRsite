@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
-    <title>Painel de Controle — GDR Advogados</title>
-    <!-- Aponta explicitamente onde o arquivo de configuração está localizado -->
-    <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
+    <title>GDR Advogados</title>
+    <!-- Netlify Identity Widget para autenticação com o Decap CMS -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Import official Decap CMS library -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    
-    <!-- Netlify Identity Widget for authentication with git-gateway -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
-    <!-- Optional: Add Netlify Identity redirect handler script so logging in works seamless -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
