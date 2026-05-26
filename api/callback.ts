@@ -39,7 +39,6 @@ export default async function handler(req: any, res: any) {
 
     // Render HTML page that communicates the token back to Decap CMS through postMessage
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
     res.status(200).send(`
       <!DOCTYPE html>
       <html lang="pt-BR">
