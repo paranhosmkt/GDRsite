@@ -7,6 +7,68 @@
     <title>Painel de Controle — GDR Advogados</title>
     <!-- Explicitly link Decap to its configuration file to prevent relative routing 404 errors -->
     <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
+    <!-- Dynamic Decap CMS config.yml backend interceptor of base_url -->
+    <script>
+      (function() {
+        console.log("Inicializando interceptador dinâmico de base_url para Decap CMS...");
+        
+        // Backup and mock fetch
+        const originalFetch = window.fetch;
+        window.fetch = async function(...args) {
+          const urlStr = typeof args[0] === 'string' ? args[0] : (args[0] && args[0].url ? args[0].url : '');
+          if (urlStr.includes('config.yml')) {
+            console.log("Interceptado fetch do config.yml de:", urlStr);
+            try {
+              const response = await originalFetch(...args);
+              let yamlText = await response.text();
+              const currentOrigin = window.location.origin;
+              
+              // Rewrite base_url to match the active origin in the browser dynamically!
+              yamlText = yamlText.replace(/base_url:\s*[^\r\n]+/g, 'base_url: ' + currentOrigin);
+              console.log("Sucesso: base_url do config.yml redefinido para:", currentOrigin);
+              
+              return new Response(yamlText, {
+                status: response.status,
+                statusText: response.statusText,
+                headers: response.headers
+              });
+            } catch (err) {
+              console.error("Erro ao interceptar fetch do config.yml:", err);
+            }
+          }
+          return originalFetch(...args);
+        };
+
+        // Backup and mock XMLHttpRequest
+        const originalOpen = XMLHttpRequest.prototype.open;
+        const originalSend = XMLHttpRequest.prototype.send;
+        XMLHttpRequest.prototype.open = function(method, url, ...args) {
+          this._url = url;
+          return originalOpen.apply(this, [method, url, ...args]);
+        };
+        XMLHttpRequest.prototype.send = function(...args) {
+          const urlStr = typeof this._url === 'string' ? this._url : '';
+          if (urlStr.includes('config.yml')) {
+            console.log("Interceptado XMLHttpRequest do config.yml de:", urlStr);
+            this.addEventListener('readystatechange', function() {
+              if (this.readyState === 4 && this.status === 200) {
+                try {
+                  const currentOrigin = window.location.origin;
+                  const modifiedText = this.responseText.replace(/base_url:\s*[^\r\n]+/g, 'base_url: ' + currentOrigin);
+                  console.log("Sucesso (XHR): base_url do config.yml redefinido para:", currentOrigin);
+                  
+                  Object.defineProperty(this, 'responseText', { value: modifiedText, writable: true });
+                  Object.defineProperty(this, 'response', { value: modifiedText, writable: true });
+                } catch (err) {
+                  console.error("Erro ao modificar resposta XHR:", err);
+                }
+              }
+            });
+          }
+          return originalSend.apply(this, args);
+        };
+      })();
+    </script>
   </head>
   <body>
     <!-- Import official Decap CMS library -->

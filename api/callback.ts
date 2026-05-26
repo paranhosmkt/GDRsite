@@ -39,6 +39,7 @@ export default async function handler(req: any, res: any) {
 
     // Render HTML page that communicates the token back to Decap CMS through postMessage
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
     res.status(200).send(`
       <!DOCTYPE html>
       <html lang="pt-BR">
@@ -62,6 +63,18 @@ export default async function handler(req: any, res: any) {
             animation: spin 1s linear infinite;
             margin: 20px auto;
           }
+          .error-box {
+            display: none;
+            background: #fff0f0;
+            border: 1px solid #ffc0c0;
+            color: #bd2c00;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: left;
+            font-size: 14px;
+          }
           @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -71,22 +84,72 @@ export default async function handler(req: any, res: any) {
       <body>
         <h2>Autenticação Bem-Sucedida!</h2>
         <p>Conectando ao painel do Decap CMS, por favor aguarde...</p>
-        <div class="spinner"></div>
+        <div class="spinner" id="spinner"></div>
+
+        <div id="error-box" class="error-box">
+          <strong>Aviso Importante:</strong><br>
+          Seu navegador impediu a comunicação automática entre a janela de login e o painel de administração (window.opener não disponível). <br><br>
+          Isso geralmente acontece por restrições de segurança ou privacidade no navegador (como navegação anônima, Brave, Safari, ou extensões bloqueadoras).
+        </div>
+
         <script>
-          // Post message to opener with '*' to support cross-origin previews and Vercel domains
           const tokenData = {
             token: "${token}",
             provider: "github"
           };
-          
-          window.opener.postMessage(
-            "authorization:github:success:" + JSON.stringify(tokenData),
-            "*"
-          );
-          
-          setTimeout(() => {
-            window.close();
-          }, 1500);
+
+          const message = "authorization:github:success:" + JSON.stringify(tokenData);
+          let sentSuccessfully = false;
+
+          function sendToken() {
+            // Try to post message to the opener window
+            if (window.opener) {
+              try {
+                window.opener.postMessage(message, "*");
+                console.log("Mensagem enviada com sucesso para window.opener!");
+                sentSuccessfully = true;
+              } catch (err) {
+                console.error("Erro ao enviar postMessage para window.opener:", err);
+              }
+            } else {
+              console.warn("window.opener não está disponível.");
+            }
+
+            // Fallback: Also try window.parent if nested (e.g. inside an iframe proxy)
+            if (window.parent && window.parent !== window) {
+              try {
+                window.parent.postMessage(message, "*");
+                console.log("Mensagem enviada com sucesso para window.parent!");
+                sentSuccessfully = true;
+              } catch (err) {
+                console.error("Erro ao enviar postMessage para window.parent:", err);
+              }
+            }
+          }
+
+          // Send message immediately
+          sendToken();
+
+          // And repeat it a few times to ensure the listener on the other side is fully active/ready
+          let attempts = 0;
+          const intervalId = setInterval(() => {
+            attempts++;
+            sendToken();
+            if (attempts >= 5 || sentSuccessfully) {
+              clearInterval(intervalId);
+
+              if (sentSuccessfully || window.opener) {
+                console.log("Fechando a janela de autenticação de forma automática...");
+                setTimeout(() => {
+                  window.close();
+                }, 1000);
+              } else {
+                // If it failed completely and window.opener is null
+                document.getElementById('spinner').style.display = 'none';
+                document.getElementById('error-box').style.display = 'block';
+              }
+            }
+          }, 200);
         </script>
       </body>
       </html>
