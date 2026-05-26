@@ -1,9 +1,13 @@
 backend:
   name: github
-  repo: paranhosmkt/GDRsite     # Substitua pelo seu usuário e nome do seu repositório no GitHub
+  repo: paranhosmkt/GDRsite # Sua conta e repositório correto do GitHub
   branch: main
-  base_url: https://gd-rsite.vercel.app/ # COLOQUE A URL DO SEU SITE NA VERCEL (sem barra no final)
-  auth_endpoint: api/auth
+  base_url: https://gd-rsite.vercel.app # URL correta do site na Vercel (sem barra no final)
+  auth_endpoint: /api/auth
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
 collections:
   - name: "site_content"
     label: "Conteúdo do Site"
