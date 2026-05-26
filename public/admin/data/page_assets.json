@@ -1,5 +1,9 @@
 {
-  "headerLogo": "",
-  "footerLogo": "",
-  "seals": []
+  "headerLogo": "https://i.ibb.co/NkFNzPs/Logo-GDR-2.png",
+  "footerLogo": "https://i.ibb.co/fVKnY81m/Logo-GDR-1.png",
+  "seals": [
+    {
+      "image": "https://i.ibb.co/XZwNstqt/Advocacia500.png"
+    }
+  ]
 }
