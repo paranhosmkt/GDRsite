@@ -133,7 +133,9 @@ export async function getPortfolioCases(): Promise<ClientSector[]> {
     name,
     description,
     representativeness,
-    highlights
+    highlights,
+    buttonLabel,
+    buttonLink
   }`;
   return fetchSanityData<ClientSector[]>(query, CLIENT_SECTORS);
 }
@@ -194,6 +196,7 @@ export interface SanityMaterial {
   author: string;
   readTimeOrDuration: string;
   imageUrl?: string; // Optative link directly inside materials schema for user replacements
+  buttonLink?: string;
 }
 
 const localDefaultMaterials: SanityMaterial[] = [
@@ -284,6 +287,7 @@ export async function getMaterials(): Promise<SanityMaterial[]> {
     date,
     author,
     readTimeOrDuration,
+    buttonLink,
     "imageUrl": image.asset->url
   }`;
   

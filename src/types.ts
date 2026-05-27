@@ -13,6 +13,8 @@ export interface ClientSector {
   description: string;
   representativeness: string;
   highlights: string[];
+  buttonLabel?: string;
+  buttonLink?: string;
 }
 
 export interface Testimonial {

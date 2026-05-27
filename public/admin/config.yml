@@ -99,6 +99,8 @@ collections:
               - { label: "Nome do Setor / Caso", name: "name", widget: "string" }
               - { label: "Representatividade Curta", name: "representativeness", widget: "string" }
               - { label: "Descrição Inteira", name: "description", widget: "text" }
+              - { label: "Texto do Botão (Opcional)", name: "buttonLabel", widget: "string", required: false }
+              - { label: "Link do Botão (Opcional)", name: "buttonLink", widget: "string", required: false }
               - label: "Destaques / Soluções (Legenda da direita)"
                 name: "highlights"
                 widget: "list"
@@ -118,6 +120,7 @@ collections:
               - { label: "Título do Material", name: "title", widget: "string" }
               - { label: "Descrição", name: "description", widget: "text" }
               - { label: "Texto do Botão / Badge", name: "badge", widget: "string" }
+              - { label: "Link do Botão (Opcional)", name: "buttonLink", widget: "string", required: false }
               - { label: "Data", name: "date", widget: "string" }
               - { label: "Autor do Material", name: "author", widget: "string" }
               - { label: "Tempo ou Páginas (Ex: 42 páginas)", name: "readTimeOrDuration", widget: "string" }

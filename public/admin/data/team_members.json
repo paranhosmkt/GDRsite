@@ -1,21 +1,21 @@
 {
   "team": [
     {
+      "name": "Dr. Murilo Gouvêa dos Reis",
+      "role": "Sócio-Diretor • OAB/SC 11.234",
+      "email": "murilo.reis@gdr.adv.br",
+      "phone": "+55 (48) 3222-9696",
+      "imageRef": "image-9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960-jpg",
+      "area": "Trabalhista Empresarial, Relações Governamentais (RELGOV) e Planejamento Sucessório",
       "isHonorary": false,
       "bio": "Sócio-Diretor e conselheiro sênior para grupos empresariais e family offices nacionais. Com mais de 25 anos de atividade contínua na advocacia corporativa privada, consolidou sua carreira auxiliando empresas e holdings familiares em transações societárias estratégicas, relações governamentais, relações trabalhistas coletivas e planejamentos sucessórios intergeracionais complexos. É membro ativo da Comissão de Direito Empresarial e participante influente de conselhos de governança no Sul do país.",
-      "name": "Dr. Murilo Gouvêa dos Reis",
-      "area": "Trabalhista Empresarial, Relações Governamentais (RELGOV) e Planejamento Sucessório",
-      "phone": "+55 (48) 3222-9696",
-      "role": "Sócio-Diretor • OAB/SC 11.234",
-      "imageRef": "image-9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960-jpg",
+      "category": "juridico",
       "credentials": [
         "Graduado em Direito pela UNISUL",
         "Especialista em Relações Trabalhistas Corporativas",
         "Conselheiro de Governança Certificado",
         "Sócio-Diretor Geral Gouvêa dos Reis Advogados"
-      ],
-      "email": "murilo.reis@gdr.adv.br",
-      "category": "juridico"
+      ]
     },
     {
       "name": "Dr. Renato Gouvêa dos Reis",
@@ -128,40 +128,40 @@
       "category": "juridico"
     },
     {
+      "name": "Dr. Aldo Enrique Benitez Cabrera",
+      "role": "Consultor Internacional Sênior",
+      "email": "aldo@gdr.adv.br",
+      "imageRef": "image-607e746f04c5e826a70e1d77f0967f24c673cbfd-747x928-jpg",
+      "area": "Consultoria Global, Mercado de Capitais e Negócios Estratégicos",
       "isHonorary": false,
       "bio": "Com relevante atuação acadêmica e profissional em finanças transnacionais e estruturação de investimentos estrangeiros na América Latina, o Dr. Aldo Enrique oferece aconselhamento estratégico especializado de nível macro para holdings e family offices filiados ao Gouvêa dos Reis Advogados. Seus pareceres abrangem modelagens de captação de recursos no mercado de capitais e conexões societárias internacionais.",
-      "name": "Dr. Aldo Enrique Benitez Cabrera",
-      "area": "Consultoria Global, Mercado de Capitais e Negócios Estratégicos",
-      "role": "Consultor Internacional Sênior",
-      "imageRef": "image-607e746f04c5e826a70e1d77f0967f24c673cbfd-747x928-jpg",
+      "category": "conselho",
       "credentials": [
         "Consultor Sênior em Economia e Direito Internacional",
         "Especialista em Mercado de Capitais Latino-americano",
         "Conselheiro Corporativo Ad-hoc para Transações Globais"
-      ],
-      "email": "aldo@gdr.adv.br",
-      "category": "conselho"
+      ]
     },
     {
-      "isHonorary": true,
-      "bio": "Especialista em Direito do Trabalho e Sindical. Membro fundador da Associação Catarinense de Advogados Trabalhistas. Presidente da comissão do idoso da Ordem dos Advogados do Brasil. Presidente do Instituto Gouvêa dos Reis de responsabilidade Social. Participante como palestrante e debatedor de diversas palestras e seminários sobre temas jurídicos diversos.",
-      "name": "Dr. Wilson Corrêa dos Reis",
-      "area": "Fundador do Gouvêa dos Reis Advogados",
+      "name": "Prof. Wilson Corrêa dos Reis",
       "role": "Sócio Fundador • In Memoriam",
+      "email": "contato@gdr.adv.br",
       "imageRef": "image-af228c2a787521c434c289e5a7382bf6c1bbd000-450x450-jpg",
+      "area": "Sócio Idealizador e Patrono de Honra do Gouvêa dos Reis Advogados",
+      "isHonorary": true,
+      "bio": "Fundador e patrono originário do Gouvêa dos Reis Advogados. Sua visão vanguardista, pautada sob estritos ideais de integridade ética absoluta, excelência insuperável e dedicação irrestrita ao Direito, estabeleceu os alicerces fundamentais sobre os quais o escritório opera de forma sólida e perene. Professor universitário de imenso destaque e consultor admirado na área trabalhista e cível de Santa Catarina, Dr. Wilson deixou um legado jurídico imperecível para gerações de advogados no Sul do país, cujo espírito de honestidade e perfeccionismo profissional continua a orientar cada ação institucional de nossa equipe hoje.",
+      "category": "founder",
       "credentials": [
         "Sócio Fundador e Patrono Originário de GDR Advogados",
         "Conselheiro Sênior | Trabalhista | Cível",
         "Professor Universitário Emérito de Direito",
         "Mentor Originário da Cultura de Excelência de Gouvêa dos Reis"
-      ],
-      "email": "contato@gdr.adv.br",
-      "category": "founder"
+      ]
     },
     {
       "name": "Thamires Assis",
       "role": "Diretora Estratégica e Comercial",
-      "email": "gerencia@gdr.adv.br",
+      "email": "thamires@gdr.adv.br",
       "imageRef": "image-e3f500af8e95c378aad9c8b66bdc2b199d734221-2640x3960-jpg",
       "area": "Gestão Operacional, Comercial e Estratégia de Atendimento",
       "isHonorary": false,
@@ -171,7 +171,7 @@
     {
       "name": "Alcioneide Rodrigues",
       "role": "Secretária Executiva",
-      "email": "secretaria@gdr.adv.br",
+      "email": "alcioneide@gdr.adv.br",
       "imageRef": "image-b59785ec0741ebf4e6eb354a6bcb40da06f6e6b0-1280x1794-jpg",
       "area": "Apoio Institucional, Recepção e Fluxos de Atendimento",
       "isHonorary": false,
@@ -180,12 +180,12 @@
     },
     {
       "name": "Guilherme Paranhos",
-      "role": "Design, branding e tecnologia",
-      "email": "edicao@gdr.adv.br",
-      "imageRef": "https://i.ibb.co/HTSrkFGM/imagem-2026-05-26-205056760.png",
-      "area": "Estratégia de design e branding",
+      "role": "Analista de Comunicação & Marketing",
+      "email": "guilherme@gdr.adv.br",
+      "imageRef": "image-45512feef2c5815189f1d0b73e505834b79100ee-3960x2640-jpg",
+      "area": "Produção de Conteúdo, Relacionamento Digital e Mídia",
       "isHonorary": false,
-      "bio": "Graduado em Marketing pelo Centro Universitário de Maringá (UNICESUMAR). Pós-graduando em Experiência do usuário e Design de interfaces (UI/UX). ",
+      "bio": "Analista de comunicação responsável pelo posicionamento corporativo institucional do Gouvêa dos Reis nas mídias digitais e canais de divulgação oficiais. Guilherme lidera a curadoria e produção de artigos jurídicos de utilidade pública do nosso blog, a edição técnica de cartilhas institucionais e ebooks do escritório, e zela pela identidade e comunicação visual corporativa em todos os canais institucionais.",
       "category": "administrativo"
     }
   ]

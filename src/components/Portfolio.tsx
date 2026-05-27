@@ -133,6 +133,28 @@ export default function Portfolio() {
                 </div>
               )}
 
+              {/* Optional Button */}
+              {(sector.buttonLabel || sector.buttonLink) && (
+                <div className="mt-6 pt-4 border-t border-gdr-border/60">
+                  {sector.buttonLink ? (
+                    <a
+                      href={sector.buttonLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-gdr-gray hover:bg-gdr-dark hover:text-white border border-gdr-border group-hover:border-gdr-beige py-2 px-3 text-[10px] uppercase font-semibold tracking-wider flex items-center justify-center space-x-1.5 transition-colors duration-300 cursor-pointer text-center"
+                    >
+                      <span>{sector.buttonLabel || "Acessar Caso"}</span>
+                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  ) : (
+                    <button className="w-full bg-gdr-gray hover:bg-gdr-dark hover:text-white border border-gdr-border group-hover:border-gdr-beige py-2 px-3 text-[10px] uppercase font-semibold tracking-wider flex items-center justify-center space-x-1.5 transition-colors duration-300 cursor-pointer">
+                      <span>{sector.buttonLabel}</span>
+                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                  )}
+                </div>
+              )}
+
             </div>
           ))}
         </div>
