@@ -4,7 +4,10 @@ import { getMaterials, SanityMaterial } from "../lib/sanity";
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeSubcategory, setActiveSubcategory] = useState<string>("all");
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [resources, setResources] = useState<SanityMaterial[]>([]);
+  const itemsPerPage = 6;
 
   useEffect(() => {
     getMaterials().then((data) => {
@@ -24,9 +27,34 @@ export default function Blog() {
     { id: "videos", label: "Vídeos" }
   ];
 
-  const filteredResources = activeCategory === "all"
+  const handleCategoryChange = (catId: string) => {
+    setActiveCategory(catId);
+    setActiveSubcategory("all");
+    setCurrentPage(1);
+  };
+
+  const handleSubcategoryChange = (subcatId: string) => {
+    setActiveSubcategory(subcatId);
+    setCurrentPage(1);
+  };
+
+  const availableSubcategories = activeCategory === "videos" 
+    ? Array.from(new Set(resources.filter(r => r.category === "videos" && r.subcategory).map(r => r.subcategory as string)))
+    : [];
+
+  let filteredResources = activeCategory === "all"
     ? resources
     : resources.filter(item => item.category === activeCategory);
+
+  if (activeCategory === "videos" && activeSubcategory !== "all") {
+    filteredResources = filteredResources.filter(item => item.subcategory === activeSubcategory);
+  }
+
+  const paginatedResources = activeCategory === "videos" 
+    ? filteredResources.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+    : filteredResources;
+    
+  const totalPagesForVideos = Math.ceil(filteredResources.length / itemsPerPage);
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
@@ -68,21 +96,52 @@ export default function Blog() {
         </div>
 
         {/* Category Filtration Tabs */}
-        <div className="flex flex-wrap gap-2 mb-12 justify-start items-center border-b border-gdr-border pb-6">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              id={`filter-tab-${cat.id}`}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2.5 text-xs uppercase tracking-wider transition-all duration-300 font-medium border cursor-pointer ${
-                activeCategory === cat.id
-                  ? "bg-gdr-dark border-gdr-dark text-white shadow-sm"
-                  : "bg-gdr-gray border-gdr-border text-gdr-dark/75 hover:border-gdr-beige hover:bg-white"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+        <div className="flex flex-col space-y-4 mb-12 border-b border-gdr-border pb-6">
+          <div className="flex flex-wrap gap-2 justify-start items-center">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                id={`filter-tab-${cat.id}`}
+                onClick={() => handleCategoryChange(cat.id)}
+                className={`px-4 py-2.5 text-xs uppercase tracking-wider transition-all duration-300 font-medium border cursor-pointer ${
+                  activeCategory === cat.id
+                    ? "bg-gdr-dark border-gdr-dark text-white shadow-sm"
+                    : "bg-gdr-gray border-gdr-border text-gdr-dark/75 hover:border-gdr-beige hover:bg-white"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {activeCategory === "videos" && availableSubcategories.length > 0 && (
+            <div className="flex flex-wrap gap-2 justify-start items-center pt-2">
+              <span className="text-[10px] text-gdr-dark/50 uppercase tracking-widest mr-2">Assuntos:</span>
+              <button
+                onClick={() => handleSubcategoryChange("all")}
+                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
+                  activeSubcategory === "all"
+                    ? "text-gdr-beige border-gdr-beige bg-gdr-beige/5"
+                    : "text-gdr-dark/60 border-transparent hover:border-gdr-border"
+                }`}
+              >
+                Todos
+              </button>
+              {availableSubcategories.map((sub: string) => (
+                <button
+                  key={sub}
+                  onClick={() => handleSubcategoryChange(sub)}
+                  className={`px-3 py-1.5 text-[10px] uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
+                    activeSubcategory === sub
+                      ? "text-gdr-beige border-gdr-beige bg-gdr-beige/5"
+                      : "text-gdr-dark/60 border-transparent hover:border-gdr-border"
+                  }`}
+                >
+                  {sub}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Resources Grid layout */}
@@ -92,22 +151,28 @@ export default function Blog() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredResources.map((item) => (
+            {paginatedResources.map((item) => (
               <div
                 key={item.id}
                 id={`blog-card-${item.id}`}
                 className="bg-white border border-gdr-border hover:border-gdr-beige flex flex-col justify-between group transition-all duration-300 shadow-xs"
               >
                 {/* Visual Image Placeholder Slot */}
-                <div className={`${item.imageUrl ? '' : 'aspect-[16/10]'} bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40`}>
-                  {item.imageUrl ? (
-                    <img
-                      src={item.imageUrl}
-                      alt={item.title}
-                      className="w-full h-auto object-contain transition-transform duration-750 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
+                {item.videoEmbed ? (
+                  <div 
+                    className="w-full aspect-video bg-black relative [&>iframe]:absolute [&>iframe]:inset-0 [&>iframe]:w-full [&>iframe]:h-full"
+                    dangerouslySetInnerHTML={{ __html: item.videoEmbed }}
+                  />
+                ) : (
+                  <div className={`${item.imageUrl ? '' : 'aspect-[16/10]'} bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40`}>
+                    {item.imageUrl ? (
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className="w-full h-auto object-contain transition-transform duration-750 group-hover:scale-105"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : (
                     <>
                       <div className="absolute inset-0 bg-radial from-gdr-dark/5 to-transparent pointer-events-none" />
                       
@@ -139,6 +204,7 @@ export default function Blog() {
                     </>
                   )}
                 </div>
+                )}
 
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div className="space-y-4">
@@ -200,6 +266,29 @@ export default function Blog() {
 
               </div>
             ))}
+          </div>
+        )}
+
+        {/* Pagination Controls */}
+        {activeCategory === "videos" && totalPagesForVideos > 1 && (
+          <div className="flex justify-center items-center space-x-2 mt-12">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 text-xs uppercase tracking-wider font-medium border border-gdr-border bg-white text-gdr-dark disabled:opacity-50 disabled:cursor-not-allowed hover:border-gdr-beige transition-colors"
+            >
+              Anterior
+            </button>
+            <span className="text-xs text-gdr-dark/60 font-mono px-4">
+              Página {currentPage} de {totalPagesForVideos}
+            </span>
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPagesForVideos, p + 1))}
+              disabled={currentPage === totalPagesForVideos}
+              className="px-4 py-2 text-xs uppercase tracking-wider font-medium border border-gdr-border bg-white text-gdr-dark disabled:opacity-50 disabled:cursor-not-allowed hover:border-gdr-beige transition-colors"
+            >
+              Próxima
+            </button>
           </div>
         )}
 

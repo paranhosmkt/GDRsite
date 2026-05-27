@@ -192,7 +192,7 @@ export default function Team() {
 
   // Special Highlight Tribute: Sócio Fundador In memorian
   const founder: TeamMember = {
-    name: "Prof. Wilson Corrêa dos Reis",
+    name: "Dr. Wilson Corrêa dos Reis",
     role: "Sócio Fundador • In Memoriam",
     email: "contato@gdr.adv.br",
     imageRef: "image-af228c2a787521c434c289e5a7382bf6c1bbd000-450x450-jpg",

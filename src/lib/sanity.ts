@@ -197,6 +197,8 @@ export interface SanityMaterial {
   readTimeOrDuration: string;
   imageUrl?: string; // Optative link directly inside materials schema for user replacements
   buttonLink?: string;
+  subcategory?: string;
+  videoEmbed?: string;
 }
 
 const localDefaultMaterials: SanityMaterial[] = [
