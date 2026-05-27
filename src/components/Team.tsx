@@ -27,9 +27,15 @@ export default function Team() {
   // Helper to decode Sanity image asset references into actual live CDN URLs
   function getSanityImageUrl(ref: string) {
     if (!ref) return "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800";
+    
+    // Support regular URLs or local absolute paths (e.g., from Netlify CMS uploads)
+    if (ref.startsWith('http') || ref.startsWith('/')) {
+      return ref;
+    }
+
     const cleanRef = ref.replace(/^image-/, "");
     const lastDashIndex = cleanRef.lastIndexOf("-");
-    if (lastDashIndex === -1) return "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800";
+    if (lastDashIndex === -1) return ref; // Fallback instead of replacing with placeholder
     
     const idAndSize = cleanRef.substring(0, lastDashIndex);
     const ext = cleanRef.substring(lastDashIndex + 1);

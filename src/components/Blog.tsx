@@ -99,12 +99,12 @@ export default function Blog() {
                 className="bg-white border border-gdr-border hover:border-gdr-beige flex flex-col justify-between group transition-all duration-300 shadow-xs"
               >
                 {/* Visual Image Placeholder Slot */}
-                <div className="aspect-[16/10] bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40">
+                <div className={`${item.imageUrl ? '' : 'aspect-[16/10]'} bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40`}>
                   {item.imageUrl ? (
                     <img
                       src={item.imageUrl}
                       alt={item.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-750 group-hover:scale-105"
+                      className="w-full h-auto object-contain transition-transform duration-750 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
                   ) : (
