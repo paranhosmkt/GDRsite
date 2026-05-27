@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { History, ShieldCheck, UserCheck, HeartHandshake, Scale } from "lucide-react";
+import { getPageAssets, getSanityImageUrl } from "../lib/sanity";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState(0);
+  const [aboutImage, setAboutImage] = useState("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200");
+
+  useEffect(() => {
+    getPageAssets().then((assets) => {
+      if (assets?.aboutImage) {
+        setAboutImage(getSanityImageUrl(assets.aboutImage));
+      }
+    });
+  }, []);
 
   const pillars = [
     {
@@ -132,7 +142,7 @@ export default function About() {
         {/* Full-width premium architectural image insert */}
         <div className="mt-16 relative w-full h-[240px] md:h-[280px] overflow-hidden border border-gdr-beige/30 shadow-xs">
           <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+            src={aboutImage}
             alt="Biblioteca Jurídica GDR"
             className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:scale-101 transition-all duration-700"
             referrerPolicy="no-referrer"

@@ -373,6 +373,8 @@ export interface SanitySeal {
 }
 
 export interface SanityPageAssets {
+  heroImage?: any;
+  aboutImage?: any;
   headerLogo?: any;
   footerLogo?: any;
   seals?: SanitySeal[];
@@ -383,11 +385,13 @@ export interface SanityPageAssets {
  */
 export async function getPageAssets(): Promise<SanityPageAssets> {
   const localData = await fetchLocalCMSData<SanityPageAssets>("page_assets.json");
-  if (localData && (localData.headerLogo || localData.footerLogo || (localData.seals && localData.seals.length > 0))) {
+  if (localData && (localData.heroImage || localData.aboutImage || localData.headerLogo || localData.footerLogo || (localData.seals && localData.seals.length > 0))) {
     return localData;
   }
 
   const query = `*[_type == "pageAsset"][0] {
+    heroImage,
+    aboutImage,
     headerLogo,
     footerLogo,
     seals[] {

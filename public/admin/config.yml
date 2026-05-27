@@ -20,11 +20,17 @@ collections:
         name: "page_texts"
         fields:
           - { label: "Título Principal (Hero)", name: "hero_title", widget: "string" }
+          - { label: "Texto do Botão 1 (Hero)", name: "hero_button_1_label", widget: "string", required: false, default: "Nossa Atuação" }
+          - { label: "Link do Botão 1 (Hero)", name: "hero_button_1_link", widget: "string", required: false }
+          - { label: "Texto do Botão 2 (Hero)", name: "hero_button_2_label", widget: "string", required: false, default: "Contato" }
+          - { label: "Link do Botão 2 (Hero)", name: "hero_button_2_link", widget: "string", required: false }
 
       - file: "public/admin/data/page_assets.json"
-        label: "Logotipos e Selos"
+        label: "Imagens e Logotipos Gerais"
         name: "page_assets"
         fields:
+          - { label: "Imagem de Destaque (Hero)", name: "heroImage", widget: "image", required: false }
+          - { label: "Imagem da Seção Sobre Nós", name: "aboutImage", widget: "image", required: false }
           - { label: "Logotipo do Cabeçalho", name: "headerLogo", widget: "image", required: false }
           - { label: "Logotipo do Rodapé", name: "footerLogo", widget: "image", required: false }
           - label: "Selos e Chancelas (Exatamente 9 itens recomendados)"

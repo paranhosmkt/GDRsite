@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ArrowDown, Flame, Shield, Award } from "lucide-react";
-import { getPageTexts } from "../lib/sanity";
+import { ArrowDown } from "lucide-react";
+import { getPageTexts, getPageAssets, getSanityImageUrl } from "../lib/sanity";
 
 interface HeroProps {
   onLearnMore: () => void;
@@ -9,16 +9,33 @@ interface HeroProps {
 
 export default function Hero({ onLearnMore, onContact }: HeroProps) {
   const [heroTitle, setHeroTitle] = useState("Segurança para avançar. Clareza para decidir. Parceria para crescer.");
+  const [btn1Label, setBtn1Label] = useState("Nossa Atuação");
+  const [btn1Link, setBtn1Link] = useState("");
+  const [btn2Label, setBtn2Label] = useState("Contato");
+  const [btn2Link, setBtn2Link] = useState("");
+  const [heroImage, setHeroImage] = useState("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200");
 
   useEffect(() => {
     getPageTexts().then((texts) => {
-      if (texts && texts.hero_title) {
-        setHeroTitle(texts.hero_title);
+      if (texts) {
+        if (texts.hero_title) setHeroTitle(texts.hero_title);
+        if (texts.hero_button_1_label) setBtn1Label(texts.hero_button_1_label);
+        if (texts.hero_button_1_link) setBtn1Link(texts.hero_button_1_link);
+        if (texts.hero_button_2_label) setBtn2Label(texts.hero_button_2_label);
+        if (texts.hero_button_2_link) setBtn2Link(texts.hero_button_2_link);
       }
     });
+    getPageAssets().then((assets) => {
+      if (assets?.heroImage) {
+        setHeroImage(getSanityImageUrl(assets.heroImage));
+      }
+    })
   }, []);
 
   const sentences = heroTitle.split(".").map((s) => s.trim()).filter(Boolean);
+
+  const handleBtn1Click = () => btn1Link ? window.open(btn1Link, "_self") : onLearnMore();
+  const handleBtn2Click = () => btn2Link ? window.open(btn2Link, "_self") : onContact();
 
   return (
     <section
@@ -80,17 +97,17 @@ export default function Hero({ onLearnMore, onContact }: HeroProps) {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
               <button
                 id="hero-cta-atuacao"
-                onClick={onLearnMore}
+                onClick={handleBtn1Click}
                 className="bg-gdr-dark hover:bg-gdr-beige hover:text-gdr-dark text-white text-[10px] sm:text-xs uppercase tracking-widest font-semibold py-3.5 px-6 border border-gdr-dark flex items-center justify-center space-x-2 transition-all duration-300 transition-colors cursor-pointer"
               >
-                <span>Nossa Atuação</span>
+                <span>{btn1Label}</span>
               </button>
               <button
                 id="hero-cta-reuniao"
-                onClick={onContact}
+                onClick={handleBtn2Click}
                 className="bg-transparent hover:bg-gdr-gray text-gdr-dark text-[10px] sm:text-xs uppercase tracking-widest font-semibold py-3.5 px-6 border border-gdr-beige flex items-center justify-center space-x-2 transition-all duration-300 transition-colors cursor-pointer"
               >
-                <span>Contato</span>
+                <span>{btn2Label}</span>
               </button>
             </div>
           </div>
@@ -102,7 +119,7 @@ export default function Hero({ onLearnMore, onContact }: HeroProps) {
             
             <div className="relative aspect-[4/5] w-full border border-gdr-dark/10 bg-gdr-gray overflow-hidden shadow-sm group">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+                src={heroImage}
                 alt="Sede Corporate Gouvêa dos Reis"
                 className="w-full h-full object-cover grayscale opacity-95 transition-all duration-750 group-hover:scale-105 group-hover:grayscale-0"
                 referrerPolicy="no-referrer"
