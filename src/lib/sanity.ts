@@ -48,6 +48,10 @@ export function getSanityImageUrl(source: any, defaultUrl: string = ""): string 
 
   // If already an absolute URL string
   if (typeof source === "string" && source.startsWith("http")) return source;
+  
+  if (typeof source === "string" && (source.startsWith("/") || source.includes("."))) {
+      return source.startsWith("/") ? source : (!source.startsWith("http") && !source.startsWith("image-") ? `/${source}` : source);
+  }
 
   // Handle Sanity asset references (e.g. image-abcdef-1200x800-jpg)
   if (source.asset && source.asset._ref) {
@@ -70,10 +74,6 @@ export function getSanityImageUrl(source: any, defaultUrl: string = ""): string 
       const format = parts[3];
       return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}`;
     }
-  }
-
-  if (typeof source === "string" && source.startsWith("/uploads/")) {
-    return source;
   }
 
   return defaultUrl;

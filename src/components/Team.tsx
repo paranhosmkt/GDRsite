@@ -29,8 +29,9 @@ export default function Team() {
     if (!ref) return "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800";
     
     // Support regular URLs or local absolute paths (e.g., from Netlify CMS uploads)
-    if (ref.startsWith('http') || ref.startsWith('/')) {
-      return ref;
+    if (ref.startsWith('http') || ref.startsWith('/') || ref.includes('.')) {
+      // If it looks like a URL or an actual file path (has extension dot), return as is
+      return ref.startsWith('/') ? ref : (!ref.startsWith('http') && !ref.startsWith('image-') ? `/${ref}` : ref);
     }
 
     const cleanRef = ref.replace(/^image-/, "");
