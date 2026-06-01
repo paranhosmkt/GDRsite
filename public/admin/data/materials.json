@@ -1,74 +1,70 @@
 {
   "materials": [
     {
-      "badge": "Baixar PDF gratuito",
-      "author": "Dr. Sérgio de Miranda",
-      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQADQnxYEgaXQKxubvJZm3GjAT6u4oTyhzyHlhDcPetiNlY?e=LhBAan",
-      "date": "Maio de 2026",
-      "imageUrl": "https://i.ibb.co/JwkH9cqC/A-Import-ncia-da-Due-Dilligence.png",
-      "categoryLabel": "E-book",
-      "title": "A importância da due dilligence imobiliária",
-      "readTimeOrDuration": "6 páginas",
       "id": "r1",
-      "description": "A documentação imobiliária é de extrema importância na compra e venda de imóveis, tanto\npara o comprador quanto para o vendedor. Uma documentação correta e completa garante a\nsegurança jurídica da transação e evita futuros problemas.",
-      "category": "ebooks"
-    },
-    {
+      "category": "ebooks",
+      "categoryLabel": "E-book",
+      "title": "Planejamento Sucessório & Holdings Familiares: Manual Prático",
+      "description": "Guia completo de engenharia societária focada na perpetuidade de bens familiares, elisão fiscal e governança intergeracional.",
       "badge": "Baixar PDF gratuito",
-      "author": "Dr. Sérgio de Miranda",
-      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQDLcOQSUdTdR6ThC0QJUEWYAdFHyEHsTBTpy0uON38kIVs?e=J8xZ7k",
-      "date": "Abril de 2026",
-      "imageUrl": "https://i.ibb.co/Y4Xt8xGj/Contratos-Imobili-rios.png",
-      "categoryLabel": "Ebook",
-      "title": "Contratos Imobiliários",
-      "readTimeOrDuration": "12 páginas",
-      "id": "r2",
-      "description": "No mercado imobiliário, a segurança jurídica e a proteção dos negócios são aspectos\nfundamentais e estão diretamente ligadas a elaboração de contratos que assegurem os\ninteresses das partes envolvidas no negócio.",
-      "category": "ebooks"
+      "date": "Maio de 2026",
+      "author": "Murilo Gouvêa dos Reis",
+      "readTimeOrDuration": "42 páginas"
     },
     {
-      "badge": "Assistir Vídeo (Exclusivo)",
-      "author": "Dra. Carolina Mendes Ramos",
-      "date": "Março de 2026",
+      "id": "r2",
+      "category": "artigos",
+      "categoryLabel": "Artigo Técnico",
+      "title": "Impacto da Reforma Tributária sobre a Distribuição de Dividendos",
+      "description": "Uma análise analítica detalhada dos impactos práticos imediatos do novo texto de emendas constitucionais na contabilidade corporativa do Sul.",
+      "badge": "Ler Artigo Inteiro",
+      "date": "Abril de 2026",
+      "author": "Dr. Marcus Vinícius Abreu",
+      "readTimeOrDuration": "10 min de leitura"
+    },
+    {
+      "id": "r3",
+      "category": "videos",
       "categoryLabel": "Vídeo Exclusivo",
       "title": "Compliance Trabalhista em Grandes Indústrias: Redução de Passivo",
-      "readTimeOrDuration": "25 minutos",
-      "id": "r3",
       "description": "Painel gravado sobre ações preventivas de auditagem e negociações coletivas para evitar custos pecuniários de alta relevância.",
-      "category": "videos"
+      "badge": "Assistir Vídeo (Exclusivo)",
+      "date": "Março de 2026",
+      "author": "Dra. Carolina Mendes Ramos",
+      "readTimeOrDuration": "25 minutos"
     },
     {
-      "badge": "Solicitar Gravação",
-      "author": "Dr. Arthur Pamplona Silva",
-      "date": "Fevereiro de 2026",
+      "id": "r4",
+      "category": "palestras",
       "categoryLabel": "Palestra",
       "title": "Governança e ESG no Lançamento de Ativos de Alto Padrão",
-      "readTimeOrDuration": "1h 15min",
-      "id": "r4",
       "description": "Palestra Magna ministrada aos investidores no Fórum de Incorporações Imobiliárias de Santa Catarina sobre regularização patrimonial focado.",
-      "category": "palestras"
+      "badge": "Solicitar Gravação",
+      "date": "Fevereiro de 2026",
+      "author": "Dr. Arthur Pamplona Silva",
+      "readTimeOrDuration": "1h 15min"
     },
     {
-      "badge": "Ver Publicação",
-      "author": "Dra. Carolina Mendes Ramos",
-      "date": "Janeiro de 2026",
+      "id": "r5",
+      "category": "publicacoes",
       "categoryLabel": "Publicação Acadêmica",
       "title": "O Princípio do 'Privacy by Design' sob as diretrizes vigentes da ANPD",
-      "readTimeOrDuration": "8 pág. de Pareceres",
-      "id": "r5",
       "description": "Estudo científico publicado sobre conformidade jurídica em fluxo contínuo de dados de empresas de logística nacional.",
-      "category": "publicacoes"
+      "badge": "Ver Publicação",
+      "date": "Janeiro de 2026",
+      "author": "Dra. Carolina Mendes Ramos",
+      "readTimeOrDuration": "8 pág. de Pareceres"
     },
     {
-      "badge": "Ler Nota Oficial",
-      "author": "Conselho GDR",
-      "date": "Maio de 2026",
+      "id": "r6",
+      "category": "noticias",
       "categoryLabel": "Notícias GDR",
       "title": "Gouvêa dos Reis Advogados estabelece nova sede executiva no Centro de Florianópolis",
-      "readTimeOrDuration": "3 min",
-      "id": "r6",
       "description": "O escritório consolida sua unridade operacional na Avenida Rio Branco, Centro Executivo Atlantis, qualificando o atendimento de alta confidencialidade.",
-      "category": "noticias"
+      "badge": "Ler Nota Oficial",
+      "date": "Maio de 2026",
+      "author": "Conselho GDR",
+      "readTimeOrDuration": "3 min"
     }
   ]
 }

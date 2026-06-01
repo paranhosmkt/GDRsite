@@ -1,33 +1,5 @@
 {
-  "headerLogo": "https://i.ibb.co/dsRmcWG3/Logo-GDR-2.png",
-  "footerLogo": "https://i.ibb.co/BVfcbNR8/Logo-GDR-1.png",
-  "seals": [
-    {
-      "image": "https://i.ibb.co/PZ9KK4tR/selo08.png"
-    },
-    {
-      "image": "https://i.ibb.co/DHSm3GHD/selo06.png"
-    },
-    {
-      "image": "https://i.ibb.co/HfxvzdG1/selo05.png"
-    },
-    {
-      "image": "https://i.ibb.co/8njXDFqM/selo04.png"
-    },
-    {
-      "image": "https://i.ibb.co/TBXbMPh9/Advocacia5004.png"
-    },
-    {
-      "image": "https://i.ibb.co/Xf7jr6PD/Selo-09.jpg"
-    },
-    {
-      "image": "https://i.ibb.co/VGhJNVp/Advocacia5003.png"
-    },
-    {
-      "image": "https://i.ibb.co/b5dkb7Pz/Advocacia500.png"
-    },
-    {
-      "image": "https://i.ibb.co/pBvD38fg/Advocacia5002.png"
-    }
-  ]
+  "headerLogo": "",
+  "footerLogo": "",
+  "seals": []
 }

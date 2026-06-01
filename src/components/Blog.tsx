@@ -7,7 +7,7 @@ export default function Blog() {
   const [activeSubcategory, setActiveSubcategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [resources, setResources] = useState<SanityMaterial[]>([]);
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
 
   useEffect(() => {
     getMaterials().then((data) => {
@@ -50,11 +50,9 @@ export default function Blog() {
     filteredResources = filteredResources.filter(item => item.subcategory === activeSubcategory);
   }
 
-  const paginatedResources = activeCategory === "videos" 
-    ? filteredResources.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
-    : filteredResources;
+  const paginatedResources = filteredResources.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     
-  const totalPagesForVideos = Math.ceil(filteredResources.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredResources.length / itemsPerPage);
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
@@ -270,7 +268,7 @@ export default function Blog() {
         )}
 
         {/* Pagination Controls */}
-        {activeCategory === "videos" && totalPagesForVideos > 1 && (
+        {totalPages > 1 && (
           <div className="flex justify-center items-center space-x-2 mt-12">
             <button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
@@ -280,11 +278,11 @@ export default function Blog() {
               Anterior
             </button>
             <span className="text-xs text-gdr-dark/60 font-mono px-4">
-              Página {currentPage} de {totalPagesForVideos}
+              Página {currentPage} de {totalPages}
             </span>
             <button
-              onClick={() => setCurrentPage(p => Math.min(totalPagesForVideos, p + 1))}
-              disabled={currentPage === totalPagesForVideos}
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
               className="px-4 py-2 text-xs uppercase tracking-wider font-medium border border-gdr-border bg-white text-gdr-dark disabled:opacity-50 disabled:cursor-not-allowed hover:border-gdr-beige transition-colors"
             >
               Próxima
