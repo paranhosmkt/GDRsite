@@ -6,7 +6,3 @@ coverage/
 *.log
 .env*
 !.env.example
-
-# CMS Data & Uploads
-public/admin/data/
-public/uploads/

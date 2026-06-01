@@ -1,0 +1,192 @@
+{
+  "team": [
+    {
+      "name": "Dr. Murilo Gouvêa dos Reis",
+      "role": "Sócio-Diretor • OAB/SC 11.234",
+      "email": "murilo.reis@gdr.adv.br",
+      "phone": "+55 (48) 3222-9696",
+      "imageRef": "image-9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960-jpg",
+      "area": "Trabalhista Empresarial, Relações Governamentais (RELGOV) e Planejamento Sucessório",
+      "isHonorary": false,
+      "bio": "Sócio-Diretor e conselheiro sênior para grupos empresariais e family offices nacionais. Com mais de 25 anos de atividade contínua na advocacia corporativa privada, consolidou sua carreira auxiliando empresas e holdings familiares em transações societárias estratégicas, relações governamentais, relações trabalhistas coletivas e planejamentos sucessórios intergeracionais complexos. É membro ativo da Comissão de Direito Empresarial e participante influente de conselhos de governança no Sul do país.",
+      "category": "juridico",
+      "credentials": [
+        "Graduado em Direito pela UNISUL",
+        "Especialista em Relações Trabalhistas Corporativas",
+        "Conselheiro de Governança Certificado",
+        "Sócio-Diretor Geral Gouvêa dos Reis Advogados"
+      ]
+    },
+    {
+      "name": "Dr. Renato Gouvêa dos Reis",
+      "role": "Advogado Empresarial • OAB/SC 15.678",
+      "email": "renato.gouvea@gdr.adv.br",
+      "imageRef": "image-a969db5f64f0576f00c6bb17feabc587c6d5d3a4-1080x1350-png",
+      "area": "Direito de Empresa, Governança e Societário",
+      "isHonorary": false,
+      "bio": "Especialista em Direito Societário e de Empresa, atua na elaboração e negociação de contratos de alta complexidade, na modelagem de estruturas de governança corporativa e em processos de reorganização societária. Com vasta experiência na facilitação de acordos e mediação entre acionistas, auxilia grupos familiares e sociedades anônimas de capital fechado a consolidar estruturas de governança sólidas e alinhadas aos seus objetivos institucionais de longo prazo.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dr. Sérgio de Miranda",
+      "role": "Advogado Imobiliário & Holding • OAB/SC 18.912",
+      "email": "sergio@gdr.adv.br",
+      "imageRef": "image-6628ec71555a4656571770e10983fc9af7c5a851-2640x3051-jpg",
+      "area": "Planejamento Sucessório, Holding Familiar e Negócios Imobiliários",
+      "isHonorary": false,
+      "bio": "Com atuação focada na estruturação e proteção patrimonial, Dr. Sérgio assessora clientes particulares e grupos empresariais em planejamentos sucessórios de alta renda e na criação de holdings familiares estratégicas. Sua expertise também abrange transações e negócios imobiliários de grande porte, compreendendo due diligence para aquisição de imóveis rurais e urbanos, incorporações, contratos de Built-to-Suit, e regularização fundiária complexa.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dra. Paula Sade",
+      "role": "Advogada Criminalista • OAB/SC 23.456",
+      "email": "paula.sade@gdr.adv.br",
+      "imageRef": "image-28d12e86c0635162fb2ee56404a6232e8785ddf0-1285x1600-jpg",
+      "area": "Direito Penal Empresarial e Compliance Criminal",
+      "isHonorary": false,
+      "bio": "Advogada criminalista com sólida formação e atuação dedicada à defesa corporativa e ao desenvolvimento de programas de compliance penal empresarial. Atua de forma técnica e especializada em inquéritos e ações penais complexas relativas a crimes financeiros, contra o sistema tributário, ambientais e de concorrência. Conduz investigações corporativas internas com absoluto sigilo, desenvolvendo defesas personalizadas de elevado nível analítico.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dra. Marja Severo",
+      "role": "Advogada de Família e Sucessões • OAB/SC 27.890",
+      "email": "marja@gdr.adv.br",
+      "imageRef": "image-52b0c3d4b1b6087deb9f8ace0e9e4b4bd49341db-608x757-png",
+      "area": "Sucessão Familiar, Planejamento e Acordos de Família",
+      "isHonorary": false,
+      "bio": "Especializada na condução humanizada e estratégica de demandas familiares corporativas, Dra. Marja atua na modelagem de planejamentos sucessórios privados, partilhas patrimoniais amigáveis ou complexas e divórcios estratégicos consensuais. Desenvolve acordos de regimes de bens sofisticados, pactos pré-nupciais e protocolos de convivência familiar com o máximo rigor técnico, discrição e preservação das relações familiares.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dr. Luciano da Veiga",
+      "role": "Advogado Tributarista • OAB/SC 28.513",
+      "email": "luciano@gdr.adv.br",
+      "imageRef": "image-dedee6dc912e1aca59ee39305bf484bea12c694b-4003x6014-jpg",
+      "area": "Direito Tributário, Processual Fiscal e Planejamento de Impostos",
+      "isHonorary": false,
+      "bio": "Atua há mais de duas décadas no Direito Tributário preventivo e contencioso. Especializado em auditoria tributária avançada, estruturação de planejamentos de elisão fiscal de alta conformidade e adequação de grandes corporações às contínuas atualizações normativas federais, estaduais e municipais. Atua com excelência técnica em defesas administrativas e judiciais perante os tribunais fiscais e conselhos de contribuintes.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dr. Willians César",
+      "role": "Advogado de Direito Internacional • OAB/SC 31.254",
+      "email": "willians@gdr.adv.br",
+      "imageRef": "image-842bed3174f3187fe5f0d005d70ac9edc0836f96-2640x3960-jpg",
+      "area": "Contratos e Transações Multinacionais, Negociação Global",
+      "isHonorary": false,
+      "bio": "Com destacada atuação em negócios transfronteiriços, Dr. Willians atua na redação e revisão de contratos multinacionais de grande porte, assessoria em investimentos estrangeiros diretos no Brasil (IED) e internacionalização de empresas latino-americanas. Representa clientes em arbitragens internacionais e negociações de fusões e aquisições envolvendo fundos de investimentos globais.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dr. Fernando Henrique",
+      "role": "Advogado de Administração de Passivos • OAB/SC 35.123",
+      "email": "fernando@gdr.adv.br",
+      "imageRef": "image-9614309e0a09351cf668890ab2fe9ea2c9b05fdd-2354x4160-jpg",
+      "area": "Equacionamento Financeiro, Negociação e Passivo Empresarial",
+      "isHonorary": false,
+      "bio": "Especialista em recuperação e gerenciamento de passivos de empresas de grande e médio porte, Dr. Fernando coordena reestruturações de dívidas ativas estruturadas. Auxilia na negociação estratégica diretamente com credores privados e públicos para reabilitação financeira, redução legítima de juros e encargos contratuais corporativos, consolidando planos de preservação operacional.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dr. Mauro de Moraes",
+      "role": "Advogado Trabalhista Sênior • OAB/SC 12.046",
+      "email": "mauro@gdr.adv.br",
+      "imageRef": "image-1620b08205fc2eefe21cb6ac6c3b0f45d2e5cd8b-2640x2654-jpg",
+      "area": "Defesa Patronal, Contencioso e Consultoria Trabalhista",
+      "isHonorary": false,
+      "bio": "Especialista em defesa e consultoria trabalhista empresarial de vanguarda, o Dr. Mauro concentra sua atuação no patrocínio patronal de contenciosos estratégicos de alta relevância financeira. Desenvolve auditorias trabalhistas preventivas destinadas a identificar focos de insalubridade e passivos ocultos, estruturando planos de conformidade com as normas trabalhistas regulamentadoras.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dr. Gleidson Rodrigues",
+      "role": "Advogado Administrativo e Público • OAB/SC 39.462",
+      "email": "gleidson@gdr.adv.br",
+      "imageRef": "image-cd377a315bbf1f59dbf1a56d4c0282733a1d76ed-2640x3960-jpg",
+      "area": "Licitações, Agências Reguladoras e Processos no Poder Público",
+      "isHonorary": false,
+      "bio": "Atua no Direito Administrativo com foco na representação de empresas licitantes corporativas perante conselhos governamentais e tribunais de contas. Especializado em agências reguladoras (como ANS, ANTT, ANVISA), assessora clientes na modelagem jurídica de concessões e parcerias público-privadas, assegurando total conformidade regulatória nas relações de mercado com os entes públicos.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dra. Luciana Castro",
+      "role": "Advogada Empresarial e Trabalhista • OAB/SC 41.569",
+      "email": "luciana.castro@gdr.adv.br",
+      "imageRef": "image-d8d70b85a13c88039d16eefdf2b98abaa23b5cc7-880x1113-jpg",
+      "area": "Contratos de Trabalho, Direito Societário e Cível Geral",
+      "isHonorary": false,
+      "bio": "Advogada generalista sênior com especialização em litígios civis contratuais e regulação de contratos de trabalho patronais flexíveis. Concentra sua prática na assessoria preventiva rotineira de comitês executivos de recursos humanos e redação de instrumentos societários lícitos, proporcionando o respaldo necessário para a mitigação de contingências operacionais.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dra. Jill Becker",
+      "role": "Advogada Previdenciário & LGPD • OAB/SC 44.201",
+      "email": "jill@gdr.adv.br",
+      "imageRef": "image-01ac1b480876e1f3faac3a31354fe452bb81e3e9-3960x2640-jpg",
+      "area": "Segurança de Dados, Adequação à LGPD e Previdência Complementar",
+      "isHonorary": false,
+      "bio": "Atua com ênfase em tecnologia jurídica, governança de dados pessoais por design e adequação corporativa às normativas da LGPD. Além de sua prática em privacidade, projeta planos de previdência complementar fechada de alta gama para executivos corporativos e comitês de alta gerência, elaborando cálculos analíticos complexos de benefícios integrados.",
+      "category": "juridico"
+    },
+    {
+      "name": "Dr. Aldo Enrique Benitez Cabrera",
+      "role": "Consultor Internacional Sênior",
+      "email": "aldo@gdr.adv.br",
+      "imageRef": "image-607e746f04c5e826a70e1d77f0967f24c673cbfd-747x928-jpg",
+      "area": "Consultoria Global, Mercado de Capitais e Negócios Estratégicos",
+      "isHonorary": false,
+      "bio": "Com relevante atuação acadêmica e profissional em finanças transnacionais e estruturação de investimentos estrangeiros na América Latina, o Dr. Aldo Enrique oferece aconselhamento estratégico especializado de nível macro para holdings e family offices filiados ao Gouvêa dos Reis Advogados. Seus pareceres abrangem modelagens de captação de recursos no mercado de capitais e conexões societárias internacionais.",
+      "category": "conselho",
+      "credentials": [
+        "Consultor Sênior em Economia e Direito Internacional",
+        "Especialista em Mercado de Capitais Latino-americano",
+        "Conselheiro Corporativo Ad-hoc para Transações Globais"
+      ]
+    },
+    {
+      "name": "Dr. Wilson Corrêa dos Reis",
+      "role": "Sócio Fundador • In Memoriam",
+      "email": "contato@gdr.adv.br",
+      "imageRef": "image-af228c2a787521c434c289e5a7382bf6c1bbd000-450x450-jpg",
+      "area": "Sócio Idealizador e Patrono de Honra do Gouvêa dos Reis Advogados",
+      "isHonorary": true,
+      "bio": "Fundador e patrono originário do Gouvêa dos Reis Advogados. Sua visão vanguardista, pautada sob estritos ideais de integridade ética absoluta, excelência insuperável e dedicação irrestrita ao Direito, estabeleceu os alicerces fundamentais sobre os quais o escritório opera de forma sólida e perene. Professor universitário de imenso destaque e consultor admirado na área trabalhista e cível de Santa Catarina, Dr. Wilson deixou um legado jurídico imperecível para gerações de advogados no Sul do país, cujo espírito de honestidade e perfeccionismo profissional continua a orientar cada ação institucional de nossa equipe hoje.",
+      "category": "founder",
+      "credentials": [
+        "Sócio Fundador e Patrono Originário de GDR Advogados",
+        "Conselheiro Sênior | Trabalhista | Cível",
+        "Professor Universitário Emérito de Direito",
+        "Mentor Originário da Cultura de Excelência de Gouvêa dos Reis"
+      ]
+    },
+    {
+      "name": "Thamires Assis",
+      "role": "Diretora Estratégica e Comercial",
+      "email": "thamires@gdr.adv.br",
+      "imageRef": "image-e3f500af8e95c378aad9c8b66bdc2b199d734221-2640x3960-jpg",
+      "area": "Gestão Operacional, Comercial e Estratégia de Atendimento",
+      "isHonorary": false,
+      "bio": "Profissional sênior em gestão estratégica e comercial de prestação de serviços premium. Thamires coordena o gerenciamento operacional do escritório, integrando os núcleos jurídicos de forma a otimizar a sinergia entre as demandas corporativas e a presteza de nosso atendimento exclusivo. Lidera a interface de relacionamento inicial com clientes e o desenvolvimento estratégico do portfólio de contas nacionais.",
+      "category": "administrativo"
+    },
+    {
+      "name": "Alcioneide Rodrigues",
+      "role": "Secretária Executiva",
+      "email": "alcioneide@gdr.adv.br",
+      "imageRef": "image-b59785ec0741ebf4e6eb354a6bcb40da06f6e6b0-1280x1794-jpg",
+      "area": "Apoio Institucional, Recepção e Fluxos de Atendimento",
+      "isHonorary": false,
+      "bio": "Com mais de 15 anos dedicados à assessoria executiva corporativa em escritórios de alto padrão. Alcioneide é responsável pelo suporte direto da diretoria geral do Gouvêa dos Reis e pelo gerenciamento cotidiano das comunicações e do acolhimento presencial na matriz de Florianópolis. Sua atuação pauta-se pelo extremo zelo com a privacidade de informações corporativas enviadas pelos nossos parceiros.",
+      "category": "administrativo"
+    },
+    {
+      "name": "Guilherme Paranhos",
+      "role": "Analista de Comunicação & Marketing",
+      "email": "guilherme@gdr.adv.br",
+      "imageRef": "image-45512feef2c5815189f1d0b73e505834b79100ee-3960x2640-jpg",
+      "area": "Produção de Conteúdo, Relacionamento Digital e Mídia",
+      "isHonorary": false,
+      "bio": "Analista de comunicação responsável pelo posicionamento corporativo institucional do Gouvêa dos Reis nas mídias digitais e canais de divulgação oficiais. Guilherme lidera a curadoria e produção de artigos jurídicos de utilidade pública do nosso blog, a edição técnica de cartilhas institucionais e ebooks do escritório, e zela pela identidade e comunicação visual corporativa em todos os canais institucionais.",
+      "category": "administrativo"
+    }
+  ]
+}
