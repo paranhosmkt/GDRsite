@@ -40,15 +40,17 @@
       "category": "ebooks"
     },
     {
-      "badge": "Solicitar Gravação",
-      "author": "Dr. Arthur Pamplona Silva",
-      "date": "Fevereiro de 2026",
-      "categoryLabel": "Palestra",
-      "title": "Governança e ESG no Lançamento de Ativos de Alto Padrão",
-      "readTimeOrDuration": "1h 15min",
+      "badge": "Baixar PDF gratuito",
+      "author": "Dra. Paula Sade",
+      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQCatucgVk_TRLJLK2t5r8FtAaZUxfdUjUUiN0Imqs0y3xQ?e=HgLRe3",
+      "date": "Maio 2026",
+      "imageUrl": "https://i.ibb.co/JwJ19v3H/8.png",
+      "categoryLabel": "Ebook",
+      "title": "Guia contra  crimes cibernéticos ",
+      "readTimeOrDuration": "16 páginas",
       "id": "r4",
-      "description": "Palestra Magna ministrada aos investidores no Fórum de Incorporações Imobiliárias de Santa Catarina sobre regularização patrimonial focado.",
-      "category": "palestras"
+      "description": "Neste e-book, apresentamos de forma didática as principais fraudes atuais. Embora seja impossível cobrir todos os tipos de golpes, abordamos as melhores medidas de mitigação que os colaboradores da sua empresa podem adotar, principalmente, desconfiar sempre.",
+      "category": "ebooks"
     },
     {
       "badge": "Ver Publicação",
