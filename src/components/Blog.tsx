@@ -18,7 +18,7 @@ export default function Blog() {
   }, []);
 
   const categories = [
-    { id: "all", label: "Todos os Recursos" },
+    { id: "all", label: "Todos materiais" },
     { id: "artigos", label: "Artigos" },
     { id: "ebooks", label: "E-books" },
     { id: "noticias", label: "Notícias" },
@@ -80,7 +80,7 @@ export default function Blog() {
         {/* Section Header */}
         <div className="text-center md:text-left mb-16 border-b border-gdr-border pb-8">
           <span className="text-[10px] tracking-[0.3em] uppercase text-gdr-dark/60 font-medium">
-            CONTEÚDO ACADÊMICO & RECURSOS
+            MATERIAIS
           </span>
           <h2 className="text-3xl sm:text-4xl font-sans text-gdr-dark font-light mt-2 max-w-2xl leading-tight">
             Educação Corporativa e <br />

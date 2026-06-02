@@ -22,7 +22,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
           return;
         }
       }
-      setLogoUrl("/gdr_logo_header.png");
+      setLogoUrl("https://i.ibb.co/dsRmcWG3/Logo-GDR-2.png");
     });
   }, []);
 
@@ -44,7 +44,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
     { label: "Áreas de Atuação", id: "atuacao" },
     { label: "Equipe", id: "equipe" },
     { label: "Portfólio", id: "portfolio" },
-    { label: "Blog", id: "blog" },
+    { label: "Materiais", id: "blog" },
   ];
 
   const handleLinkClick = (id: string) => {

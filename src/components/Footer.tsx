@@ -22,16 +22,16 @@ export default function Footer({ onNavigate }: FooterProps) {
           if (fLogo) {
             setLogoUrl(fLogo);
           } else {
-            setLogoUrl("/gdr_logo_footer.png");
+            setLogoUrl("https://i.ibb.co/BVfcbNR8/Logo-GDR-1.png");
           }
         } else {
-          setLogoUrl("/gdr_logo_footer.png");
+          setLogoUrl("https://i.ibb.co/BVfcbNR8/Logo-GDR-1.png");
         }
         if (assets.seals && assets.seals.length > 0) {
           setSeals(assets.seals);
         }
       } else {
-        setLogoUrl("/gdr_logo_footer.png");
+        setLogoUrl("https://i.ibb.co/BVfcbNR8/Logo-GDR-1.png");
       }
     });
 
@@ -203,7 +203,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               Portfólio
             </button>
             <button onClick={() => onNavigate("blog")} className="hover:text-white transition-colors cursor-pointer">
-              Blog
+              Materiais
             </button>
             <button onClick={() => onNavigate("contato")} className="hover:text-white transition-colors cursor-pointer">
               Contato
