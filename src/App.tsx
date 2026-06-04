@@ -9,6 +9,7 @@ import Blog from "./components/Blog";
 import KeyFeatures from "./components/KeyFeatures";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -90,6 +91,8 @@ export default function App() {
 
       {/* FOOTER & ADDRESSES & SEALS */}
       <Footer onNavigate={handleScrollToSection} />
+
+      <WhatsAppButton />
     </div>
   );
 }

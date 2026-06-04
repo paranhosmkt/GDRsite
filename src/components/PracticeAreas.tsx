@@ -148,7 +148,7 @@ export default function PracticeAreas() {
                 href="#contato"
                 className="text-xs uppercase tracking-widest font-semibold hover:text-gdr-beige transition-colors flex items-center space-x-1 underline"
               >
-                <span>Reunir sobre esta área</span>
+                <span>Saber mais</span>
                 <ChevronRight className="w-3 h-3" />
               </a>
             </div>

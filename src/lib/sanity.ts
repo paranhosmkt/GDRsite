@@ -203,70 +203,43 @@ export interface SanityMaterial {
 
 const localDefaultMaterials: SanityMaterial[] = [
   {
-    id: "r1",
+    id: "e1",
     category: "ebooks",
     categoryLabel: "E-book",
-    title: "Planejamento Sucessório & Holdings Familiares: Manual Prático",
-    description: "Guia completo de engenharia societária focada na perpetuidade de bens familiares, elisão fiscal e governança intergeracional.",
-    badge: "Baixar PDF gratuito",
-    date: "Maio de 2026",
-    author: "Murilo Gouvêa dos Reis",
-    readTimeOrDuration: "42 páginas"
+    title: "A importância da DUE DILIGENCE imobiliária",
+    description: "A documentação imobiliária é de extrema importância na compra e venda de imóveis, tanto para o comprador quanto para o vendedor. Uma documentação correta e completa garante a segurança jurídica da transação e evita futuros problemas.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/mVz43R0S/A-Import-ncia-da-Due-Dilligence.png",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQADQnxYEgaXQKxubvJZm3GjAT6u4oTyhzyHlhDcPetiNlY?e=z5wO9m"
   },
   {
-    id: "r2",
-    category: "artigos",
-    categoryLabel: "Artigo Técnico",
-    title: "Impacto da Reforma Tributária sobre a Distribuição de Dividendos",
-    description: "Uma análise analítica detalhada dos impactos práticos imediatos do novo texto de emendas constitucionais na contabilidade corporativa do Sul.",
-    badge: "Ler Artigo Inteiro",
-    date: "Abril de 2026",
-    author: "Dr. Marcus Vinícius Abreu",
-    readTimeOrDuration: "10 min de leitura"
+    id: "e2",
+    category: "ebooks",
+    categoryLabel: "E-book",
+    title: "Contratos Imobiliários",
+    description: "No mercado imobiliário, a segurança jurídica e a proteção dos negócios são aspectos fundamentais e estão diretamente ligadas a elaboração de contratos que assegurem os interesses das partes envolvidas no negócio.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/DPY7kZnK/Contratos-Imobili-rios.png",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQDLcOQSUdTdR6ThC0QJUEWYARCkWnCMUy23TvOyWo4LyG8?e=bmtBFF"
   },
   {
-    id: "r3",
-    category: "videos",
-    categoryLabel: "Vídeo Exclusivo",
-    title: "Compliance Trabalhista em Grandes Indústrias: Redução de Passivo",
-    description: "Painel gravado sobre ações preventivas de auditagem e negociações coletivas para evitar custos pecuniários de alta relevância.",
-    badge: "Assistir Vídeo (Exclusivo)",
-    date: "Março de 2026",
-    author: "Dra. Carolina Mendes Ramos",
-    readTimeOrDuration: "25 minutos"
-  },
-  {
-    id: "r4",
-    category: "palestras",
-    categoryLabel: "Palestra",
-    title: "Governança e ESG no Lançamento de Ativos de Alto Padrão",
-    description: "Palestra Magna ministrada aos investidores no Fórum de Incorporações Imobiliárias de Santa Catarina sobre regularização patrimonial focado.",
-    badge: "Solicitar Gravação",
-    date: "Fevereiro de 2026",
-    author: "Dr. Arthur Pamplona Silva",
-    readTimeOrDuration: "1h 15min"
-  },
-  {
-    id: "r5",
-    category: "publicacoes",
-    categoryLabel: "Publicação Acadêmica",
-    title: "O Princípio do 'Privacy by Design' sob as diretrizes vigentes da ANPD",
-    description: "Estudo científico publicado sobre conformidade jurídica em fluxo contínuo de dados de empresas de logística nacional.",
-    badge: "Ver Publicação",
-    date: "Janeiro de 2026",
-    author: "Dra. Carolina Mendes Ramos",
-    readTimeOrDuration: "8 pág. de Pareceres"
-  },
-  {
-    id: "r6",
-    category: "noticias",
-    categoryLabel: "Notícias GDR",
-    title: "Gouvêa dos Reis Advogados estabelece nova sede executiva no Centro de Florianópolis",
-    description: "O escritório consolida sua unridade operacional na Avenida Rio Branco, Centro Executivo Atlantis, qualificando o atendimento de alta confidencialidade.",
-    badge: "Ler Nota Oficial",
-    date: "Maio de 2026",
-    author: "Conselho GDR",
-    readTimeOrDuration: "3 min"
+    id: "e3",
+    category: "ebooks",
+    categoryLabel: "E-book",
+    title: "Fortalecendo os sindicatos patronais",
+    description: "É com grande entusiasmo que apresentamos esta introdução ao e-book \"Fortalecendo os Sindicatos Patronais: Financiamento e Atuação Efetiva\". Neste material, buscamos abordar de forma concisa e informativa um tema de extrema relevância para fortalecer o papel dos sindicatos patronais e garantir uma atuação efetiva em favor do desenvolvimento econômico e das relações de trabalho.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/5ghx45WY/Fortalecendo-os-sindicatos.png",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQBB017eFvs5QIvFNGmK5NNmAQP_JXnNYLox2lvAhk6oOB8?e=rMWVKZ"
   }
 ];
 

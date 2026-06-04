@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { CLIENT_SECTORS, TESTIMONIALS, CERTIFICATES } from "../data";
-import { ChevronLeft, ChevronRight, Quote, ShieldCheck, Trophy, Layers, Target, Coins, TrendingUp } from "lucide-react";
-import { getPortfolioCases, getTestimonials } from "../lib/sanity";
-import { ClientSector, Testimonial } from "../types";
+import { CLIENT_SECTORS } from "../data";
+import { ChevronRight, ShieldCheck, Trophy, Layers, Target, Coins } from "lucide-react";
+import { getPortfolioCases } from "../lib/sanity";
+import { ClientSector } from "../types";
 
 export default function Portfolio() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [portfolioCases, setPortfolioCases] = useState<ClientSector[]>(CLIENT_SECTORS);
-  const [testimonials, setTestimonials] = useState<Testimonial[]>(TESTIMONIALS);
-
-  const currentTestimonial = testimonials[activeTestimonial] || testimonials[0] || TESTIMONIALS[0];
 
   useEffect(() => {
     getPortfolioCases().then((data) => {
@@ -18,22 +14,7 @@ export default function Portfolio() {
         setPortfolioCases(data);
       }
     });
-
-    getTestimonials().then((data) => {
-      // Validate that we got a populated array
-      if (data && data.length > 0) {
-        setTestimonials(data);
-      }
-    });
   }, []);
-
-  const handlePrevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
-  const handleNextTestimonial = () => {
-    setActiveTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
 
   // Icon mapping for the 8 specific corporate portfolios for rich aesthetics
   const getSectorIcon = (id: string) => {
@@ -159,110 +140,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Double layout structure: Certifications and Testimonials */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-8 border-t border-gdr-beige/40">
-          
-          {/* Outorga e Certificados Column */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <span className="text-[9px] tracking-widest text-gdr-beige font-semibold uppercase block">ORDEM & RECONHECIMENTOS</span>
-              <h4 className="text-xl font-sans text-gdr-dark font-light md:text-2xl leading-tight">
-                Destaques Consecutivos em <br />
-                <span className="font-baskerville-italic text-gdr-beige">Prática de Excelência</span>
-              </h4>
-            </div>
 
-            <div className="space-y-4">
-              {CERTIFICATES.slice(0, 2).map((cert, index) => (
-                <div key={cert.id} className="bg-white border border-gdr-border p-5 relative">
-                  <div className="absolute top-0 bottom-0 left-0 w-1 bg-gdr-beige" />
-                  <div className="flex items-start space-x-3">
-                    <Trophy className="w-5 h-5 text-gdr-beige shrink-0 mt-0.5" />
-                    <div className="space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider font-semibold text-gdr-dark">
-                        {cert.title}
-                      </span>
-                      <p className="text-[10px] text-gdr-beige font-mono">
-                        {cert.year}
-                      </p>
-                      <p className="text-[11px] text-gdr-dark/70 font-light leading-relaxed">
-                        {cert.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Testimonial slider column */}
-          <div className="lg:col-span-7 bg-white border border-gdr-beige p-8 md:p-10 relative flex flex-col justify-between shadow-xs">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-2 text-gdr-beige">
-                <Quote className="w-6 h-6 text-gdr-beige opacity-50" />
-                <span className="text-[10px] uppercase tracking-widest font-sans font-medium text-gdr-dark/60">
-                  Depoimentos resguardados de clientes e parceiros.
-                </span>
-              </div>
-
-              <p className="text-xs sm:text-sm md:text-base font-baskerville-italic text-gdr-dark leading-relaxed">
-                &ldquo;{currentTestimonial.text}&rdquo;
-              </p>
-
-              <div>
-                {currentTestimonial.isAnonymized ? (
-                  <div className="flex items-center space-x-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-gdr-beige" />
-                    <span className="font-sans text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                      Sócio-Diretor Corporativo
-                    </span>
-                  </div>
-                ) : (
-                  <span className="font-sans text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                    {currentTestimonial.author}
-                  </span>
-                )}
-                <div className="text-[9px] text-gdr-dark/50 uppercase tracking-widest">
-                  {currentTestimonial.position} &mdash; {currentTestimonial.company}
-                </div>
-              </div>
-            </div>
-
-            {/* Pagination Controls */}
-            <div className="flex items-center justify-between border-t border-gdr-border/60 mt-10 pt-4">
-              <button
-                id="portfolio-testimonial-prev"
-                onClick={handlePrevTestimonial}
-                className="p-2 border border-gdr-border hover:bg-gdr-dark hover:text-white hover:border-gdr-dark transition-all cursor-pointer"
-                aria-label="Depoimento Anterior"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              <div className="flex space-x-1">
-                {testimonials.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveTestimonial(idx)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                      activeTestimonial === idx ? "bg-gdr-beige w-3" : "bg-gdr-border"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <button
-                id="portfolio-testimonial-next"
-                onClick={handleNextTestimonial}
-                className="p-2 border border-gdr-border hover:bg-gdr-dark hover:text-white hover:border-gdr-dark transition-all cursor-pointer"
-                aria-label="Depoimento Posterior"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-        </div>
 
       </div>
     </section>

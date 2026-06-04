@@ -74,22 +74,57 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
 
-    // Simulate elite API interaction
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      // Reset form
-      setFormData({
-        fullName: "",
-        corporateEmail: "",
-        corporatePhone: "",
-        companyName: "",
-        practiceArea: PRACTICE_AREAS[0].title,
-        preferredOffice: OFFICE_ADDRESSES[0].city,
-        details: "",
-        termsAccepted: false
-      });
-    }, 1200);
+    const scriptURL = import.meta.env.VITE_GOOGLE_SHEETS_WEBAPP_URL;
+
+    if (scriptURL) {
+      const data = new FormData();
+      data.append('fullName', formData.fullName);
+      data.append('corporateEmail', formData.corporateEmail);
+      data.append('corporatePhone', formData.corporatePhone);
+      data.append('companyName', formData.companyName);
+      data.append('practiceArea', formData.practiceArea);
+      data.append('preferredOffice', formData.preferredOffice || 'Não informado');
+      data.append('details', formData.details);
+      data.append('termsAccepted', formData.termsAccepted ? 'Sim' : 'Não');
+
+      fetch(scriptURL, { method: 'POST', body: data })
+        .then(response => {
+          setIsSubmitting(false);
+          setSubmitSuccess(true);
+          setFormData({
+            fullName: "",
+            corporateEmail: "",
+            corporatePhone: "",
+            companyName: "",
+            practiceArea: PRACTICE_AREAS[0].title,
+            preferredOffice: OFFICE_ADDRESSES[0].city,
+            details: "",
+            termsAccepted: false
+          });
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          setErrorMsg("Houve um erro ao enviar sua mensagem. Tente novamente mais tarde.");
+          setIsSubmitting(false);
+        });
+    } else {
+      // Simulate elite API interaction if no script configured
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        // Reset form
+        setFormData({
+          fullName: "",
+          corporateEmail: "",
+          corporatePhone: "",
+          companyName: "",
+          practiceArea: PRACTICE_AREAS[0].title,
+          preferredOffice: OFFICE_ADDRESSES[0].city,
+          details: "",
+          termsAccepted: false
+        });
+      }, 1200);
+    }
   };
 
   return (
@@ -265,26 +300,6 @@ export default function ContactForm() {
                         ))}
                       </select>
                     </div>
-
-                    {/* Preferred office locations */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="preferredOffice" className="text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                        Unidade GDR de Interesse
-                      </label>
-                      <select
-                        id="preferredOffice"
-                        name="preferredOffice"
-                        value={formData.preferredOffice}
-                        onChange={handleInputChange}
-                        className="w-full bg-white border border-gdr-border focus:border-gdr-beige focus:outline-none p-3.5 text-xs text-gdr-dark transition-colors cursor-pointer"
-                      >
-                        {officeAddressesList.map((office) => (
-                          <option key={office.city} value={office.city}>
-                            Unidade {office.city} &mdash; {office.state}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
                   </div>
 
                   {/* Message / Details inquiry text input area */}
@@ -326,7 +341,7 @@ export default function ContactForm() {
                       disabled={isSubmitting}
                       className="w-full bg-gdr-dark hover:bg-gdr-beige text-white hover:text-gdr-dark font-sans text-xs uppercase tracking-widest py-4 transition-all duration-300 border border-gdr-dark flex items-center justify-center space-x-3 shrink-0 disabled:opacity-50 cursor-pointer"
                     >
-                      <span>{isSubmitting ? "Processando Agendamento..." : "Solicitar Reunião de Alta Diretoria"}</span>
+                      <span>{isSubmitting ? "Enviando..." : "Enviar"}</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>

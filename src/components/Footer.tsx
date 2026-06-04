@@ -71,8 +71,24 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-4">
             {Array.from({ length: 9 }).map((_, index) => {
               const customSeal = seals[index];
-              const customImageUrl = customSeal ? getSanityImageUrl(customSeal.image) : null;
+              let customImageUrl = customSeal ? getSanityImageUrl(customSeal.image) : null;
               
+              const defaultSeals = [
+                "https://i.ibb.co/PZ9KK4tR/selo08.png",
+                "https://i.ibb.co/DHSm3GHD/selo06.png",
+                "https://i.ibb.co/HfxvzdG1/selo05.png",
+                "https://i.ibb.co/8njXDFqM/selo04.png",
+                "https://i.ibb.co/LzwJd9pV/Advocacia5004.png",
+                "https://i.ibb.co/Xf7jr6PD/Selo-09.jpg",
+                "https://i.ibb.co/VGhJNVp/Advocacia5003.png",
+                "https://i.ibb.co/b5dkb7Pz/Advocacia500.png",
+                "https://i.ibb.co/pBvD38fg/Advocacia5002.png"
+              ];
+              
+              if (!customImageUrl) {
+                  customImageUrl = defaultSeals[index];
+              }
+
               return (
                 <div
                   key={index}
@@ -86,7 +102,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                   {customImageUrl ? (
                     <img
                       src={customImageUrl}
-                      alt={customSeal.label || `Selo ${index + 1}`}
+                      alt={customSeal?.label || `Selo ${index + 1}`}
                       className="max-h-full max-w-full object-contain grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                       referrerPolicy="no-referrer"
                     />
