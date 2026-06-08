@@ -1,132 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { PRACTICE_AREAS, OFFICE_ADDRESSES } from "../data";
-import { ChevronRight, CalendarCheck, Send, ShieldAlert, Check } from "lucide-react";
-import { getPracticeAreas, getOfficeAddresses } from "../lib/sanity";
-import { PracticeArea, OfficeAddress } from "../types";
+import React from "react";
+import { ShieldAlert } from "lucide-react";
 
 export default function ContactForm() {
-  const [practiceAreasList, setPracticeAreasList] = useState<PracticeArea[]>(PRACTICE_AREAS);
-  const [officeAddressesList, setOfficeAddressesList] = useState<OfficeAddress[]>(OFFICE_ADDRESSES);
-  
-  const [formData, setFormData] = useState({
-    fullName: "",
-    corporateEmail: "",
-    corporatePhone: "",
-    companyName: "",
-    practiceArea: PRACTICE_AREAS[0].title,
-    preferredOffice: OFFICE_ADDRESSES[0].city,
-    details: "",
-    termsAccepted: false
-  });
-
-  useEffect(() => {
-    // Load practice areas
-    getPracticeAreas().then((data) => {
-      if (data && data.length > 0) {
-        setPracticeAreasList(data);
-        setFormData((prev) => ({
-          ...prev,
-          practiceArea: data[0].title
-        }));
-      }
-    });
-
-    // Load office addresses
-    getOfficeAddresses().then((data) => {
-      if (data && data.length > 0) {
-        setOfficeAddressesList(data);
-        setFormData((prev) => ({
-          ...prev,
-          preferredOffice: data[0].city
-        }));
-      }
-    });
-  }, []);
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: checked }));
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrorMsg("");
-
-    // Simple validations
-    if (!formData.fullName || !formData.corporateEmail || !formData.corporatePhone || !formData.companyName) {
-      setErrorMsg("Por favor, preencha todos os campos obrigatórios identificados.");
-      return;
-    }
-
-    if (!formData.termsAccepted) {
-      setErrorMsg("É necessário aceitar os termos de tratamento específico de dados corporativos.");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    const scriptURL = import.meta.env.VITE_GOOGLE_SHEETS_WEBAPP_URL;
-
-    if (scriptURL) {
-      const data = new FormData();
-      data.append('fullName', formData.fullName);
-      data.append('corporateEmail', formData.corporateEmail);
-      data.append('corporatePhone', formData.corporatePhone);
-      data.append('companyName', formData.companyName);
-      data.append('practiceArea', formData.practiceArea);
-      data.append('preferredOffice', formData.preferredOffice || 'Não informado');
-      data.append('details', formData.details);
-      data.append('termsAccepted', formData.termsAccepted ? 'Sim' : 'Não');
-
-      fetch(scriptURL, { method: 'POST', body: data })
-        .then(response => {
-          setIsSubmitting(false);
-          setSubmitSuccess(true);
-          setFormData({
-            fullName: "",
-            corporateEmail: "",
-            corporatePhone: "",
-            companyName: "",
-            practiceArea: PRACTICE_AREAS[0].title,
-            preferredOffice: OFFICE_ADDRESSES[0].city,
-            details: "",
-            termsAccepted: false
-          });
-        })
-        .catch(error => {
-          console.error('Error!', error.message);
-          setErrorMsg("Houve um erro ao enviar sua mensagem. Tente novamente mais tarde.");
-          setIsSubmitting(false);
-        });
-    } else {
-      // Simulate elite API interaction if no script configured
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setSubmitSuccess(true);
-        // Reset form
-        setFormData({
-          fullName: "",
-          corporateEmail: "",
-          corporatePhone: "",
-          companyName: "",
-          practiceArea: PRACTICE_AREAS[0].title,
-          preferredOffice: OFFICE_ADDRESSES[0].city,
-          details: "",
-          termsAccepted: false
-        });
-      }, 1200);
-    }
-  };
-
   return (
     <section id="contato" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -149,7 +24,7 @@ export default function ContactForm() {
 
             <div className="space-y-4 text-xs sm:text-sm text-gdr-dark/70 font-light leading-relaxed">
               <p>
-                As relações corporativas demandam rapidez e extremo rigor processual. Ao submeter suas informações básicas através do formulário ao lado, nossa coordenação o direcionará imediatamente ao sócio especializado em seu setor de operação.
+                As relações corporativas demandam rapidez e extremo rigor processual. Nossa equipe está pronta para direcioná-lo imediatamente ao sócio especializado em seu setor de operação.
               </p>
               <p>
                 Garantimos total integridade de seus dados sob nossa infraestrutura corporativa privada de segurança jurídica preventiva.
@@ -172,183 +47,45 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Form Panel Column */}
+          {/* WhatsApp Direct Column */}
           <div className="lg:col-span-7">
-            <div className="border border-gdr-beige bg-gdr-gray p-8 sm:p-10 relative shadow-sm">
+            <div className="border border-gdr-beige bg-gdr-gray p-8 sm:p-12 relative shadow-sm flex flex-col items-center justify-center text-center space-y-6 min-h-[400px]">
               
-              {/* Submission success handler view */}
-              {submitSuccess ? (
-                <div className="text-center py-12 flex flex-col items-center space-y-6">
-                  <div className="p-4 rounded-full bg-white border border-gdr-beige text-gdr-dark">
-                    <Check className="w-8 h-8 stroke-[3] text-gdr-beige" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-sans font-light text-gdr-dark">
-                    Solicitação Submetida com <span className="font-baskerville-italic text-gdr-beige">Sucesso</span>
-                  </h3>
-                  
-                  <p className="text-xs text-gdr-dark/65 max-w-md leading-relaxed mx-auto font-sans">
-                    Nossa assessoria executiva de coordenação jurídica já foi acionada. Em breves instantes, um de nossos sócios-diretores entrará em contato via e-mail ou chamada para agendar sua videoconferência ou encontro presencial.
-                  </p>
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white border border-[#25D366] text-[#25D366] mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  className="w-8 h-8 fill-current"
+                >
+                  <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                </svg>
+              </div>
 
-                  <button
-                    id="new-inquiry-btn"
-                    onClick={() => setSubmitSuccess(false)}
-                    className="border border-gdr-dark text-gdr-dark hover:bg-gdr-dark hover:text-white transition-all text-[10px] uppercase tracking-widest font-semibold py-3 px-6 cursor-pointer"
+              <h3 className="text-2xl font-sans font-light text-gdr-dark">
+                Atendimento via <span className="font-baskerville-italic text-[#25D366]">WhatsApp</span>
+              </h3>
+              
+              <p className="text-xs text-gdr-dark/65 max-w-md leading-relaxed">
+                Entre em contato diretamente pelo WhatsApp para um atendimento ágil e personalizado. Nossa equipe está pronta para direcionar sua demanda ao profissional mais qualificado.
+              </p>
+
+              <div className="pt-4">
+                <a
+                  href="https://wa.me/554832229696"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center space-x-3 px-8 bg-[#25D366] hover:bg-[#128C7E] text-white font-sans text-[11px] font-bold uppercase tracking-widest py-4 transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                    className="w-4 h-4 fill-current shrink-0"
                   >
-                    Enviar Outra Mensagem
-                  </button>
-                </div>
-              ) : (
-                <form id="schedule-consultation-form" onSubmit={handleFormSubmit} className="space-y-6">
-                  
-                  {errorMsg && (
-                    <div id="form-error-banner" className="p-4 bg-red-50 border-l-2 border-red-500 text-xs text-red-700">
-                      {errorMsg}
-                    </div>
-                  )}
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Full Name */}
-                    <div className="space-y-1.5ClassName">
-                      <label htmlFor="fullName" className="text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                        Nome Completo *
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        placeholder="Ex: Roberto de Souza"
-                        required
-                        className="w-full bg-white border border-gdr-border focus:border-gdr-beige focus:outline-none p-3.5 text-xs text-gdr-dark transition-colors"
-                      />
-                    </div>
-
-                    {/* Company Name */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="companyName" className="text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                        Empresa Corporativa *
-                      </label>
-                      <input
-                        type="text"
-                        id="companyName"
-                        name="companyName"
-                        value={formData.companyName}
-                        onChange={handleInputChange}
-                        placeholder="Ex: Companhia S/A"
-                        required
-                        className="w-full bg-white border border-gdr-border focus:border-gdr-beige focus:outline-none p-3.5 text-xs text-gdr-dark transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Email */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="corporateEmail" className="text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                        E-mail Corporativo *
-                      </label>
-                      <input
-                        type="email"
-                        id="corporateEmail"
-                        name="corporateEmail"
-                        value={formData.corporateEmail}
-                        onChange={handleInputChange}
-                        placeholder="Ex: roberto@companhia.com.br"
-                        required
-                        className="w-full bg-white border border-gdr-border focus:border-gdr-beige focus:outline-none p-3.5 text-xs text-gdr-dark transition-colors"
-                      />
-                    </div>
-
-                    {/* Phone */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="corporatePhone" className="text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                        Telefone Corporativo *
-                      </label>
-                      <input
-                        type="tel"
-                        id="corporatePhone"
-                        name="corporatePhone"
-                        value={formData.corporatePhone}
-                        onChange={handleInputChange}
-                        placeholder="Ex: +55 (11) 98888-7777"
-                        required
-                        className="w-full bg-white border border-gdr-border focus:border-gdr-beige focus:outline-none p-3.5 text-xs text-gdr-dark transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Practice Area selectors dropdown */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="practiceArea" className="text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                        Especialidade Requerida
-                      </label>
-                      <select
-                        id="practiceArea"
-                        name="practiceArea"
-                        value={formData.practiceArea}
-                        onChange={handleInputChange}
-                        className="w-full bg-white border border-gdr-border focus:border-gdr-beige focus:outline-none p-3.5 text-xs text-gdr-dark transition-colors cursor-pointer"
-                      >
-                        {practiceAreasList.map((area) => (
-                          <option key={area.id} value={area.title}>
-                            {area.title}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Message / Details inquiry text input area */}
-                  <div className="space-y-1.5">
-                    <label htmlFor="details" className="text-[10px] uppercase tracking-widest font-semibold text-gdr-dark">
-                      Notas Adicionais do Assunto
-                    </label>
-                    <textarea
-                      id="details"
-                      name="details"
-                      value={formData.details}
-                      onChange={handleInputChange}
-                      placeholder="Descreva, em termos gerais, as necessidades específicas do seu grupo. Não compartilhe dados ultra-sensíveis neste primeiro canal."
-                      rows={4}
-                      className="w-full bg-white border border-gdr-border focus:border-gdr-beige focus:outline-none p-3.5 text-xs text-gdr-dark transition-colors"
-                    />
-                  </div>
-
-                  {/* Acceptance agreements */}
-                  <div className="flex items-start space-x-3 pt-2">
-                    <input
-                      type="checkbox"
-                      id="termsAccepted"
-                      name="termsAccepted"
-                      checked={formData.termsAccepted}
-                      onChange={handleCheckboxChange}
-                      className="mt-0.5 border border-gdr-border rounded-sm h-4 w-4 text-gdr-dark focus:ring-gdr-beige accent-gdr-beige"
-                    />
-                    <label htmlFor="termsAccepted" className="text-[10px] leading-tight text-gdr-dark/60 font-light select-none">
-                      Autorizo espressamente o tratamento de meus dados cadastrais e corporativos para fins exclusivos de auditoria de conflito de interesses anterior ao agendamento de reuniões, nos termos da Lei nº 13.709/18 (LGPD). *
-                    </label>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-4">
-                    <button
-                      type="submit"
-                      id="submit-contact-form"
-                      disabled={isSubmitting}
-                      className="w-full bg-gdr-dark hover:bg-gdr-beige text-white hover:text-gdr-dark font-sans text-xs uppercase tracking-widest py-4 transition-all duration-300 border border-gdr-dark flex items-center justify-center space-x-3 shrink-0 disabled:opacity-50 cursor-pointer"
-                    >
-                      <span>{isSubmitting ? "Enviando..." : "Enviar"}</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                </form>
-              )}
-
+                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                  </svg>
+                  <span>Entrar em Contato</span>
+                </a>
+              </div>
             </div>
           </div>
 
