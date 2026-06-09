@@ -42,6 +42,7 @@ export default function Header({ activeSection }: HeaderProps) {
   }, []);
 
   const navItems = [
+    { label: "Início", id: "hero" },
     { label: "Sobre a GDR", id: "sobre" },
     { label: "Áreas de Atuação", id: "atuacao" },
     { label: "Equipe", id: "equipe" },
