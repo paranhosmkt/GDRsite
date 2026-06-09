@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { OFFICE_ADDRESSES, CERTIFICATES } from "../data";
-import { Mail, Phone, Clock, Landmark, ShieldCheck, Award } from "lucide-react";
+import { OFFICE_ADDRESSES } from "../data";
+import { Mail, Phone, Clock } from "lucide-react";
 import { getPageAssets, getSanityImageUrl, SanitySeal, getOfficeAddresses } from "../lib/sanity";
 import { OfficeAddress } from "../types";
+import { useLocation, useNavigate } from "react-router-dom";
 
-interface FooterProps {
-  onNavigate: (sectionId: string) => void;
-}
-
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer() {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const [hasLogoError, setHasLogoError] = useState(false);
   const [seals, setSeals] = useState<SanitySeal[]>([]);
   const [addresses, setAddresses] = useState<OfficeAddress[]>(OFFICE_ADDRESSES);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPageAssets().then((assets) => {
@@ -41,6 +40,26 @@ export default function Footer({ onNavigate }: FooterProps) {
       }
     });
   }, []);
+
+  const handleLinkClick = (id: string) => {
+    if (id === "materiais") {
+      navigate("/materiais");
+    } else {
+      if (location.pathname !== "/") {
+        navigate("/#" + id);
+      } else {
+        const targetElement = document.getElementById(id);
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - 85;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    }
+  };
 
   return (
     <footer id="gdr-footer" className="bg-gdr-dark text-white pt-24 pb-12 relative overflow-hidden border-t-2 border-gdr-beige/40">
@@ -206,22 +225,22 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
           
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2">
-            <button onClick={() => onNavigate("sobre")} className="hover:text-white transition-colors cursor-pointer">
+            <button onClick={() => handleLinkClick("sobre")} className="hover:text-white transition-colors cursor-pointer">
               Sobre a GDR
             </button>
-            <button onClick={() => onNavigate("atuacao")} className="hover:text-white transition-colors cursor-pointer">
+            <button onClick={() => handleLinkClick("atuacao")} className="hover:text-white transition-colors cursor-pointer">
               Áreas de Atuação
             </button>
-            <button onClick={() => onNavigate("equipe")} className="hover:text-white transition-colors cursor-pointer">
+            <button onClick={() => handleLinkClick("equipe")} className="hover:text-white transition-colors cursor-pointer">
               Equipe
             </button>
-            <button onClick={() => onNavigate("portfolio")} className="hover:text-white transition-colors cursor-pointer">
+            <button onClick={() => handleLinkClick("portfolio")} className="hover:text-white transition-colors cursor-pointer">
               Portfólio
             </button>
-            <button onClick={() => onNavigate("blog")} className="hover:text-white transition-colors cursor-pointer">
+            <button onClick={() => handleLinkClick("materiais")} className="hover:text-white transition-colors cursor-pointer">
               Materiais
             </button>
-            <button onClick={() => onNavigate("contato")} className="hover:text-white transition-colors cursor-pointer">
+            <button onClick={() => handleLinkClick("contato")} className="hover:text-white transition-colors cursor-pointer">
               Contato
             </button>
           </div>

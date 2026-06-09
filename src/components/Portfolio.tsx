@@ -47,7 +47,7 @@ export default function Portfolio() {
         {/* Editorial Title Header */}
         <div className="text-center md:text-left mb-16 border-b border-gdr-border pb-8">
           <span className="text-[10px] tracking-[0.3em] uppercase text-gdr-dark/60 font-medium">
-            PORTFÓLIO INSTITUCIONAL & COMPLIANCE
+            PORTFÓLIO
           </span>
           <h2 className="text-3xl sm:text-4xl font-sans text-gdr-dark font-light mt-2 max-w-2xl leading-tight">
             Nossos Projetos de Representação & <br />
@@ -114,9 +114,19 @@ export default function Portfolio() {
                 </div>
               )}
 
+              {/* Standard Baixar Presskit Button */}
+              <div className="mt-6 pt-4 border-t border-gdr-border/60">
+                <a
+                  href="#"
+                  className="w-full bg-gdr-dark text-white hover:bg-gdr-beige hover:text-gdr-dark border border-gdr-dark py-2 px-3 text-[10px] uppercase font-semibold tracking-wider flex items-center justify-center space-x-1.5 transition-colors duration-300 cursor-pointer text-center"
+                >
+                  <span>Baixar presskit</span>
+                </a>
+              </div>
+
               {/* Optional Button */}
               {(sector.buttonLabel || sector.buttonLink) && (
-                <div className="mt-6 pt-4 border-t border-gdr-border/60">
+                <div className="mt-3">
                   {sector.buttonLink ? (
                     <a
                       href={sector.buttonLink}

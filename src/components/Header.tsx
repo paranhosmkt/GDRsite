@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { getPageAssets, getSanityImageUrl } from "../lib/sanity";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
-  onNavigate: (sectionId: string) => void;
   activeSection: string;
 }
 
-export default function Header({ onNavigate, activeSection }: HeaderProps) {
+export default function Header({ activeSection }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const [hasLogoError, setHasLogoError] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPageAssets().then((assets) => {
@@ -44,12 +46,30 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
     { label: "Áreas de Atuação", id: "atuacao" },
     { label: "Equipe", id: "equipe" },
     { label: "Portfólio", id: "portfolio" },
-    { label: "Materiais", id: "blog" },
+    { label: "Materiais", id: "materiais" },
   ];
 
   const handleLinkClick = (id: string) => {
-    onNavigate(id);
     setIsMobileMenuOpen(false);
+    if (id === "materiais") {
+      navigate("/materiais");
+    } else {
+      if (location.pathname !== "/") {
+        navigate("/#" + id);
+      } else {
+        const targetElement = document.getElementById(id);
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - 85;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        } else if (id === "hero") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    }
   };
 
   return (
@@ -74,13 +94,11 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
                 alt="Gouvêa dos Reis Advogados"
                 className="h-24 w-auto object-contain transition-all duration-300"
                 onError={() => {
-                  // If we tried loading /gdr_logo_header.png and it's not present yet, trigger fallback text block
                   setHasLogoError(true);
                 }}
                 referrerPolicy="no-referrer"
               />
             ) : (
-              /* Graceful stylized typographic fallback if files are not uploaded yet */
               <div className="flex flex-col items-start justify-center py-1 select-none pr-4">
                 <span className="text-xl font-serif tracking-[0.08em] font-medium text-gdr-dark leading-none">
                   Gouvêa dos Reis
@@ -100,7 +118,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
                 id={`nav-link-${item.id}`}
                 onClick={() => handleLinkClick(item.id)}
                 className={`text-xs uppercase tracking-widest font-medium transition-all duration-300 relative py-2 ${
-                  activeSection === item.id
+                  (activeSection === item.id || (item.id === "materiais" && location.pathname === "/materiais"))
                     ? "text-gdr-dark"
                     : "text-gdr-dark/60 hover:text-gdr-dark"
                 }`}
@@ -108,7 +126,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
                 {item.label}
                 <span
                   className={`absolute bottom-0 left-0 h-[1.5px] bg-gdr-beige transition-all duration-350 ${
-                    activeSection === item.id ? "w-full" : "w-0 hover:w-full"
+                    (activeSection === item.id || (item.id === "materiais" && location.pathname === "/materiais")) ? "w-full" : "w-0 hover:w-full"
                   }`}
                 />
               </button>

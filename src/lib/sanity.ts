@@ -240,6 +240,71 @@ const localDefaultMaterials: SanityMaterial[] = [
     readTimeOrDuration: "",
     imageUrl: "https://i.ibb.co/5ghx45WY/Fortalecendo-os-sindicatos.png",
     buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQBB017eFvs5QIvFNGmK5NNmAQP_JXnNYLox2lvAhk6oOB8?e=rMWVKZ"
+  },
+  {
+    id: "e4",
+    category: "ebooks",
+    categoryLabel: "E-book",
+    title: "Guia contra crimes cibernéticos",
+    description: "No passado, ouvíamos falar do golpe do bilhete premiado, falsos funcionários e empréstimos fraudulentos. Hoje, os criminosos continuam com essas práticas, mas adaptadas ao mundo digital. Entenda como se proteger.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/1GX31kht/Penal.jpg",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQCatucgVk_TRLJLK2t5r8FtASdNuJzfhykYOezd9gRyjLU?e=i9mYfa"
+  },
+  {
+    id: "e5",
+    category: "ebooks",
+    categoryLabel: "E-book",
+    title: "Hora de fortalecer nosso sindicato",
+    description: "Aqui, de forma clara e informativa, abordaremos um assunto de extrema importância para fortalecer os sindicatos dos trabalhadores, garantindo uma atuação efetiva em prol do desenvolvimento econômico e das relações de trabalho.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/C31C2mry/Capas-ebooks-formato-quadrado.jpg",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQCjEIZmjilXQIDOFEGUP8Z5ARaIlo5fE-IlemYvLZ_Z2nE?e=vMsZO5"
+  },
+  {
+    id: "e6",
+    category: "ebooks",
+    categoryLabel: "E-book",
+    title: "Perguntas frequentes sobre a LGPD",
+    description: "Qualquer informação que possa ser usada para identificar diretamente ou indiretamente uma pessoa física é considerada um dado pessoal. Entenda o que é considerado dado pessoal e como proteger seus dados.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/fzVXkpmL/Capas-ebooks-formato-quadrado-1.jpg",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQBjXWB8YG3hTbSID_WTHf7PAfoT5jesECvyKyh0cSIheo0?e=9bkh8h"
+  },
+  {
+    id: "e7",
+    category: "ebooks",
+    categoryLabel: "E-book",
+    title: "Planejamento Sucessório",
+    description: "O planejamento sucessório é uma ferramenta essencial para organizar a transferência do patrimônio entre gerações. Ele visa evitar conflitos familiares, reduzir custos com impostos e garantir que os desejos do titular sejam respeitados.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/RTjdNRPw/Capas-ebooks-formato-quadrado-2.jpg",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQDXGesLX3EnQaYvEyYTqS0aAWDxH_sYRjihwMD_AJbKCB4?e=ZgnJcZ"
+  },
+  {
+    id: "e8",
+    category: "ebooks",
+    categoryLabel: "E-book",
+    title: "Simplificando a regularização de imóveis",
+    description: "Problema histórico no Brasil, a maioria dos imóveis em nosso território nacional são irregulares o que gera uma permanente insegurança para quem os detêm.",
+    badge: "Baixar E-book",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://i.ibb.co/Pzw3SLCc/Capas-ebooks-formato-quadrado-4.jpg",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQD41jntswdjR5ekrU1luRgUAT_tlvACKK2BQFUbobaI9wM?e=yjm9K8"
   }
 ];
 

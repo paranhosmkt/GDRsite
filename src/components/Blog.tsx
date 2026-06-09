@@ -23,7 +23,6 @@ export default function Blog() {
     { id: "ebooks", label: "E-books" },
     { id: "noticias", label: "Notícias" },
     { id: "palestras", label: "Palestras" },
-    { id: "publicacoes", label: "Publicações" },
     { id: "videos", label: "Vídeos" }
   ];
 

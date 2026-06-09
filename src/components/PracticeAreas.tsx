@@ -95,7 +95,7 @@ export default function PracticeAreas() {
                 <div className="flex items-center space-x-2 text-gdr-beige">
                   <Scale className="w-4 h-4" />
                   <span className="text-[10px] uppercase tracking-widest font-sans font-medium text-gdr-dark/50">
-                    EXAME DETALHADO DA MATÉRIA
+                    ÁREA JURÍDICA
                   </span>
                 </div>
                 
