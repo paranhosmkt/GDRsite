@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BookOpen, FileCode, Play, Award, Volume2, Newspaper, ChevronRight } from "lucide-react";
+import { BookOpen, FileCode, Play, Award, Volume2, Newspaper, ChevronRight, X } from "lucide-react";
 import { getMaterials, SanityMaterial } from "../lib/sanity";
 
 export default function Blog() {
@@ -7,6 +7,7 @@ export default function Blog() {
   const [activeSubcategory, setActiveSubcategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [resources, setResources] = useState<SanityMaterial[]>([]);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const itemsPerPage = 9;
 
   useEffect(() => {
@@ -38,7 +39,11 @@ export default function Blog() {
   };
 
   const availableSubcategories = activeCategory === "videos" 
-    ? Array.from(new Set(resources.filter(r => r.category === "videos" && r.subcategory).map(r => r.subcategory as string)))
+    ? [
+        "Administrativo", "Bancário", "Cível", "Empresarial", "Família", 
+        "Holding", "Internacional", "Imobiliário", "LGPD", "Previdenciário", 
+        "Saúde", "Trabalhista", "Tributário"
+      ]
     : [];
 
   let filteredResources = activeCategory === "all"
@@ -74,6 +79,28 @@ export default function Blog() {
 
   return (
     <section id="blog" className="py-24 bg-white border-b border-gdr-border relative scroll-mt-20">
+      {/* Video Modal overlay */}
+      {activeVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+          <div className="relative w-full max-w-5xl aspect-video bg-black shadow-2xl rounded-sm overflow-hidden">
+            <button 
+              onClick={() => setActiveVideo(null)}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-gdr-beige transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <iframe
+              src={activeVideo}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
@@ -155,11 +182,30 @@ export default function Blog() {
                 className="bg-white border border-gdr-border hover:border-gdr-beige flex flex-col justify-between group transition-all duration-300 shadow-xs"
               >
                 {/* Visual Image Placeholder Slot */}
-                {item.videoEmbed ? (
+                {item.videoEmbed && item.videoEmbed.startsWith("<iframe") ? (
                   <div 
                     className="w-full aspect-video bg-black relative [&>iframe]:absolute [&>iframe]:inset-0 [&>iframe]:w-full [&>iframe]:h-full"
                     dangerouslySetInnerHTML={{ __html: item.videoEmbed }}
                   />
+                ) : item.videoEmbed && item.videoEmbed.startsWith("http") ? (
+                  <div 
+                    className={`${item.imageUrl ? '' : 'aspect-[16/10]'} bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40 cursor-pointer`}
+                    onClick={() => setActiveVideo(item.videoEmbed as string)}
+                  >
+                    {item.imageUrl && (
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className="w-full h-auto object-cover aspect-video transition-transform duration-750 group-hover:scale-105 opacity-80"
+                        referrerPolicy="no-referrer"
+                      />
+                    )}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                      <div className="w-12 h-12 rounded-full bg-black/60 flex items-center justify-center backdrop-blur-sm border border-white/20 text-white group-hover:scale-110 group-hover:bg-gdr-beige group-hover:border-gdr-beige transition-all">
+                        <Play className="w-5 h-5 ml-1" />
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <div className={`${item.imageUrl ? '' : 'aspect-[16/10]'} bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40`}>
                     {item.imageUrl ? (
