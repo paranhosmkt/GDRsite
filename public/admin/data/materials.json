@@ -256,6 +256,34 @@
       "readTimeOrDuration": "",
       "imageUrl": "https://img.youtube.com/vi/fD1Qr3Hc8CE/hqdefault.jpg",
       "videoEmbed": "https://www.youtube.com/embed/fD1Qr3Hc8CE?autoplay=1"
+    },
+    {
+      "id": "v11",
+      "category": "videos",
+      "categoryLabel": "Vídeo",
+      "subcategory": "Empresarial",
+      "title": "Direito Empresarial: Estruturação e Governança",
+      "description": "Uma discussão aprofundada sobre as melhores práticas de governança e estruturação de empresas.",
+      "badge": "Assistir Vídeo",
+      "date": "",
+      "author": "Gouvêa dos Reis",
+      "readTimeOrDuration": "",
+      "imageUrl": "https://img.youtube.com/vi/TWmtb-J_dDQ/hqdefault.jpg",
+      "videoEmbed": "https://www.youtube.com/embed/TWmtb-J_dDQ?autoplay=1"
+    },
+    {
+      "id": "v12",
+      "category": "videos",
+      "categoryLabel": "Vídeo",
+      "subcategory": "Empresarial",
+      "title": "Desafios do Direito Empresarial Moderno",
+      "description": "Análise dos principais desafios e adaptações necessárias para as empresas modernas no cenário jurídico atual.",
+      "badge": "Assistir Vídeo",
+      "date": "",
+      "author": "Gouvêa dos Reis",
+      "readTimeOrDuration": "",
+      "imageUrl": "https://img.youtube.com/vi/Lj3ZzKwZ4RA/hqdefault.jpg",
+      "videoEmbed": "https://www.youtube.com/embed/Lj3ZzKwZ4RA?autoplay=1"
     }
   ]
 }

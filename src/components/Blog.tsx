@@ -296,6 +296,14 @@ export default function Blog() {
                         <span>{item.badge}</span>
                         <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                       </a>
+                    ) : item.category === "videos" && item.videoEmbed ? (
+                      <button
+                        onClick={() => setActiveVideo(item.videoEmbed as string)}
+                        className="w-full bg-gdr-gray hover:bg-gdr-dark hover:text-white border border-gdr-border group-hover:border-gdr-beige py-2 px-3 text-[10px] uppercase font-semibold tracking-wider flex items-center justify-center space-x-1.5 transition-colors duration-300 cursor-pointer"
+                      >
+                        <span>{item.badge}</span>
+                        <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                      </button>
                     ) : (
                       <button
                         className="w-full bg-gdr-gray hover:bg-gdr-dark hover:text-white border border-gdr-border group-hover:border-gdr-beige py-2 px-3 text-[10px] uppercase font-semibold tracking-wider flex items-center justify-center space-x-1.5 transition-colors duration-300 cursor-pointer"
