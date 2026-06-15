@@ -851,6 +851,76 @@ const localDefaultMaterials: SanityMaterial[] = [
     readTimeOrDuration: "",
     imageUrl: "https://img.youtube.com/vi/bNr-PtfPHq0/hqdefault.jpg",
     videoEmbed: "https://www.youtube.com/embed/bNr-PtfPHq0?autoplay=1"
+  },
+  {
+    id: "v40",
+    category: "videos",
+    categoryLabel: "Vídeo",
+    subcategory: "Imobiliário",
+    title: "Direito Imobiliário em Debate",
+    description: "Discussões e análises sobre o mercado e o direito imobiliário.",
+    badge: "Assistir Vídeo",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://img.youtube.com/vi/LIT1CTucQYw/hqdefault.jpg",
+    videoEmbed: "https://www.youtube.com/embed/LIT1CTucQYw?autoplay=1"
+  },
+  {
+    id: "v41",
+    category: "videos",
+    categoryLabel: "Vídeo",
+    subcategory: "Imobiliário",
+    title: "Aspectos Práticos do Direito Imobiliário",
+    description: "Análise prática e considerações essenciais para o mercado imobiliário.",
+    badge: "Assistir Vídeo",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://img.youtube.com/vi/ufGVmK6mIHE/hqdefault.jpg",
+    videoEmbed: "https://www.youtube.com/embed/ufGVmK6mIHE?autoplay=1"
+  },
+  {
+    id: "v42",
+    category: "videos",
+    categoryLabel: "Vídeo",
+    subcategory: "Imobiliário",
+    title: "Contratos e Negócios Imobiliários",
+    description: "Orientações importantes para a formulação de contratos e negócios imobiliários.",
+    badge: "Assistir Vídeo",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://img.youtube.com/vi/FyrTJLhFnm0/hqdefault.jpg",
+    videoEmbed: "https://www.youtube.com/embed/FyrTJLhFnm0?autoplay=1"
+  },
+  {
+    id: "v43",
+    category: "videos",
+    categoryLabel: "Vídeo",
+    subcategory: "Imobiliário",
+    title: "Atualizações em Direito Imobiliário",
+    description: "Fique por dentro das atualizações mais recentes no ramo do direito imobiliário.",
+    badge: "Assistir Vídeo",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://img.youtube.com/vi/GaJtsJrwgfI/hqdefault.jpg",
+    videoEmbed: "https://www.youtube.com/embed/GaJtsJrwgfI?autoplay=1"
+  },
+  {
+    id: "v44",
+    category: "videos",
+    categoryLabel: "Vídeo",
+    subcategory: "Imobiliário",
+    title: "Due Diligence Imobiliária",
+    description: "A importância e como conduzir uma due diligence imobiliária com segurança.",
+    badge: "Assistir Vídeo",
+    date: "",
+    author: "Gouvêa dos Reis",
+    readTimeOrDuration: "",
+    imageUrl: "https://img.youtube.com/vi/z4qZTKCwgzk/hqdefault.jpg",
+    videoEmbed: "https://www.youtube.com/embed/z4qZTKCwgzk?autoplay=1"
   }
 ];
 

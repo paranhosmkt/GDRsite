@@ -9,7 +9,9 @@
         "Acordos de PLR sob a Lei 10.101",
         "Stock Options Plans customizados",
         "Metas e KPIs com respaldo legal"
-      ]
+      ],
+      "buttonLabel": "Baixar Presskit",
+      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQBNERyUfpYaTZbIpVFRjXFRAWZThCDA6bTwk1ZqJZtabwc?e=KcaSBK"
     },
     {
       "id": "reforma-tributaria",
@@ -20,7 +22,9 @@
         "Cálculo projetivo CBS/IBS",
         "Aproveitamento de créditos de transição",
         "Readequação de contratos e preços"
-      ]
+      ],
+      "buttonLabel": "Baixar Presskit",
+      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQAddsZYXExwQ6wevgsSr7uwAU5NmX5QIfoCd3Yg3BO3Op4?e=cI7t3c"
     },
     {
       "id": "nr-1",
@@ -31,7 +35,9 @@
         "Auditoria técnica de GRO e PGR",
         "Mitigação integrada de adicionais",
         "Defesa contra nexo técnico causal"
-      ]
+      ],
+      "buttonLabel": "Baixar Presskit",
+      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQCNXWtd8aNFRIvr-CHQXm_DAW5DmAQj1BuTJ-OsJz20XCs?e=xpMBai"
     },
     {
       "id": "lgpd-compliance",
@@ -42,7 +48,9 @@
         "DPO as a Service executivo",
         "Data Mapping e Avaliação (RIPD)",
         "Treinamento ético e plano de resposta"
-      ]
+      ],
+      "buttonLabel": "Baixar Presskit",
+      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQBNzAso08zcRpxjC5Mkw6tNATUloJyVM5XIm3mnfTzAIC0?e=PgFUJr"
     },
     {
       "id": "penal-empresarial",
@@ -53,18 +61,9 @@
         "Defesas firmes em Inquéritos Policiais",
         "Compliance penal estratégico",
         "Gestão confidencial de crises"
-      ]
-    },
-    {
-      "id": "holding-patrimonial",
-      "name": "Holding e Planejamento Sucessório",
-      "representativeness": "Criação de Holdings familiares e proteção do patrimônio intergeracional.",
-      "description": "Desenho societário sofisticado de empresas holding com reservas de usufruto e cláusulas de inalienabilidade e impenhorabilidade. Condução profissional e pacífica de protocolos de família para evitar a desintegração de fortunas societárias ou empreendimentos operacionais.",
-      "highlights": [
-        "Protocolos de Acordo de Herdeiros",
-        "Estruturas societárias imunes",
-        "Planejamento tributário pré-sucessão"
-      ]
+      ],
+      "buttonLabel": "Baixar Presskit",
+      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQB8i9TNe4ziR4x78QTed435AfRqS1DBMSzkxBNTIMRD50o?e=cIBxHt"
     },
     {
       "id": "gestao-passivos",
@@ -75,18 +74,9 @@
         "Dação em pagamento blindada",
         "Arbitragem e negociação sindical",
         "Alongamento estratégico profissional"
-      ]
-    },
-    {
-      "id": "blindagem-trabalhista",
-      "name": "Blindagem Trabalhista",
-      "representativeness": "Auditoria preventiva cirúrgica, renegociação de normas e controle de riscos.",
-      "description": "Análise profunda de práticas de RH, contratos de prestadores de serviços, terceirizações lícitas e PJ. Implementação de defesas cirúrgicas que diminuem sensivelmente o volume de reclamações ativas e evitam sanções administrativas do Ministério do Trabalho.",
-      "highlights": [
-        "Auditoria profunda de contratos PJ",
-        "Acordos e convenções de vanguarda",
-        "Defesas trabalhistas nos tribunais"
-      ]
+      ],
+      "buttonLabel": "Baixar Presskit",
+      "buttonLink": "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQC41eOqFLWDToO_x1z5E331AczH_UgtkXmsb-AHqjIbbHM?e=kq4vN7"
     }
   ]
 }

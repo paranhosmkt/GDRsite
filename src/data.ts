@@ -205,56 +205,54 @@ export const CLIENT_SECTORS: ClientSector[] = [
     name: "Sistema de Pagamento Variável",
     representativeness: "Incentivos corporativos de alta produtividade (PLR, Bônus, LTI, Stock Options).",
     description: "Estruturação sob medida de planos de participação de lucros e resultados, bônus executivos e opções de compra de ações de forma lícita, segura e alinhada às decisões do TST, eliminando reflexos de natureza salarial indesejados.",
-    highlights: ["Acordos de PLR sob a Lei 10.101", "Stock Options Plans customizados", "Metas e KPIs com respaldo legal"]
+    highlights: ["Acordos de PLR sob a Lei 10.101", "Stock Options Plans customizados", "Metas e KPIs com respaldo legal"],
+    buttonLabel: "Baixar Presskit",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQBNERyUfpYaTZbIpVFRjXFRAWZThCDA6bTwk1ZqJZtabwc?e=KcaSBK"
   },
   {
     id: "reforma-tributaria",
     name: "Reforma Tributária",
     representativeness: "Consultoria preditiva, transição operacional e simulação de impactos fiscais.",
     description: "Simulação financeira e planejamento preventivo para enquadramento nas alterações do novo Sistema Tributário Nacional (IBS, CBS e imposto seletivo). Reestruturação de canais comerciais e cadeias de suprimentos para absorver os impactos com total resguardo administrativo.",
-    highlights: ["Cálculo projetivo CBS/IBS", "Aproveitamento de créditos de transição", "Readequação de contratos e preços"]
+    highlights: ["Cálculo projetivo CBS/IBS", "Aproveitamento de créditos de transição", "Readequação de contratos e preços"],
+    buttonLabel: "Baixar Presskit",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQAddsZYXExwQ6wevgsSr7uwAU5NmX5QIfoCd3Yg3BO3Op4?e=cI7t3c"
   },
   {
     id: "nr-1",
     name: "NR-1 (Segurança e Saúde do Trabalho)",
     representativeness: "Gerenciamento de Riscos Ocupacionais (GRO) e governança em SST.",
     description: "Implantação técnica e legal do Programa de Gerenciamento de Riscos (PGR) e conformidade integral com a NR-1. Assessoria preventiva avançada para impedir autuações e mitigar riscos gravíssimos ligados a acidentes do trabalho e passivos de insalubridade.",
-    highlights: ["Auditoria técnica de GRO e PGR", "Mitigação integrada de adicionais", "Defesa contra nexo técnico causal"]
+    highlights: ["Auditoria técnica de GRO e PGR", "Mitigação integrada de adicionais", "Defesa contra nexo técnico causal"],
+    buttonLabel: "Baixar Presskit",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQCNXWtd8aNFRIvr-CHQXm_DAW5DmAQj1BuTJ-OsJz20XCs?e=xpMBai"
   },
   {
     id: "lgpd-compliance",
     name: "LGPD (Privacidade & Proteção de Dados)",
     representativeness: "Adequação integral multimilionária, treinamento DPO e defesa de incidentes.",
     description: "Conformidade geral com a Lei Geral de Proteção de Dados por design. Mapeamento analítico de processos de circulação de dados, auditoria de segurança da informação legada, contratos de terceirização blindados e representação firme perante a ANPD em eventuais contestações.",
-    highlights: ["DPO as a Service executivo", "Data Mapping e Avaliação (RIPD)", "Treinamento ético e plano de resposta"]
+    highlights: ["DPO as a Service executivo", "Data Mapping e Avaliação (RIPD)", "Treinamento ético e plano de resposta"],
+    buttonLabel: "Baixar Presskit",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQBNzAso08zcRpxjC5Mkw6tNATUloJyVM5XIm3mnfTzAIC0?e=PgFUJr"
   },
   {
     id: "penal-empresarial",
     name: "Penal Empresarial",
     representativeness: "Patrocínio defensivo técnico em âmbito penal, financeiro e tributário.",
     description: "Defesa criminal corporativa de alto nível para fundadores e executivos frente a alegações de fraudes financeiras, crimes ambientais de escala, sonegação tributária e concorrência desleal. Atuação voltada à total confidencialidade e preservação de reputação comercial.",
-    highlights: ["Defesas firmes em Inquéritos Policiais", "Compliance penal estratégico", "Gestão confidencial de crises"]
-  },
-  {
-    id: "holding-patrimonial",
-    name: "Holding e Planejamento Sucessório",
-    representativeness: "Criação de Holdings familiares e proteção do patrimônio intergeracional.",
-    description: "Desenho societário sofisticado de empresas holding com reservas de usufruto e cláusulas de inalienabilidade e impenhorabilidade. Condução profissional e pacífica de protocolos de família para evitar a desintegração de fortunas societárias ou empreendimentos operacionais.",
-    highlights: ["Protocolos de Acordo de Herdeiros", "Estruturas societárias imunes", "Planejamento tributário pré-sucessão"]
+    highlights: ["Defesas firmes em Inquéritos Policiais", "Compliance penal estratégico", "Gestão confidencial de crises"],
+    buttonLabel: "Baixar Presskit",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQB8i9TNe4ziR4x78QTed435AfRqS1DBMSzkxBNTIMRD50o?e=cIBxHt"
   },
   {
     id: "gestao-passivos",
     name: "Gestão de Passivos",
     representativeness: "Reorganização de passivos estruturados e negociações sob sigilo absoluto.",
     description: "Análise técnica integral e negociação estratégica de contingências e passivos financeiros com bancos, fornecedores e entes públicos. Modelagem de planos de recuperação extrajudicial e resgate operacional de fluxos de caixa corporativos sem quebra de credibilidade.",
-    highlights: ["Dação em pagamento blindada", "Arbitragem e negociação sindical", "Alongamento estratégico profissional"]
-  },
-  {
-    id: "blindagem-trabalhista",
-    name: "Blindagem Trabalhista",
-    representativeness: "Auditoria preventiva cirúrgica, renegociação de normas e controle de riscos.",
-    description: "Análise profunda de práticas de RH, contratos de prestadores de serviços, terceirizações lícitas e PJ. Implementação de defesas cirúrgicas que diminuem sensivelmente o volume de reclamações ativas e evitam sanções administrativas do Ministério do Trabalho.",
-    highlights: ["Auditoria profunda de contratos PJ", "Acordos e convenções de vanguarda", "Defesas trabalhistas nos tribunais"]
+    highlights: ["Dação em pagamento blindada", "Arbitragem e negociação sindical", "Alongamento estratégico profissional"],
+    buttonLabel: "Baixar Presskit",
+    buttonLink: "https://gouveadosreis-my.sharepoint.com/:b:/g/personal/drive_gdr_adv_br/IQC41eOqFLWDToO_x1z5E331AczH_UgtkXmsb-AHqjIbbHM?e=kq4vN7"
   }
 ];
 
