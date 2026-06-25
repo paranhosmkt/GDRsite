@@ -86,9 +86,9 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* 9 Seals Grid - small size as requested */}
-          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-4">
-            {Array.from({ length: 9 }).map((_, index) => {
+          {/* 10 Seals Grid - small size as requested */}
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-10 gap-4">
+            {Array.from({ length: 10 }).map((_, index) => {
               const customSeal = seals[index];
               let customImageUrl = customSeal ? getSanityImageUrl(customSeal.image) : null;
               
@@ -101,7 +101,8 @@ export default function Footer() {
                 "https://i.ibb.co/Xf7jr6PD/Selo-09.jpg",
                 "https://i.ibb.co/VGhJNVp/Advocacia5003.png",
                 "https://i.ibb.co/b5dkb7Pz/Advocacia500.png",
-                "https://i.ibb.co/pBvD38fg/Advocacia5002.png"
+                "https://i.ibb.co/pBvD38fg/Advocacia5002.png",
+                "https://i.ibb.co/S765SwMH/Selo-Resgatando-vidas.jpg"
               ];
               
               if (!customImageUrl) {
