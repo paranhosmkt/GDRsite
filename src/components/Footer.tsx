@@ -102,7 +102,7 @@ export default function Footer() {
                 "https://i.ibb.co/VGhJNVp/Advocacia5003.png",
                 "https://i.ibb.co/b5dkb7Pz/Advocacia500.png",
                 "https://i.ibb.co/pBvD38fg/Advocacia5002.png",
-                "https://i.ibb.co/S765SwMH/Selo-Resgatando-vidas.jpg"
+                "https://i.ibb.co/WWxswnxZ/Centro-resgatando-vidas-selo.png"
               ];
               
               if (!customImageUrl) {
