@@ -1,15 +1,67 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Clock, Calendar, User, Share2, BookOpen, MessageSquare } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User, Share2, BookOpen, MessageSquare, Check, Copy } from "lucide-react";
 
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
+  const [copied, setCopied] = useState(false);
+
+  const articleTitle = "OS LIMITES CONSTITUCIONAIS DA REFORMA DA TRIBUTAÇÃO SOBRE O CONSUMO";
+  const articleSummary = "A reforma da tributação sobre o consumo representa uma das mais profundas transformações do Sistema Tributário Nacional desde a Constituição de 1988. Analisamos a natureza jurídica da CBS e IBS, neutralidade e limites constitucionais. Por Luciano Daniel da Veiga.";
+  const articleImage = "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg";
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Dynamic Meta Tags update for Social Media/WhatsApp share preview
+    document.title = `${articleTitle} | GDR Advogados`;
+
+    const setMetaTag = (attr: string, key: string, content: string) => {
+      let element = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attr, key);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("content", content);
+    };
+
+    setMetaTag("property", "og:title", articleTitle);
+    setMetaTag("property", "og:description", articleSummary);
+    setMetaTag("property", "og:image", articleImage);
+    setMetaTag("property", "og:image:width", "1200");
+    setMetaTag("property", "og:image:height", "630");
+    setMetaTag("property", "og:type", "article");
+    setMetaTag("property", "og:url", window.location.href);
+
+    setMetaTag("name", "twitter:card", "summary_large_image");
+    setMetaTag("name", "twitter:title", articleTitle);
+    setMetaTag("name", "twitter:description", articleSummary);
+    setMetaTag("name", "twitter:image", articleImage);
+    setMetaTag("name", "description", articleSummary);
   }, [slug]);
 
-  const whatsappMessage = encodeURIComponent(
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: articleTitle,
+        text: articleSummary,
+        url: window.location.href,
+      }).catch(() => {});
+    } else {
+      handleCopyLink();
+    }
+  };
+
+  const shareOnWhatsApp = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${articleTitle}\n\n${articleSummary}\n\nLeia o artigo completo em: ${window.location.href}`)}`;
+
+  const whatsappConsultation = encodeURIComponent(
     "Olá! Li o artigo 'Os Limites Constitucionais da Reforma da Tributação sobre o Consumo' e gostaria de consultar a equipe tributária."
   );
 
@@ -37,8 +89,41 @@ export default function ArticlePage() {
 
         {/* Article Header */}
         <header className="mb-12">
-          <div className="inline-block bg-gdr-beige/20 text-gdr-dark border border-gdr-beige/50 px-3 py-1 rounded-full text-[11px] font-semibold tracking-widest uppercase mb-6">
-            Direito Tributário • Artigo
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div className="inline-block bg-gdr-beige/20 text-gdr-dark border border-gdr-beige/50 px-3 py-1 rounded-full text-[11px] font-semibold tracking-widest uppercase">
+              Direito Tributário • Artigo
+            </div>
+
+            {/* Quick Share Buttons */}
+            <div className="flex items-center space-x-2">
+              <a
+                href={shareOnWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Compartilhar no WhatsApp"
+                className="inline-flex items-center space-x-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-[11px] font-semibold px-3 py-1.5 rounded transition-colors"
+              >
+                <Share2 className="w-3.5 h-3.5" />
+                <span>WhatsApp</span>
+              </a>
+
+              <button
+                onClick={handleCopyLink}
+                className="inline-flex items-center space-x-1.5 bg-gdr-gray hover:bg-gdr-dark hover:text-white text-gdr-dark text-[11px] font-semibold px-3 py-1.5 rounded transition-colors border border-gdr-border"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Copiado!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copiar Link</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gdr-dark leading-tight mb-6">
@@ -208,7 +293,7 @@ export default function ArticlePage() {
           </Link>
 
           <a
-            href={`https://wa.me/5547996320088?text=${whatsappMessage}`}
+            href={`https://wa.me/5547996320088?text=${whatsappConsultation}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gdr-dark hover:bg-gdr-beige hover:text-gdr-dark text-white border border-gdr-dark px-6 py-3 text-xs uppercase font-semibold tracking-wider transition-colors duration-300 shadow-sm"
