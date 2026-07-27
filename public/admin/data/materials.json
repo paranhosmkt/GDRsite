@@ -1,6 +1,19 @@
 {
   "materials": [
     {
+      "id": "a1",
+      "category": "artigos",
+      "categoryLabel": "Artigo",
+      "title": "OS LIMITES CONSTITUCIONAIS DA REFORMA DA TRIBUTAÇÃO SOBRE O CONSUMO",
+      "description": "A reforma da tributação sobre o consumo representa uma das mais profundas transformações do Sistema Tributário Nacional desde a Constituição de 1988. Analisamos os limites constitucionais, neutralidade, CBS/IBS e seus impactos.",
+      "badge": "Ler Artigo",
+      "date": "2026",
+      "author": "Luciano Daniel da Veiga",
+      "readTimeOrDuration": "12 min de leitura",
+      "imageUrl": "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+      "slug": "os-limites-constitucionais-da-reforma-da-tributacao-sobre-o-consumo"
+    },
+    {
       "id": "e1",
       "category": "ebooks",
       "categoryLabel": "E-book",

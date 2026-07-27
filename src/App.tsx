@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import HomePage from "./pages/HomePage";
 import MaterialsPage from "./pages/MaterialsPage";
+import ArticlePage from "./pages/ArticlePage";
 
 function AppLayout() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -40,6 +41,8 @@ function AppLayout() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/materiais" element={<MaterialsPage />} />
+        <Route path="/artigo/:slug" element={<ArticlePage />} />
+        <Route path="/materiais/:slug" element={<ArticlePage />} />
       </Routes>
 
       <Footer />

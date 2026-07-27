@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { BookOpen, FileCode, Play, Award, Volume2, Newspaper, ChevronRight, X } from "lucide-react";
 import { getMaterials, SanityMaterial } from "../lib/sanity";
 
@@ -269,9 +270,17 @@ export default function Blog() {
 
                     {/* Title & Description */}
                     <div className="space-y-2 text-left">
-                      <h4 className="text-base font-sans font-medium text-gdr-dark leading-snug group-hover:text-gdr-beige transition-colors duration-300">
-                        {item.title}
-                      </h4>
+                      {item.slug ? (
+                        <Link to={`/artigo/${item.slug}`}>
+                          <h4 className="text-base font-sans font-medium text-gdr-dark leading-snug hover:text-gdr-beige transition-colors duration-300">
+                            {item.title}
+                          </h4>
+                        </Link>
+                      ) : (
+                        <h4 className="text-base font-sans font-medium text-gdr-dark leading-snug group-hover:text-gdr-beige transition-colors duration-300">
+                          {item.title}
+                        </h4>
+                      )}
                       <p className="text-xs text-gdr-dark/70 font-light leading-relaxed line-clamp-3">
                         {item.description}
                       </p>
@@ -286,7 +295,15 @@ export default function Blog() {
                       <span>{item.date}</span>
                     </div>
                     
-                    {item.buttonLink ? (
+                    {item.slug ? (
+                      <Link
+                        to={`/artigo/${item.slug}`}
+                        className="w-full bg-gdr-dark text-white hover:bg-gdr-beige hover:text-gdr-dark border border-gdr-dark py-2 px-3 text-[10px] uppercase font-semibold tracking-wider flex items-center justify-center space-x-1.5 transition-colors duration-300 cursor-pointer text-center"
+                      >
+                        <span>{item.badge || "Ler Artigo"}</span>
+                        <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    ) : item.buttonLink ? (
                       <a
                         href={item.buttonLink}
                         target="_blank"
