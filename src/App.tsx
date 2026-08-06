@@ -12,6 +12,12 @@ function AppLayout() {
   const location = useLocation();
 
   useEffect(() => {
+    if (location.pathname === "/") {
+      document.title = "Gouvêa dos Reis — GDR Advogados";
+    } else if (location.pathname === "/materiais") {
+      document.title = "Materiais | Gouvêa dos Reis";
+    }
+    
     const handleScroll = () => {
       if (location.pathname !== "/") return;
       const sections = ["hero", "sobre", "atuacao", "equipe", "portfolio", "contato"];
