@@ -6,16 +6,24 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import HomePage from "./pages/HomePage";
 import MaterialsPage from "./pages/MaterialsPage";
 import ArticlePage from "./pages/ArticlePage";
+import BioPage from "./pages/BioPage";
 
 function AppLayout() {
   const [activeSection, setActiveSection] = useState("hero");
   const location = useLocation();
+
+  const isBioPage =
+    location.pathname === "/bio" ||
+    location.pathname === "/links" ||
+    location.pathname === "/link-in-bio";
 
   useEffect(() => {
     if (location.pathname === "/") {
       document.title = "Gouvêa dos Reis — GDR Advogados";
     } else if (location.pathname === "/materiais") {
       document.title = "Materiais | Gouvêa dos Reis";
+    } else if (isBioPage) {
+      document.title = "Links Oficiais | Gouvêa dos Reis Advogados";
     }
     
     const handleScroll = () => {
@@ -38,7 +46,17 @@ function AppLayout() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
+  }, [location.pathname, isBioPage]);
+
+  if (isBioPage) {
+    return (
+      <Routes>
+        <Route path="/bio" element={<BioPage />} />
+        <Route path="/links" element={<BioPage />} />
+        <Route path="/link-in-bio" element={<BioPage />} />
+      </Routes>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-gdr-dark font-sans overflow-x-hidden selection:bg-gdr-beige selection:text-gdr-dark">
@@ -49,6 +67,9 @@ function AppLayout() {
         <Route path="/materiais" element={<MaterialsPage />} />
         <Route path="/artigo/:slug" element={<ArticlePage />} />
         <Route path="/materiais/:slug" element={<ArticlePage />} />
+        <Route path="/bio" element={<BioPage />} />
+        <Route path="/links" element={<BioPage />} />
+        <Route path="/link-in-bio" element={<BioPage />} />
       </Routes>
 
       <Footer />

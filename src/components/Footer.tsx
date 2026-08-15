@@ -3,7 +3,7 @@ import { OFFICE_ADDRESSES } from "../data";
 import { Mail, Phone, Clock } from "lucide-react";
 import { getPageAssets, getSanityImageUrl, SanitySeal, getOfficeAddresses } from "../lib/sanity";
 import { OfficeAddress } from "../types";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 export default function Footer() {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
@@ -244,6 +244,12 @@ export default function Footer() {
             <button onClick={() => handleLinkClick("contato")} className="hover:text-white transition-colors cursor-pointer">
               Contato
             </button>
+            <Link
+              to="/bio"
+              className="text-gdr-beige/70 hover:text-gdr-beige transition-colors text-[9px] lowercase font-mono border-b border-gdr-beige/20 hover:border-gdr-beige pb-0.5 tracking-normal cursor-pointer"
+            >
+              • linktree
+            </Link>
           </div>
           
           <div className="text-right text-[9px] text-[#fafafa]/30">
