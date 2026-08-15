@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import {
   MessageCircle,
   Play,
-  GraduationCap,
+  Briefcase,
+  BookOpen,
+  FileText,
   Building2,
   ShieldCheck,
-  HeartPulse,
   Globe,
   ExternalLink,
   X,
@@ -83,12 +84,28 @@ export default function BioPage() {
       isVideoPopup: true,
     },
     {
-      id: "reforma-tributaria",
-      title: "Treinamento — Reforma Tributária na Prática",
-      subtitle: "Capacitação completa e estratégica para líderes e contadores",
-      url: "https://reformacurso-qmleduhm.manus.space/",
-      icon: GraduationCap,
-      isExternal: true,
+      id: "portfolio",
+      title: "Portfólio",
+      subtitle: "Nossos projetos de representação e casos de negócios",
+      url: "/#portfolio",
+      icon: Briefcase,
+      isExternal: false,
+    },
+    {
+      id: "ebooks",
+      title: "E-books",
+      subtitle: "Guias digitais e materiais práticos para download",
+      url: "/materiais?categoria=ebooks",
+      icon: BookOpen,
+      isExternal: false,
+    },
+    {
+      id: "artigos",
+      title: "Artigos",
+      subtitle: "Análises, teses jurídicas e artigos de nossos especialistas",
+      url: "/materiais?categoria=artigos",
+      icon: FileText,
+      isExternal: false,
     },
     {
       id: "direito-imobiliarias",
@@ -104,14 +121,6 @@ export default function BioPage() {
       subtitle: "Adequação regulatória e conformidade notarial e registral",
       url: "https://lgpdcartorios-2dvm6src.manus.space",
       icon: ShieldCheck,
-      isExternal: true,
-    },
-    {
-      id: "defesa-hospitalar",
-      title: "Defesa Estratégica Hospitalar",
-      subtitle: "Assessoria consultiva e contenciosa para área da saúde",
-      url: "https://gdrdefesa-fw9axszp.manus.space",
-      icon: HeartPulse,
       isExternal: true,
     },
     {
@@ -264,12 +273,41 @@ export default function BioPage() {
               );
             }
 
+            if (!item.isExternal) {
+              return (
+                <Link
+                  key={item.id}
+                  to={item.url}
+                  className="w-full group block relative overflow-hidden rounded-xl p-4 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg border bg-[#161616] hover:bg-[#1c1c1c] border-white/10 hover:border-gdr-beige/60"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3.5 min-w-0">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-105 bg-gdr-beige/10 border border-gdr-beige/30 text-gdr-beige group-hover:bg-gdr-beige group-hover:text-gdr-dark">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-sm font-medium text-white group-hover:text-gdr-beige transition-colors block truncate">
+                          {item.title}
+                        </span>
+                        {item.subtitle && (
+                          <p className="text-[11px] text-white/50 font-light truncate mt-0.5">
+                            {item.subtitle}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-white/40 group-hover:text-gdr-beige group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                  </div>
+                </Link>
+              );
+            }
+
             return (
               <a
                 key={item.id}
                 href={item.url}
-                target={item.isExternal ? "_blank" : "_self"}
-                rel={item.isExternal ? "noopener noreferrer" : ""}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`w-full group block relative overflow-hidden rounded-xl p-4 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg border ${
                   item.featured
                     ? "bg-gradient-to-r from-emerald-950/60 to-[#161616] border-emerald-500/40 hover:border-emerald-400"

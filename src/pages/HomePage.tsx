@@ -8,14 +8,14 @@ import Portfolio from "../components/Portfolio";
 import KeyFeatures from "../components/KeyFeatures";
 import ContactForm from "../components/ContactForm";
 
-export const scrollToSection = (sectionId: string) => {
+export const scrollToSection = (sectionId: string, smooth: boolean = true) => {
   const targetElement = document.getElementById(sectionId);
   if (targetElement) {
     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - 85; // header height offset
+    const offsetPosition = Math.max(0, elementPosition - 85); // header height offset
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth",
+      behavior: smooth ? "smooth" : "auto",
     });
   }
 };
@@ -26,13 +26,24 @@ export default function HomePage() {
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace("#", "");
-      setTimeout(() => {
-        scrollToSection(id);
-      }, 100);
+      
+      // Perform initial scroll and follow-up adjustments to counter layout shifts from async Sanity data
+      scrollToSection(id, false);
+
+      const timeouts = [
+        setTimeout(() => scrollToSection(id, true), 150),
+        setTimeout(() => scrollToSection(id, true), 450),
+        setTimeout(() => scrollToSection(id, true), 900),
+        setTimeout(() => scrollToSection(id, true), 1600),
+      ];
+
+      return () => {
+        timeouts.forEach(clearTimeout);
+      };
     } else {
       window.scrollTo(0, 0);
     }
-  }, [location]);
+  }, [location.pathname, location.hash]);
 
   return (
     <main>

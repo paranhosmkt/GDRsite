@@ -1,15 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BookOpen, FileCode, Play, Award, Volume2, Newspaper, ChevronRight, X } from "lucide-react";
 import { getMaterials, SanityMaterial } from "../lib/sanity";
 
 export default function Blog() {
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [activeSubcategory, setActiveSubcategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [resources, setResources] = useState<SanityMaterial[]>([]);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const itemsPerPage = 9;
+
+  useEffect(() => {
+    // Check search params or hash for category
+    const searchParams = new URLSearchParams(location.search);
+    const catParam = searchParams.get("categoria") || searchParams.get("category") || searchParams.get("tag") || searchParams.get("tipo");
+    const hashParam = location.hash ? location.hash.replace("#", "").toLowerCase() : null;
+    
+    const targetCat = catParam || hashParam;
+    if (targetCat) {
+      const normalized = targetCat.toLowerCase();
+      if (["artigos", "ebooks", "noticias", "palestras", "videos", "all"].includes(normalized)) {
+        setActiveCategory(normalized);
+      } else if (normalized === "ebook" || normalized === "e-book" || normalized === "e-books") {
+        setActiveCategory("ebooks");
+      } else if (normalized === "artigo") {
+        setActiveCategory("artigos");
+      } else if (normalized === "noticia" || normalized === "notícias") {
+        setActiveCategory("noticias");
+      } else if (normalized === "palestra") {
+        setActiveCategory("palestras");
+      } else if (normalized === "video" || normalized === "vídeos" || normalized === "vídeo") {
+        setActiveCategory("videos");
+      }
+    }
+  }, [location]);
 
   useEffect(() => {
     getMaterials().then((data) => {
