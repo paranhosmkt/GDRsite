@@ -37,6 +37,12 @@ export default function BioPage() {
     window.scrollTo(0, 0);
     document.title = "Conheça os materiais do Gouvêa dos Reis Advogados";
 
+    // Clean up hash from the browser URL address bar if present (e.g. /#/link -> /link)
+    if (window.location.hash) {
+      const cleanUrl = `${window.location.origin}/link`;
+      window.history.replaceState(null, "", cleanUrl);
+    }
+
     const updateMetaTag = (property: string, content: string) => {
       let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
       if (!el) {
@@ -64,18 +70,24 @@ export default function BioPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const getCleanBioUrl = () => {
+    return `${window.location.origin}/link`;
+  };
+
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
+    const cleanUrl = getCleanBioUrl();
+    navigator.clipboard.writeText(cleanUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleShare = () => {
+    const cleanUrl = getCleanBioUrl();
     if (navigator.share) {
       navigator.share({
         title: "Conheça os materiais do Gouvêa dos Reis Advogados",
         text: "Conheça os materiais, e-books, artigos e canais de atendimento do Gouvêa dos Reis Advogados.",
-        url: window.location.href,
+        url: cleanUrl,
       }).catch(() => {});
     } else {
       handleCopyLink();
@@ -360,12 +372,12 @@ export default function BioPage() {
           })}
         </div>
 
-        {/* Social Media Icons */}
+        {/* Social Media Icons & Share URL Box */}
         <div className="w-full mt-10 pt-6 border-t border-white/10 flex flex-col items-center">
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4 font-semibold">
             Nossas Redes Sociais
           </span>
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-3 mb-6">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -378,6 +390,33 @@ export default function BioPage() {
                 {social.icon}
               </a>
             ))}
+          </div>
+
+          {/* Direct Clean Link Badge with One-Click Copy */}
+          <div className="w-full bg-[#121212]/90 border border-white/10 rounded-xl p-3 flex items-center justify-between gap-2 shadow-inner">
+            <div className="flex items-center space-x-2 min-w-0 pl-1">
+              <Globe className="w-4 h-4 text-gdr-beige shrink-0" />
+              <span className="text-xs text-white/70 font-mono truncate select-all">
+                {window.location.host ? `${window.location.host}/link` : "gdr.adv.br/link"}
+              </span>
+            </div>
+            <button
+              onClick={handleCopyLink}
+              title="Copiar link limpo sem #"
+              className="shrink-0 px-3 py-1.5 rounded-lg bg-gdr-beige/10 hover:bg-gdr-beige text-gdr-beige hover:text-gdr-dark border border-gdr-beige/30 transition-all text-xs font-medium flex items-center space-x-1.5 cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-emerald-400">Copiado!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5" />
+                  <span>Copiar Link</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
       </main>
