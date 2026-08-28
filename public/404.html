@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gouvêa dos Reis Advogados</title>
     <script>
-      // Single Page App fallback redirect for direct sub-route URLs
+      // Single Page App redirect for static hosts (GitHub Pages, etc.)
       (function() {
         var path = window.location.pathname;
         var search = window.location.search;
         var hash = window.location.hash;
-        if (path && path !== "/") {
-          window.location.replace("/#" + path + search + hash);
-        } else {
-          window.location.replace("/");
-        }
+        
+        // Save redirect URL in sessionStorage
+        try {
+          sessionStorage.setItem('spa_redirect', path + search + hash);
+        } catch (e) {}
+
+        // Fallback with query param redirect
+        window.location.replace('/?spa_path=' + encodeURIComponent(path + search + hash));
       })();
     </script>
   </head>
   <body style="font-family: sans-serif; text-align: center; padding: 50px; background-color: #0b111e; color: #ffffff;">
-    <p>Redirecionando para o artigo...</p>
+    <p>Redirecionando...</p>
   </body>
 </html>
+

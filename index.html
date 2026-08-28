@@ -24,6 +24,24 @@
     <meta name="twitter:title" content="Conheça os materiais do Gouvêa dos Reis Advogados" />
     <meta name="twitter:description" content="Acesse os e-books, artigos práticos, treinamentos e canais oficiais de atendimento da Gouvêa dos Reis Advogados." />
     <meta name="twitter:image" content="https://i.ibb.co/Kx0wV3qG/Logo-GDR-1.png" />
+    <script>
+      (function() {
+        // Restore SPA redirects from 404.html if present
+        try {
+          var redirect = sessionStorage.getItem('spa_redirect');
+          if (redirect) {
+            sessionStorage.removeItem('spa_redirect');
+            window.history.replaceState(null, null, redirect);
+          } else {
+            var urlParams = new URLSearchParams(window.location.search);
+            var spaPath = urlParams.get('spa_path');
+            if (spaPath) {
+              window.history.replaceState(null, null, spaPath);
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
