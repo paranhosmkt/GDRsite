@@ -131,6 +131,20 @@
       "buttonLink": ""
     },
     {
+      "id": "v-nr1-saude-mental-empresa",
+      "category": "videos",
+      "categoryLabel": "Vídeo",
+      "subcategory": "Trabalhista",
+      "title": "NR-1: a saúde mental virou obrigação na sua empresa",
+      "description": "A nova NR-1 colocou os riscos psicossociais — sobrecarga, metas inalcançáveis, assédio, lideranças tóxicas — dentro das obrigações legais de toda empresa com funcionários. E a fiscalização já começou.\n\nNeste episódio unimos Direito, gestão e saúde mental para explicar, de forma clara e sem juridiquês: o que mudou na NR-1, qual é o risco real para o seu negócio (multas, impacto no FAP, ações de adoecimento) e, principalmente, o caminho para se adequar de verdade — não com um \"PGR de prateleira\", mas com um diagnóstico que protege.",
+      "badge": "Assistir Vídeo",
+      "date": "2026",
+      "author": "Gouvêa dos Reis",
+      "readTimeOrDuration": "Vídeo",
+      "imageUrl": "https://img.youtube.com/vi/S6Z5W8ZrHks/hqdefault.jpg",
+      "videoEmbed": "https://www.youtube.com/embed/S6Z5W8ZrHks?autoplay=1"
+    },
+    {
       "id": "v-reforma-tributaria-2026",
       "category": "videos",
       "categoryLabel": "Vídeo",
