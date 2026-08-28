@@ -67,8 +67,8 @@ export default function Blog() {
 
   const availableSubcategories = activeCategory === "videos" 
     ? [
-        "Administrativo", "Bancário", "Cível", "Empresarial", "Família", 
-        "Holding", "Internacional", "Imobiliário", "LGPD", "Previdenciário", 
+        "Administrativo", "Bancário", "Cível", "Criminal", "Empresarial", "Família", 
+        "Holding", "Imobiliário", "Internacional", "LGPD", "Previdenciário", 
         "Saúde", "Trabalhista", "Tributário"
       ]
     : [];
