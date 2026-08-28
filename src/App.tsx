@@ -12,24 +12,32 @@ function AppLayout() {
   const [activeSection, setActiveSection] = useState("hero");
   const location = useLocation();
 
+  const normalizedPath = (location.pathname || "").toLowerCase().replace(/\/$/, "");
+  const normalizedHash = (location.hash || "").toLowerCase().replace(/^#\/?/, "");
+
   const isBioPage =
-    location.pathname === "/link" ||
-    location.pathname === "/links" ||
-    location.pathname === "/linktree" ||
-    location.pathname === "/bio" ||
-    location.pathname === "/link-in-bio";
+    normalizedPath === "/link" ||
+    normalizedPath === "/links" ||
+    normalizedPath === "/linktree" ||
+    normalizedPath === "/bio" ||
+    normalizedPath === "/link-in-bio" ||
+    normalizedHash === "link" ||
+    normalizedHash === "links" ||
+    normalizedHash === "linktree" ||
+    normalizedHash === "bio" ||
+    normalizedHash === "link-in-bio";
 
   useEffect(() => {
-    if (location.pathname === "/") {
-      document.title = "Gouvêa dos Reis — GDR Advogados";
+    if (isBioPage) {
+      document.title = "Conheça os materiais do Gouvêa dos Reis Advogados";
     } else if (location.pathname === "/materiais") {
       document.title = "Materiais | Gouvêa dos Reis";
-    } else if (isBioPage) {
-      document.title = "Conheça os materiais do Gouvêa dos Reis Advogados";
+    } else if (location.pathname === "/") {
+      document.title = "Gouvêa dos Reis — GDR Advogados";
     }
     
     const handleScroll = () => {
-      if (location.pathname !== "/") return;
+      if (location.pathname !== "/" || isBioPage) return;
       const sections = ["hero", "sobre", "atuacao", "equipe", "portfolio", "contato"];
       const scrollPosition = window.scrollY + 250;
 
@@ -48,18 +56,10 @@ function AppLayout() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, isBioPage]);
+  }, [location.pathname, location.hash, isBioPage]);
 
   if (isBioPage) {
-    return (
-      <Routes>
-        <Route path="/link" element={<BioPage />} />
-        <Route path="/links" element={<BioPage />} />
-        <Route path="/linktree" element={<BioPage />} />
-        <Route path="/bio" element={<BioPage />} />
-        <Route path="/link-in-bio" element={<BioPage />} />
-      </Routes>
-    );
+    return <BioPage />;
   }
 
   return (
