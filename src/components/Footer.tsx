@@ -245,7 +245,7 @@ export default function Footer() {
               Contato
             </button>
             <Link
-              to="/bio"
+              to="/link"
               className="text-gdr-beige/70 hover:text-gdr-beige transition-colors text-[9px] lowercase font-mono border-b border-gdr-beige/20 hover:border-gdr-beige pb-0.5 tracking-normal cursor-pointer"
             >
               • linktree

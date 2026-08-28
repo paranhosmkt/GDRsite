@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -13,8 +13,10 @@ function AppLayout() {
   const location = useLocation();
 
   const isBioPage =
-    location.pathname === "/bio" ||
+    location.pathname === "/link" ||
     location.pathname === "/links" ||
+    location.pathname === "/linktree" ||
+    location.pathname === "/bio" ||
     location.pathname === "/link-in-bio";
 
   useEffect(() => {
@@ -23,7 +25,7 @@ function AppLayout() {
     } else if (location.pathname === "/materiais") {
       document.title = "Materiais | Gouvêa dos Reis";
     } else if (isBioPage) {
-      document.title = "Links Oficiais | Gouvêa dos Reis Advogados";
+      document.title = "Conheça os materiais do Gouvêa dos Reis Advogados";
     }
     
     const handleScroll = () => {
@@ -51,8 +53,10 @@ function AppLayout() {
   if (isBioPage) {
     return (
       <Routes>
-        <Route path="/bio" element={<BioPage />} />
+        <Route path="/link" element={<BioPage />} />
         <Route path="/links" element={<BioPage />} />
+        <Route path="/linktree" element={<BioPage />} />
+        <Route path="/bio" element={<BioPage />} />
         <Route path="/link-in-bio" element={<BioPage />} />
       </Routes>
     );
@@ -67,8 +71,10 @@ function AppLayout() {
         <Route path="/materiais" element={<MaterialsPage />} />
         <Route path="/artigo/:slug" element={<ArticlePage />} />
         <Route path="/materiais/:slug" element={<ArticlePage />} />
-        <Route path="/bio" element={<BioPage />} />
+        <Route path="/link" element={<BioPage />} />
         <Route path="/links" element={<BioPage />} />
+        <Route path="/linktree" element={<BioPage />} />
+        <Route path="/bio" element={<BioPage />} />
         <Route path="/link-in-bio" element={<BioPage />} />
       </Routes>
 

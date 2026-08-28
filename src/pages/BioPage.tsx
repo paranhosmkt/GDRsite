@@ -35,7 +35,24 @@ export default function BioPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Links Oficiais | Gouvêa dos Reis Advogados";
+    document.title = "Conheça os materiais do Gouvêa dos Reis Advogados";
+
+    const updateMetaTag = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.querySelector(`meta[name="${property}"]`) as HTMLMetaElement | null;
+      }
+      if (el) {
+        el.setAttribute("content", content);
+      }
+    };
+
+    updateMetaTag("og:title", "Conheça os materiais do Gouvêa dos Reis Advogados");
+    updateMetaTag("og:description", "Conheça os materiais, e-books, artigos e canais de atendimento exclusivos do Gouvêa dos Reis Advogados.");
+    updateMetaTag("og:image", "https://i.ibb.co/Kx0wV3qG/Logo-GDR-1.png");
+    updateMetaTag("twitter:title", "Conheça os materiais do Gouvêa dos Reis Advogados");
+    updateMetaTag("twitter:description", "Conheça os materiais, e-books, artigos e canais de atendimento exclusivos do Gouvêa dos Reis Advogados.");
+    updateMetaTag("twitter:image", "https://i.ibb.co/Kx0wV3qG/Logo-GDR-1.png");
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -56,8 +73,8 @@ export default function BioPage() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "Gouvêa dos Reis Advogados - Links Oficiais",
-        text: "Acesse os principais materiais, treinamentos e canais de atendimento da Gouvêa dos Reis Advogados.",
+        title: "Conheça os materiais do Gouvêa dos Reis Advogados",
+        text: "Conheça os materiais, e-books, artigos e canais de atendimento do Gouvêa dos Reis Advogados.",
         url: window.location.href,
       }).catch(() => {});
     } else {
@@ -127,9 +144,9 @@ export default function BioPage() {
       id: "site-oficial",
       title: "Acesse nosso Site",
       subtitle: "Conheça todas as áreas de atuação, sócios e artigos",
-      url: "https://www.gdr.adv.br",
+      url: "/",
       icon: Globe,
-      isExternal: true,
+      isExternal: false,
     },
   ];
 
@@ -220,14 +237,14 @@ export default function BioPage() {
         {/* Cover Banner Header */}
         <div className="relative w-full flex flex-col items-center text-center mb-6">
           {/* Logo Header (Transparent background) */}
-          <div className="w-full flex items-center justify-center py-3 mb-3 group cursor-pointer">
+          <Link to="/" title="Ir para o site oficial" className="w-full flex items-center justify-center py-3 mb-3 group cursor-pointer">
             <img
               src="https://i.ibb.co/Kx0wV3qG/Logo-GDR-1.png"
               alt="Gouvêa dos Reis Advogados"
               className="w-full max-w-[290px] sm:max-w-[340px] h-auto object-contain -translate-x-2 sm:-translate-x-3 transition-all duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-1 group-hover:drop-shadow-[0_10px_30px_rgba(192,160,98,0.3)]"
               referrerPolicy="no-referrer"
             />
-          </div>
+          </Link>
 
           <h1 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide flex items-center justify-center gap-2">
             <span>Gouvêa dos Reis Advogados</span>
