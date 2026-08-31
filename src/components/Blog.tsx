@@ -71,13 +71,18 @@ export default function Blog() {
         "Holding", "Imobiliário", "Internacional", "LGPD", "Previdenciário", 
         "Saúde", "Trabalhista", "Tributário"
       ]
+    : activeCategory === "artigos"
+    ? [
+        "Criminal", "Holding", "Imobiliário", "Penal e Tributário", 
+        "Saúde e Hospitalar", "Trabalhista", "Tributário"
+      ]
     : [];
 
   let filteredResources = activeCategory === "all"
     ? resources
     : resources.filter(item => item.category === activeCategory);
 
-  if (activeCategory === "videos" && activeSubcategory !== "all") {
+  if ((activeCategory === "videos" || activeCategory === "artigos") && activeSubcategory !== "all") {
     filteredResources = filteredResources.filter(item => item.subcategory === activeSubcategory);
   }
 
@@ -208,72 +213,128 @@ export default function Blog() {
                 id={`blog-card-${item.id}`}
                 className="bg-white border border-gdr-border hover:border-gdr-beige flex flex-col justify-between group transition-all duration-300 shadow-xs"
               >
-                {/* Visual Image Placeholder Slot */}
-                {item.videoEmbed && item.videoEmbed.startsWith("<iframe") ? (
+                {/* Visual Image Thumbnail Slot */}
+                {item.slug ? (
+                  <Link
+                    to={`/artigo/${item.slug}`}
+                    className="block w-full aspect-square bg-gdr-gray border-b border-gdr-border relative overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40"
+                  >
+                    {item.imageUrl ? (
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105"
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-radial from-gdr-dark/5 to-transparent pointer-events-none" />
+                        <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-gdr-beige/40" />
+                        <div className="absolute top-2 right-2 w-1.5 h-1.5 border-t border-r border-gdr-beige/40" />
+                        <div className="absolute bottom-2 left-2 w-1.5 h-1.5 border-b border-l border-gdr-beige/40" />
+                        <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-gdr-beige/40" />
+                        <div className="text-center p-4 h-full flex flex-col items-center justify-center">
+                          <span className="text-[9px] tracking-[0.2em] font-mono text-gdr-beige uppercase block mb-1">
+                            [ ARTIGO ]
+                          </span>
+                          <span className="text-[8px] text-gdr-dark/30 font-mono block break-all uppercase max-w-[200px] mx-auto leading-relaxed">
+                            {item.subcategory || "GDR Advogados"}
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </Link>
+                ) : item.videoEmbed && item.videoEmbed.startsWith("<iframe") ? (
                   <div 
                     className="w-full aspect-video bg-black relative [&>iframe]:absolute [&>iframe]:inset-0 [&>iframe]:w-full [&>iframe]:h-full"
                     dangerouslySetInnerHTML={{ __html: item.videoEmbed }}
                   />
                 ) : item.videoEmbed && item.videoEmbed.startsWith("http") ? (
                   <div 
-                    className={`${item.imageUrl ? '' : 'aspect-[16/10]'} bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40 cursor-pointer`}
+                    className="w-full aspect-video bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40 cursor-pointer"
                     onClick={() => setActiveVideo(item.videoEmbed as string)}
                   >
                     {item.imageUrl && (
                       <img
                         src={item.imageUrl}
                         alt={item.title}
-                        className="w-full h-auto object-cover aspect-video transition-transform duration-750 group-hover:scale-105 opacity-80"
+                        className="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105 opacity-90"
                         referrerPolicy="no-referrer"
+                        loading="lazy"
                       />
                     )}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-                      <div className="w-12 h-12 rounded-full bg-black/60 flex items-center justify-center backdrop-blur-sm border border-white/20 text-white group-hover:scale-110 group-hover:bg-gdr-beige group-hover:border-gdr-beige transition-all">
+                      <div className="w-12 h-12 rounded-full bg-black/60 flex items-center justify-center backdrop-blur-sm border border-white/20 text-white group-hover:scale-110 group-hover:bg-gdr-beige group-hover:text-gdr-dark group-hover:border-gdr-beige transition-all">
                         <Play className="w-5 h-5 ml-1" />
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div className={`${item.imageUrl ? '' : 'aspect-[16/10]'} bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40`}>
+                ) : item.buttonLink ? (
+                  <a
+                    href={item.buttonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full aspect-square bg-gdr-gray border-b border-gdr-border relative overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40"
+                  >
                     {item.imageUrl ? (
                       <img
                         src={item.imageUrl}
                         alt={item.title}
-                        className="w-full h-auto object-contain transition-transform duration-750 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105"
                         referrerPolicy="no-referrer"
+                        loading="lazy"
                       />
                     ) : (
-                    <>
-                      <div className="absolute inset-0 bg-radial from-gdr-dark/5 to-transparent pointer-events-none" />
-                      
-                      {/* Decorative corner markers */}
-                      <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-gdr-beige/40" />
-                      <div className="absolute top-2 right-2 w-1.5 h-1.5 border-t border-r border-gdr-beige/40" />
-                      <div className="absolute bottom-2 left-2 w-1.5 h-1.5 border-b border-l border-gdr-beige/40" />
-                      <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-gdr-beige/40" />
+                      <>
+                        <div className="absolute inset-0 bg-radial from-gdr-dark/5 to-transparent pointer-events-none" />
+                        <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-gdr-beige/40" />
+                        <div className="absolute top-2 right-2 w-1.5 h-1.5 border-t border-r border-gdr-beige/40" />
+                        <div className="absolute bottom-2 left-2 w-1.5 h-1.5 border-b border-l border-gdr-beige/40" />
+                        <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-gdr-beige/40" />
+                        <div className="text-center p-4 h-full flex flex-col items-center justify-center">
+                          <span className="text-[9px] tracking-[0.2em] font-mono text-gdr-beige uppercase block mb-1">
+                            [ {item.categoryLabel || "MATERIAL"} ]
+                          </span>
+                          <span className="text-[8px] text-gdr-dark/30 font-mono block break-all uppercase max-w-[200px] mx-auto leading-relaxed">
+                            {item.title}
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </a>
+                ) : (
+                  <div className="w-full aspect-square bg-gdr-gray border-b border-gdr-border relative flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:bg-gdr-gray/40">
+                    {item.imageUrl ? (
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105"
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-radial from-gdr-dark/5 to-transparent pointer-events-none" />
+                        
+                        {/* Decorative corner markers */}
+                        <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-gdr-beige/40" />
+                        <div className="absolute top-2 right-2 w-1.5 h-1.5 border-t border-r border-gdr-beige/40" />
+                        <div className="absolute bottom-2 left-2 w-1.5 h-1.5 border-b border-l border-gdr-beige/40" />
+                        <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-gdr-beige/40" />
 
-                      {/* Icon + Label */}
-                      <div className="text-center p-4">
-                        <span className="text-[9px] tracking-[0.2em] font-mono text-gdr-beige uppercase block mb-1">
-                          [ INSERIR IMAGEM ]
-                        </span>
-                        <span className="text-[8px] text-gdr-dark/30 font-mono block break-all uppercase max-w-[200px] mx-auto leading-relaxed">
-                          {item.id === "r1" ? "manual_holdings_gdr.jpg" : 
-                           item.id === "r2" ? "reforma_tributaria_dividendos.jpg" :
-                           item.id === "r3" ? "compliance_trabalhista_industrias.jpg" :
-                           item.id === "r4" ? "governanca_esg_incorporacao.jpg" :
-                           item.id === "r5" ? "privacy_by_design_lgpd.jpg" :
-                           "sede_executiva_florianopolis.jpg"}
-                        </span>
-                      </div>
-
-                      {/* Fallback pattern to show it is a content placeholder ready for production or Sanity integration */}
-                      <div className="absolute bottom-2 right-3 text-[7.5px] font-mono text-gdr-dark/30 uppercase tracking-widest">
-                        16:10 ratio
-                      </div>
-                    </>
-                  )}
-                </div>
+                        {/* Icon + Label */}
+                        <div className="text-center p-4 h-full flex flex-col items-center justify-center">
+                          <span className="text-[9px] tracking-[0.2em] font-mono text-gdr-beige uppercase block mb-1">
+                            [ {item.categoryLabel || "MATERIAL"} ]
+                          </span>
+                          <span className="text-[8px] text-gdr-dark/30 font-mono block break-all uppercase max-w-[200px] mx-auto leading-relaxed">
+                            {item.title}
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 )}
 
                 <div className="p-6 flex-1 flex flex-col justify-between">
