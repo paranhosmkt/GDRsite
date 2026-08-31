@@ -13,9 +13,10 @@ import {
   Play,
   ChevronRight,
   Sparkles,
-  Bookmark
+  Bookmark,
+  Users
 } from "lucide-react";
-import { getArticleBySlug, ARTICLES_DATA } from "../data/articlesData";
+import { getArticleBySlug, ARTICLES_DATA, ArticleAuthor } from "../data/articlesData";
 
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -105,6 +106,21 @@ export default function ArticlePage() {
     );
   }
 
+  // Resolve authors list
+  const authorsList: ArticleAuthor[] =
+    article.authors && article.authors.length > 0
+      ? article.authors
+      : [
+          {
+            name: article.author,
+            role: article.authorRole,
+            image: article.authorImage,
+            bio: article.authorBio,
+          },
+        ];
+
+  const hasMultipleAuthors = authorsList.length > 1;
+
   return (
     <article className="pt-36 sm:pt-44 md:pt-48 pb-20 min-h-screen bg-white text-gdr-dark font-sans selection:bg-gdr-beige selection:text-gdr-dark">
       {/* Container */}
@@ -177,8 +193,19 @@ export default function ArticlePage() {
 
           <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-gdr-dark/70 border-y border-gdr-border/60 py-4 font-sans">
             <div className="flex items-center space-x-2">
-              <User className="w-4 h-4 text-gdr-beige" />
-              <span className="font-medium text-gdr-dark">{article.author}</span>
+              {hasMultipleAuthors ? (
+                <Users className="w-4 h-4 text-gdr-beige shrink-0" />
+              ) : (
+                <User className="w-4 h-4 text-gdr-beige shrink-0" />
+              )}
+              <div className="flex items-center space-x-1.5 flex-wrap">
+                {authorsList.map((auth, idx) => (
+                  <span key={idx} className="font-medium text-gdr-dark">
+                    {auth.name}
+                    {idx < authorsList.length - 1 && <span className="text-gdr-beige mx-1.5 font-bold">•</span>}
+                  </span>
+                ))}
+              </div>
             </div>
             <div className="flex items-center space-x-2">
               <Clock className="w-4 h-4 text-gdr-beige" />
@@ -353,39 +380,112 @@ export default function ArticlePage() {
           )}
         </div>
 
-        {/* Author Box ("Sobre o Autor") */}
-        <section className="mt-16 bg-gradient-to-br from-gdr-gray/60 to-gdr-gray/20 border border-gdr-border/80 p-6 sm:p-8 rounded-sm shadow-sm">
-          <div className="text-xs uppercase font-semibold tracking-widest text-gdr-beige mb-6 pb-2 border-b border-gdr-border/60">
-            Sobre o Autor / Especialistas
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            {/* Circular photo */}
-            {article.authorImage && (
-              <div className="relative flex-shrink-0">
-                <img
-                  src={article.authorImage}
-                  alt={article.author}
-                  className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-gdr-beige shadow-md"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            )}
-
-            <div className="space-y-3 text-center md:text-left flex-1">
-              <h3 className="text-xl font-serif font-bold text-gdr-dark">{article.author}</h3>
-              {article.authorRole && (
-                <p className="text-xs font-semibold uppercase tracking-wider text-gdr-beige">
-                  {article.authorRole}
-                </p>
-              )}
-              {article.authorBio && (
-                <p className="text-xs sm:text-sm text-gdr-dark/80 font-light leading-relaxed">
-                  {article.authorBio}
-                </p>
+        {/* Authors Section (Divided into distinct boxes for multiple professionals) */}
+        <section className="mt-16">
+          <div className="flex items-center justify-between border-b border-gdr-border pb-3 mb-8">
+            <div className="text-xs uppercase font-semibold tracking-widest text-gdr-beige flex items-center space-x-2">
+              {authorsList.length > 1 ? (
+                <>
+                  <Users className="w-4 h-4 text-gdr-beige" />
+                  <span>Sobre os Autores / Especialistas ({authorsList.length})</span>
+                </>
+              ) : (
+                <>
+                  <User className="w-4 h-4 text-gdr-beige" />
+                  <span>Sobre o Autor / Especialista</span>
+                </>
               )}
             </div>
+            <span className="text-[11px] text-gdr-dark/50 uppercase tracking-wider font-medium">
+              Corpo Jurídico GDR
+            </span>
           </div>
+
+          {authorsList.length === 3 ? (
+            /* 3 Authors: Divided into 3 separate distinct text boxes */
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {authorsList.map((authorItem, aIdx) => (
+                <div
+                  key={aIdx}
+                  className="bg-white border border-gdr-border hover:border-gdr-beige/80 transition-all duration-300 p-6 rounded-sm shadow-sm flex flex-col justify-between group"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-gdr-border/40">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gdr-beige">
+                        Especialista #{aIdx + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-serif font-bold text-gdr-dark leading-snug pt-1">
+                      {authorItem.name}
+                    </h3>
+                    {authorItem.role && (
+                      <p className="text-[11px] font-semibold uppercase tracking-wider text-gdr-beige">
+                        {authorItem.role}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Bio */}
+                  {authorItem.bio && (
+                    <p className="text-xs text-gdr-dark/80 font-light leading-relaxed mt-4 pt-3 border-t border-gdr-border/40">
+                      {authorItem.bio}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : authorsList.length === 2 ? (
+            /* 2 Authors: Divided into 2 separate distinct text boxes */
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {authorsList.map((authorItem, aIdx) => (
+                <div
+                  key={aIdx}
+                  className="bg-white border border-gdr-border hover:border-gdr-beige/80 transition-all duration-300 p-6 rounded-sm shadow-sm flex flex-col justify-between group"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-gdr-border/40">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gdr-beige">
+                        Especialista #{aIdx + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-serif font-bold text-gdr-dark leading-snug pt-1">
+                      {authorItem.name}
+                    </h3>
+                    {authorItem.role && (
+                      <p className="text-xs font-semibold uppercase tracking-wider text-gdr-beige">
+                        {authorItem.role}
+                      </p>
+                    )}
+                  </div>
+
+                  {authorItem.bio && (
+                    <p className="text-xs text-gdr-dark/80 font-light leading-relaxed mt-4 pt-3 border-t border-gdr-border/40">
+                      {authorItem.bio}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            /* Single Author Card */
+            <div className="bg-gradient-to-br from-gdr-gray/60 to-gdr-gray/20 border border-gdr-border/80 p-6 sm:p-8 rounded-sm shadow-sm">
+              <div className="space-y-3">
+                <h3 className="text-xl font-serif font-bold text-gdr-dark">{authorsList[0].name}</h3>
+                {authorsList[0].role && (
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gdr-beige">
+                    {authorsList[0].role}
+                  </p>
+                )}
+                {authorsList[0].bio && (
+                  <p className="text-xs sm:text-sm text-gdr-dark/80 font-light leading-relaxed pt-2 border-t border-gdr-border/40">
+                    {authorsList[0].bio}
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Footer Actions / Call to Action */}

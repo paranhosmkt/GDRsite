@@ -1,3 +1,12 @@
+export interface ArticleAuthor {
+  name: string;
+  role?: string;
+  bio?: string;
+  image?: string;
+  email?: string;
+  phone?: string;
+}
+
 export interface ArticleSection {
   heading?: string;
   content: string[];
@@ -21,6 +30,7 @@ export interface ArticleData {
   authorRole: string;
   authorBio: string;
   authorImage: string;
+  authors?: ArticleAuthor[];
   readTimeOrDuration: string;
   imageUrl: string;
   youtubeVideoUrl?: string;
@@ -48,7 +58,21 @@ export const ARTICLES_DATA: ArticleData[] = [
     author: "Dr. Murilo Gouvêa dos Reis e Marcelo Brognoli",
     authorRole: "Advogado Especialista em Direito Imobiliário e Trabalhista • Presidente do CRECI-SC",
     authorBio: "Dr. Murilo Gouvêa dos Reis é Mestre em Relações Internacionais, especialista em Direito do Trabalho, idealizador da regulamentação do Corretor Associado e assessor jurídico de imobiliárias e construtoras em todo o Brasil. Marcelo Brognoli é Presidente do CRECI-SC e liderança da Brognoli Imóveis.",
-    authorImage: "https://cdn.sanity.io/images/m3n2hwt5/production/9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960.jpg",
+    authorImage: "https://cdn.sanity.io/images/xkc900rm/production/9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960.jpg",
+    authors: [
+      {
+        name: "Dr. Murilo Gouvêa dos Reis",
+        role: "Advogado Trabalhista e Empresarial • Sócio-Diretor Geral",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960.jpg",
+        bio: "Mestre em Relações Internacionais e especialista em Direito do Trabalho. Formado pela International Academy for Leadership (Alemanha). Idealizador da Lei do Corretor Associado e assessor jurídico de imobiliárias e construtoras em todo o Brasil."
+      },
+      {
+        name: "Marcelo Brognoli",
+        role: "Presidente do CRECI-SC • Diretor da Brognoli Imóveis",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
+        bio: "Presidente do Conselho Regional de Corretores de Imóveis de Santa Catarina (CRECI-SC) e líder da Brognoli Imóveis, atuando no fortalecimento institucional e na profissionalização do mercado imobiliário."
+      }
+    ],
     readTimeOrDuration: "8 min de leitura",
     imageUrl: "https://i.ibb.co/k2FMbk0b/CR-Associado.jpg",
     youtubeVideoUrl: "https://youtu.be/0nl8SLGGuxs",
@@ -138,6 +162,20 @@ export const ARTICLES_DATA: ArticleData[] = [
     authorRole: "Coordenador Tributário • Advogada Especialista em Direito Penal Empresarial",
     authorBio: "Dr. Luciano Daniel da Veiga é advogado tributarista com 20 anos de experiência, Conselheiro do TAT/SC e membro do Comitê Jurídico da FACISC. Dra. Paula Sade é pós-graduada em Direito Penal e Criminologia, especialista em defesas de crimes econômicos e compliance penal.",
     authorImage: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+    authors: [
+      {
+        name: "Dr. Luciano Daniel da Veiga",
+        role: "Advogado Tributário • Coordenador Tributário GDR",
+        image: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+        bio: "Advogado tributarista com 20 anos de experiência, pós-graduado em Direito Tributário, Conselheiro Suplente do TAT/SC e Assessor Jurídico Tributário da FACISC, especialista em contencioso e planejamento fiscal."
+      },
+      {
+        name: "Dra. Paula Sade",
+        role: "Advogada Criminal • Especialista Penal Empresarial",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/28d12e86c0635162fb2ee56404a6232e8785ddf0-1285x1600.jpg",
+        bio: "Advogada especialista na área criminal, pós-graduada em Direito Penal e Criminologia. Atuação consolidada em defesas penais complexas, compliance criminal e crimes contra a ordem tributária."
+      }
+    ],
     readTimeOrDuration: "7 min de leitura",
     imageUrl: "https://i.ibb.co/60dRwnRj/CR-Tribut-rio.jpg",
     youtubeVideoUrl: "https://youtu.be/uoA4eO1_9-k",
@@ -226,7 +264,15 @@ export const ARTICLES_DATA: ArticleData[] = [
     author: "Dra. Paula Sade",
     authorRole: "Advogada Criminalista e Pesquisadora",
     authorBio: "Dra. Paula Sade é advogada criminalista com pós-graduação em Direito Penal e Criminologia, pesquisadora atuante na área de direitos fundamentais, violência de gênero e assistência qualificada em processos criminais.",
-    authorImage: "https://cdn.sanity.io/images/m3n2hwt5/production/28d12e86c0635162fb2ee56404a6232e8785ddf0-1285x1600.jpg",
+    authorImage: "https://cdn.sanity.io/images/xkc900rm/production/28d12e86c0635162fb2ee56404a6232e8785ddf0-1285x1600.jpg",
+    authors: [
+      {
+        name: "Dra. Paula Sade",
+        role: "Advogada Criminalista • Compliance Penal",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/28d12e86c0635162fb2ee56404a6232e8785ddf0-1285x1600.jpg",
+        bio: "Dra. Paula Sade é advogada criminalista com pós-graduação em Direito Penal e Criminologia, pesquisadora atuante na área de direitos fundamentais, violência de gênero e assistência qualificada em processos penais."
+      }
+    ],
     readTimeOrDuration: "8 min de leitura",
     imageUrl: "https://i.ibb.co/3gSpQxh/Criminal.jpg",
     youtubeVideoUrl: "https://youtu.be/f9vNH7MppZE",
@@ -326,6 +372,14 @@ export const ARTICLES_DATA: ArticleData[] = [
     authorRole: "Advogado Tributarista • Sócio e Coordenador da Área Tributária",
     authorBio: "Luciano Daniel da Veiga é advogado tributarista, especialista e pós-graduado em Direito Tributário, com 20 anos de experiência nas áreas Tributária e Empresarial. É sócio e Coordenador da área tributária do escritório Gouvêa dos Reis Advogados e Assessor Jurídico Tributário da FACISC.",
     authorImage: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+    authors: [
+      {
+        name: "Dr. Luciano Daniel da Veiga",
+        role: "Advogado Tributarista • Sócio e Coordenador Tributário GDR",
+        image: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+        bio: "Luciano Daniel da Veiga é advogado tributarista, especialista e pós-graduado em Direito Tributário, com 20 anos de experiência nas áreas Tributária e Empresarial. É sócio e Coordenador da área tributária do escritório Gouvêa dos Reis Advogados e Assessor Jurídico Tributário da FACISC."
+      }
+    ],
     readTimeOrDuration: "9 min de leitura",
     imageUrl: "https://i.ibb.co/7xQnzDCj/Tribut-rio.jpg",
     youtubeVideoUrl: "https://youtu.be/7_Nbqn6UHfE",
@@ -410,7 +464,27 @@ export const ARTICLES_DATA: ArticleData[] = [
     author: "Dr. Murilo Gouvêa dos Reis, Dr. Sérgio de Miranda e Dr. Luciano Daniel da Veiga",
     authorRole: "Sócios GDR • Especialistas em Direito Sucessório, Imobiliário e Tributário",
     authorBio: "Equipe multidisciplinar de sócios do Gouvêa dos Reis Advogados especializada na constituição personalizada de holdings patrimoniais, blindagem jurídica sucessória e governança corporativa familiar.",
-    authorImage: "https://cdn.sanity.io/images/m3n2hwt5/production/6628ec71555a4656571770e10983fc9af7c5a851-2640x3051.jpg",
+    authorImage: "https://cdn.sanity.io/images/xkc900rm/production/6628ec71555a4656571770e10983fc9af7c5a851-2640x3051.jpg",
+    authors: [
+      {
+        name: "Dr. Murilo Gouvêa dos Reis",
+        role: "Advogado Trabalhista e Empresarial • Sócio-Diretor Geral",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960.jpg",
+        bio: "Mestre em Relações Internacionais e Especialista em Direito do Trabalho. Formado pela International Academy for Leadership (Alemanha). Atua na governança corporativa e planejamento sucessório empresarial."
+      },
+      {
+        name: "Dr. Sérgio de Miranda",
+        role: "Advogado Imobiliário & Holding • Especialista Notarial",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/6628ec71555a4656571770e10983fc9af7c5a851-2640x3051.jpg",
+        bio: "Pós-graduado em Direito Imobiliário e Notarial/Registral, associado ao IBRADIM e membro da Comissão de Direito Notarial da OAB/SC, com 25 anos de prática em contratos e holdings patrimoniais."
+      },
+      {
+        name: "Dr. Luciano Daniel da Veiga",
+        role: "Advogado Tributário • Coordenador Tributário GDR",
+        image: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+        bio: "Especialista em Direito Tributário, Assessor da FACISC e Conselheiro do TAT/SC, responsável pela engenharia fiscal e mitigação legítima de tributos na integralização de holdings."
+      }
+    ],
     readTimeOrDuration: "10 min de leitura",
     imageUrl: "https://i.ibb.co/GvFdBdmF/Holding.jpg",
     youtubeVideoUrl: "https://youtu.be/uR8Vi3g2EH0",
@@ -504,7 +578,27 @@ export const ARTICLES_DATA: ArticleData[] = [
     author: "Dra. Flávia, Dr. Murilo Gouvêa dos Reis e Dr. Mauro Moraes",
     authorRole: "Psicóloga Organizacional • Advogados Especialistas em Direito do Trabalho",
     authorBio: "Equipe multidisciplinar combinando psicologia do trabalho e advocacia corporativa para implementação de programas de conformidade à NR-1, prevenção de passivos trabalhistas e saúde ocupacional.",
-    authorImage: "https://cdn.sanity.io/images/m3n2hwt5/production/1620b08205fc2eefe21cb6ac6c3b0f45d2e5cd8b-2640x2654.jpg",
+    authorImage: "https://cdn.sanity.io/images/xkc900rm/production/1620b08205fc2eefe21cb6ac6c3b0f45d2e5cd8b-2640x2654.jpg",
+    authors: [
+      {
+        name: "Dra. Flávia",
+        role: "Psicóloga Organizacional • Fatores Psicossociais",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+        bio: "Psicóloga especialista em Psicologia Organizacional e do Trabalho, atuando no diagnóstico e mapeamento de fatores psicossociais corporativos, treinamentos de lideranças e bem-estar preventivo sob a nova NR-1."
+      },
+      {
+        name: "Dr. Murilo Gouvêa dos Reis",
+        role: "Advogado Trabalhista e Empresarial • Sócio-Diretor Geral",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960.jpg",
+        bio: "Mestre em Relações Internacionais e Especialista em Direito do Trabalho. Assessor de grandes entidades empresariais, com foco na mitigação preventiva de passivos trabalhistas estratégicos e SST."
+      },
+      {
+        name: "Dr. Mauro de Moraes",
+        role: "Advogado Trabalhista • Defesa Patronal e SST",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/1620b08205fc2eefe21cb6ac6c3b0f45d2e5cd8b-2640x2654.jpg",
+        bio: "Graduado pela PUCRS e pós-graduado em Direito do Trabalho, Processo do Trabalho e Seguridade Social pela FMP, atuando na seara trabalhista preventiva e no contencioso patronal qualificado."
+      }
+    ],
     readTimeOrDuration: "8 min de leitura",
     imageUrl: "https://i.ibb.co/8DRJyHht/NR1.jpg",
     youtubeVideoUrl: "https://youtu.be/S6Z5W8ZrHks",
@@ -595,7 +689,15 @@ export const ARTICLES_DATA: ArticleData[] = [
     author: "Dr. Renato Gouvêa dos Reis",
     authorRole: "Advogado Empresarial e Especialista em Relações de Trabalho na Saúde",
     authorBio: "Dr. Renato Gouvêa dos Reis possui 27 anos de experiência em consultoria estratégica para grandes corporações e operadoras de saúde, atuando em negociações com MPT, conformidade regulatória e gestão de riscos assistenciais.",
-    authorImage: "https://cdn.sanity.io/images/m3n2hwt5/production/a969db5f64f0576f00c6bb17feabc587c6d5d3a4-1080x1350.png",
+    authorImage: "https://cdn.sanity.io/images/xkc900rm/production/a969db5f64f0576f00c6bb17feabc587c6d5d3a4-1080x1350.png",
+    authors: [
+      {
+        name: "Dr. Renato Gouvêa dos Reis",
+        role: "Advogado Empresarial • Relações de Trabalho na Saúde",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/a969db5f64f0576f00c6bb17feabc587c6d5d3a4-1080x1350.png",
+        bio: "Dr. Renato Gouvêa dos Reis possui 27 anos de experiência em consultoria estratégica para grandes corporações e operadoras de saúde, atuando em negociações com MPT, conformidade regulatória e gestão de riscos assistenciais."
+      }
+    ],
     readTimeOrDuration: "8 min de leitura",
     imageUrl: "https://i.ibb.co/jndQR07/PCD.jpg",
     youtubeVideoUrl: "https://youtu.be/gHpjJxndBgs",
@@ -695,6 +797,14 @@ export const ARTICLES_DATA: ArticleData[] = [
     authorRole: "Advogado Tributarista • Sócio e Coordenador da Área Tributária",
     authorBio: "Luciano Daniel da Veiga é advogado tributarista, especialista e pós-graduado em Direito Tributário, com 20 anos de experiência nas áreas Tributária e Empresarial. É sócio e Coordenador da área tributária do escritório Gouvêa dos Reis Advogados e Assessor Jurídico Tributário da FACISC.",
     authorImage: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+    authors: [
+      {
+        name: "Luciano Daniel da Veiga",
+        role: "Advogado Tributarista • Sócio e Coordenador Tributário GDR",
+        image: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
+        bio: "Luciano Daniel da Veiga é advogado tributarista, especialista e pós-graduado em Direito Tributário, com 20 anos de experiência nas áreas Tributária e Empresarial. É sócio e Coordenador da área tributária do escritório Gouvêa dos Reis Advogados e Assessor Jurídico Tributário da FACISC."
+      }
+    ],
     readTimeOrDuration: "12 min de leitura",
     imageUrl: "https://i.ibb.co/v4pWJX5w/Whats-App-Image-2026-07-21-at-07-50-21.jpg",
     whatsappMessage: "Olá! Li o artigo 'Os Limites Constitucionais da Reforma da Tributação sobre o Consumo' e gostaria de consultar a equipe tributária.",
