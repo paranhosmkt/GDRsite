@@ -154,6 +154,14 @@ export default function Team() {
       imageRef: "image-01ac1b480876e1f3faac3a31354fe452bb81e3e9-3960x2640-jpg",
       area: "Segurança de Dados, Adequação à LGPD e Previdência Complementar",
       bio: "Graduada em Direito pela Universidade do Sul de Santa Catarina, é especialista em Direito e Processo do Trabalho pelo Complexo de Ensino Superior de Santa Catarina (CESUSC). Possui sólida experiência na área jurídica desde 2014, com atuação em Direito Civil e Empresarial, especialmente em contratos e consultoria estratégica a empresas e entidades institucionais, além de atuação nas áreas Trabalhista Empresarial e Previdenciária, com foco em segurança jurídica, mitigação de riscos e eficiência operacional. Atua como Encarregada pelo Tratamento de Dados Pessoais (DPO), com certificação pela empresa holandesa EXIN, e possui a certificação internacional Professional ECPC-B DPO Certification, obtida junto ao European Centre on Privacy & Cybersecurity, da Universidade de Maastricht, com formação presencial realizada no Campus de Bruxelas, Bélgica."
+    },
+    {
+      name: "Everson Feuser",
+      role: "Advogado OAB/SC 38.523",
+      email: "feuser@gdr.adv.br",
+      imageRef: "https://i.ibb.co/Z1wd7ppN/Everson.jpg",
+      area: "Advocacia e Assessoria Jurídica",
+      bio: ""
     }
   ];
 
@@ -216,6 +224,14 @@ export default function Team() {
       imageRef: "https://i.ibb.co/nqmrGbwY/488274072-1418425559314000-6893935761726691709-n.jpg",
       area: "Produção de Conteúdo, Relacionamento Digital e Mídia",
       bio: "Formado em Marketing, pós-graduado em Design de produtos digitais (UX/UI), mais de 13 anos de atuação em marketing e tecnologia e 7 anos em Design gráfico e branding digital. Já atuou em empresas de médio e grande porte implementando tecnologias como IA e Realidade virtual. Também é participante ativo em associações como a Associação Catarinense de Tecnologia (ACATE) e Associação Comercial de Florianópolis (ACIF)."
+    },
+    {
+      name: "Ana Beatriz",
+      role: "Relacionamento Estratégico",
+      email: "ana@gdr.adv.br",
+      imageRef: "https://i.ibb.co/d024SQwh/Ana.jpg",
+      area: "Relacionamento Estratégico",
+      bio: ""
     }
   ];
 
@@ -721,7 +737,7 @@ export default function Team() {
                 src={getSanityImageUrl(selectedMember.imageRef)}
                 alt={selectedMember.name}
                 className={`w-full h-full object-cover grayscale opacity-95 hover:grayscale-0 transition-all duration-700`}
-                referrerPolicy="referrer"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gdr-dark/85 to-transparent p-5 text-left">
                 <span className="text-[9px] tracking-widest text-white/60 font-mono uppercase block">
@@ -755,23 +771,31 @@ export default function Team() {
                 </span>
 
                 {/* Sub-tag area description */}
-                <div className="mt-5 bg-gdr-gray p-4 border-l-2 border-gdr-beige space-y-1">
-                  <span className="text-[8px] uppercase tracking-widest font-bold text-gdr-dark/40 block">
-                    {selectedMember.isHonorary ? "Contribuição Histórica:" : "Área de Atuação e Foco:"}
-                  </span>
-                  <p className="text-xs text-gdr-dark leading-relaxed font-medium">
-                    {selectedMember.area}
-                  </p>
-                </div>
+                {selectedMember.area && (
+                  <div className="mt-5 bg-gdr-gray p-4 border-l-2 border-gdr-beige space-y-1">
+                    <span className="text-[8px] uppercase tracking-widest font-bold text-gdr-dark/40 block">
+                      {selectedMember.isHonorary ? "Contribuição Histórica:" : "Área de Atuação e Foco:"}
+                    </span>
+                    <p className="text-xs text-gdr-dark leading-relaxed font-medium">
+                      {selectedMember.area}
+                    </p>
+                  </div>
+                )}
 
                 {/* Story narrative */}
                 <div className="mt-6">
                   <span className="text-[10px] tracking-widest uppercase font-semibold text-gdr-dark/50 pb-1.5 border-b border-gdr-border block mb-3">
                     {selectedMember.isHonorary ? "Memorial e Trajetória" : "Perfil Profissional"}
                   </span>
-                  <p className="text-xs sm:text-sm text-gdr-dark/80 font-light leading-relaxed whitespace-pre-line text-justify">
-                    {selectedMember.bio}
-                  </p>
+                  {selectedMember.bio && selectedMember.bio.trim() ? (
+                    <p className="text-xs sm:text-sm text-gdr-dark/80 font-light leading-relaxed whitespace-pre-line text-justify">
+                      {selectedMember.bio}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-gdr-dark/60 font-light italic">
+                      Currículo institucional em atualização.
+                    </p>
+                  )}
                 </div>
 
                 {/* Optional Credentials mapping */}

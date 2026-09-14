@@ -108,6 +108,16 @@
       "category": "juridico"
     },
     {
+      "name": "Everson Feuser",
+      "role": "Advogado OAB/SC 38.523",
+      "email": "feuser@gdr.adv.br",
+      "imageRef": "https://i.ibb.co/Z1wd7ppN/Everson.jpg",
+      "area": "Advocacia e Assessoria Jurídica",
+      "isHonorary": false,
+      "bio": "",
+      "category": "juridico"
+    },
+    {
       "name": "Dr. Aldo Enrique Benites Cabrera",
       "role": "Consultor Jurídico",
       "email": "aldo@gdr.adv.br",
@@ -166,6 +176,16 @@
       "area": "Produção de Conteúdo, Relacionamento Digital e Mídia",
       "isHonorary": false,
       "bio": "Formado em Marketing, pós-graduado em Design de produtos digitais (UX/UI), mais de 13 anos de atuação em marketing e tecnologia e 7 anos em Design gráfico e branding digital. Já atuou em empresas de médio e grande porte implementando tecnologias como IA e Realidade virtual. Também é participante ativo em associações como a Associação Catarinense de Tecnologia (ACATE) e Associação Comercial de Florianópolis (ACIF).",
+      "category": "administrativo"
+    },
+    {
+      "name": "Ana Beatriz",
+      "role": "Relacionamento Estratégico",
+      "email": "ana@gdr.adv.br",
+      "imageRef": "https://i.ibb.co/d024SQwh/Ana.jpg",
+      "area": "Relacionamento Estratégico",
+      "isHonorary": false,
+      "bio": "",
       "category": "administrativo"
     }
   ]
