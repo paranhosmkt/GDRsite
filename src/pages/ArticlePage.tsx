@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import {
   ArrowLeft,
   Clock,
@@ -17,6 +17,7 @@ import {
   Users
 } from "lucide-react";
 import { getArticleBySlug, ARTICLES_DATA, ArticleAuthor } from "../data/articlesData";
+import { findMaterialByIdOrSlug } from "../lib/sanity";
 
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -92,6 +93,11 @@ export default function ArticlePage() {
   const otherArticles = ARTICLES_DATA.filter((a) => a.slug !== article?.slug).slice(0, 3);
 
   if (!article) {
+    const matchingMaterial = slug ? findMaterialByIdOrSlug(slug) : undefined;
+    if (matchingMaterial) {
+      return <Navigate to={`/materiais/${slug}`} replace />;
+    }
+
     return (
       <div className="pt-44 pb-20 min-h-screen bg-white text-gdr-dark font-sans flex flex-col items-center justify-center px-4">
         <h1 className="text-2xl font-serif font-bold mb-4">Artigo não encontrado</h1>

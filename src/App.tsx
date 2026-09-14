@@ -6,6 +6,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import HomePage from "./pages/HomePage";
 import MaterialsPage from "./pages/MaterialsPage";
 import ArticlePage from "./pages/ArticlePage";
+import MaterialRouteHandler from "./pages/MaterialRouteHandler";
 import BioPage from "./pages/BioPage";
 
 function checkIsBioRoute(pathname: string, hash: string, search: string): boolean {
@@ -101,7 +102,7 @@ function AppLayout() {
         <Route path="/" element={<HomePage />} />
         <Route path="/materiais" element={<MaterialsPage />} />
         <Route path="/artigo/:slug" element={<ArticlePage />} />
-        <Route path="/materiais/:slug" element={<ArticlePage />} />
+        <Route path="/materiais/:slug" element={<MaterialRouteHandler />} />
         <Route path="/link" element={<BioPage />} />
         <Route path="/links" element={<BioPage />} />
         <Route path="/linktree" element={<BioPage />} />

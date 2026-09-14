@@ -202,7 +202,7 @@ export interface SanityMaterial {
   slug?: string;
 }
 
-const localDefaultMaterials: SanityMaterial[] = [
+export const localDefaultMaterials: SanityMaterial[] = [
   {
     id: "a-corretor-associado",
     category: "artigos",
@@ -319,6 +319,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e1",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "a-importancia-da-due-diligence-imobiliaria",
     title: "A importância da DUE DILIGENCE imobiliária",
     description: "A documentação imobiliária é de extrema importância na compra e venda de imóveis, tanto para o comprador quanto para o vendedor. Uma documentação correta e completa garante a segurança jurídica da transação e evita futuros problemas.",
     badge: "Baixar E-book",
@@ -332,6 +333,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e2",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "contratos-imobiliarios",
     title: "Contratos Imobiliários",
     description: "No mercado imobiliário, a segurança jurídica e a proteção dos negócios são aspectos fundamentais e estão diretamente ligadas a elaboração de contratos que assegurem os interesses das partes envolvidas no negócio.",
     badge: "Baixar E-book",
@@ -345,6 +347,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e3",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "fortalecendo-os-sindicatos-patronais",
     title: "Fortalecendo os sindicatos patronais",
     description: "É com grande entusiasmo que apresentamos esta introdução ao e-book \"Fortalecendo os Sindicatos Patronais: Financiamento e Atuação Efetiva\". Neste material, buscamos abordar de forma concisa e informativa um tema de extrema relevância para fortalecer o papel dos sindicatos patronais e garantir uma atuação efetiva em favor do desenvolvimento econômico e das relações de trabalho.",
     badge: "Baixar E-book",
@@ -358,6 +361,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e4",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "guia-contra-crimes-ciberneticos",
     title: "Guia contra crimes cibernéticos",
     description: "No passado, ouvíamos falar do golpe do bilhete premiado, falsos funcionários e empréstimos fraudulentos. Hoje, os criminosos continuam com essas práticas, mas adaptadas ao mundo digital. Entenda como se proteger.",
     badge: "Baixar E-book",
@@ -371,6 +375,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e5",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "hora-de-fortalecer-nosso-sindicato",
     title: "Hora de fortalecer nosso sindicato",
     description: "Aqui, de forma clara e informativa, abordaremos um assunto de extrema importância para fortalecer os sindicatos dos trabalhadores, garantindo uma atuação efetiva em prol do desenvolvimento econômico e das relações de trabalho.",
     badge: "Baixar E-book",
@@ -384,6 +389,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e6",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "perguntas-frequentes-sobre-a-lgpd",
     title: "Perguntas frequentes sobre a LGPD",
     description: "Qualquer informação que possa ser usada para identificar diretamente ou indiretamente uma pessoa física é considerada um dado pessoal. Entenda o que é considerado dado pessoal e como proteger seus dados.",
     badge: "Baixar E-book",
@@ -397,6 +403,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e7",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "planejamento-sucessorio",
     title: "Planejamento Sucessório",
     description: "O planejamento sucessório é uma ferramenta essencial para organizar a transferência do patrimônio entre gerações. Ele visa evitar conflitos familiares, reduzir custos com impostos e garantir que os desejos do titular sejam respeitados.",
     badge: "Baixar E-book",
@@ -410,6 +417,7 @@ const localDefaultMaterials: SanityMaterial[] = [
     id: "e8",
     category: "ebooks",
     categoryLabel: "E-book",
+    slug: "simplificando-a-regularizacao-de-imoveis",
     title: "Simplificando a regularização de imóveis",
     description: "Problema histórico no Brasil, a maioria dos imóveis em nosso território nacional são irregulares o que gera uma permanente insegurança para quem os detêm.",
     badge: "Baixar E-book",
@@ -1131,6 +1139,37 @@ export async function getMaterials(): Promise<SanityMaterial[]> {
   }`;
   
   return fetchSanityData<SanityMaterial[]>(query, localDefaultMaterials);
+}
+
+/**
+ * Normalizes title into a clean URL slug.
+ */
+export function slugify(text: string): string {
+  return text
+    .toString()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/**
+ * Finds a material by ID, custom slug, or slugified title.
+ */
+export function findMaterialByIdOrSlug(
+  identifier?: string,
+  materialsList?: SanityMaterial[]
+): SanityMaterial | undefined {
+  if (!identifier) return undefined;
+  const list = materialsList && materialsList.length > 0 ? materialsList : localDefaultMaterials;
+  const clean = identifier.toLowerCase().trim().replace(/^#/, "");
+  return list.find(
+    (m) =>
+      m.id.toLowerCase() === clean ||
+      (m.slug && m.slug.toLowerCase() === clean) ||
+      slugify(m.title) === clean
+  );
 }
 
 export interface SanityTeamMember {

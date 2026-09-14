@@ -850,10 +850,7 @@ export const ARTICLES_DATA: ArticleData[] = [
 ];
 
 export function getArticleBySlug(slug?: string): ArticleData | undefined {
-  if (!slug) return ARTICLES_DATA[0];
+  if (!slug) return undefined;
   const cleanSlug = slug.toLowerCase().trim();
-  return (
-    ARTICLES_DATA.find((a) => a.slug.toLowerCase() === cleanSlug || a.id.toLowerCase() === cleanSlug) ||
-    ARTICLES_DATA[0]
-  );
+  return ARTICLES_DATA.find((a) => a.slug.toLowerCase() === cleanSlug || a.id.toLowerCase() === cleanSlug);
 }
