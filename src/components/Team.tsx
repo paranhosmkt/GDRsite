@@ -159,9 +159,9 @@ export default function Team() {
       name: "Everson Feuser",
       role: "Advogado OAB/SC 38.523",
       email: "feuser@gdr.adv.br",
-      imageRef: "https://i.ibb.co/Z1wd7ppN/Everson.jpg",
-      area: "Advocacia e Assessoria Jurídica",
-      bio: ""
+      imageRef: "https://i.ibb.co/RGR5KRq6/Everson-2.jpg",
+      area: "Advogado | Relações Institucionais e Estratégia Jurídica",
+      bio: "Graduado em Direito, Administração e Marketing, com MBA em Marketing e mestrado em Engenharia de Produção. Sua trajetória em empresas e no setor de tecnologia reúne experiência em estratégia, gestão e desenvolvimento de projetos.\n\nNo Gouvêa dos Reis Advogados, atua nas relações institucionais e na compreensão das demandas de empresas e organizações. Sua formação multidisciplinar contribui para aproximar a atuação jurídica do escritório dos desafios enfrentados por diferentes setores."
     }
   ];
 
