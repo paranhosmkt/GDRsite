@@ -156,7 +156,7 @@ export default function Team() {
       bio: "Graduada em Direito pela Universidade do Sul de Santa Catarina, é especialista em Direito e Processo do Trabalho pelo Complexo de Ensino Superior de Santa Catarina (CESUSC). Possui sólida experiência na área jurídica desde 2014, com atuação em Direito Civil e Empresarial, especialmente em contratos e consultoria estratégica a empresas e entidades institucionais, além de atuação nas áreas Trabalhista Empresarial e Previdenciária, com foco em segurança jurídica, mitigação de riscos e eficiência operacional. Atua como Encarregada pelo Tratamento de Dados Pessoais (DPO), com certificação pela empresa holandesa EXIN, e possui a certificação internacional Professional ECPC-B DPO Certification, obtida junto ao European Centre on Privacy & Cybersecurity, da Universidade de Maastricht, com formação presencial realizada no Campus de Bruxelas, Bélgica."
     },
     {
-      name: "Everson Feuser",
+      name: "Dr. Everson Feuser",
       role: "Advogado OAB/SC 38.523",
       email: "feuser@gdr.adv.br",
       imageRef: "https://i.ibb.co/RGR5KRq6/Everson-2.jpg",
