@@ -9,19 +9,19 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "source": "/api/:match*",
+      "destination": "/api/:match*"
     },
     {
-      "source": "/admin/(.*)",
-      "destination": "/admin/$1"
+      "source": "/admin/:match*",
+      "destination": "/admin/:match*"
     },
     {
-      "source": "/uploads/(.*)",
-      "destination": "/uploads/$1"
+      "source": "/uploads/:match*",
+      "destination": "/uploads/:match*"
     },
     {
-      "source": "/((?!api|admin|uploads|assets|.*\\..*$).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]

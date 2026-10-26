@@ -22,8 +22,9 @@ import { findMaterialByIdOrSlug } from "../lib/sanity";
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
   const [copied, setCopied] = useState(false);
+  const cleanSlug = slug ? slug.trim().replace(/\/+$/, "") : undefined;
 
-  const article = getArticleBySlug(slug);
+  const article = getArticleBySlug(cleanSlug);
 
   const articleTitle = article?.title || "Artigo Jurídico | Gouvêa dos Reis Advogados";
   const articleSummary = article?.description || article?.lead || "";
@@ -93,9 +94,9 @@ export default function ArticlePage() {
   const otherArticles = ARTICLES_DATA.filter((a) => a.slug !== article?.slug).slice(0, 3);
 
   if (!article) {
-    const matchingMaterial = slug ? findMaterialByIdOrSlug(slug) : undefined;
+    const matchingMaterial = cleanSlug ? findMaterialByIdOrSlug(cleanSlug) : undefined;
     if (matchingMaterial) {
-      return <Navigate to={`/materiais/${slug}`} replace />;
+      return <Navigate to={`/materiais/${cleanSlug}`} replace />;
     }
 
     return (

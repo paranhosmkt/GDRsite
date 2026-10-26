@@ -113,25 +113,28 @@ export default function Header({ activeSection }: HeaderProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                id={`nav-link-${item.id}`}
-                onClick={() => handleLinkClick(item.id)}
-                className={`text-xs uppercase tracking-widest font-medium transition-all duration-300 relative py-2 ${
-                  (activeSection === item.id || (item.id === "materiais" && location.pathname === "/materiais"))
-                    ? "text-gdr-dark"
-                    : "text-gdr-dark/60 hover:text-gdr-dark"
-                }`}
-              >
-                {item.label}
-                <span
-                  className={`absolute bottom-0 left-0 h-[1.5px] bg-gdr-beige transition-all duration-350 ${
-                    (activeSection === item.id || (item.id === "materiais" && location.pathname === "/materiais")) ? "w-full" : "w-0 hover:w-full"
+            {navItems.map((item) => {
+              const isItemActive = activeSection === item.id || (item.id === "materiais" && (location.pathname.startsWith("/materiais") || location.pathname.startsWith("/blog") || location.pathname.startsWith("/artigo")));
+              return (
+                <button
+                  key={item.id}
+                  id={`nav-link-${item.id}`}
+                  onClick={() => handleLinkClick(item.id)}
+                  className={`text-xs uppercase tracking-widest font-medium transition-all duration-300 relative py-2 ${
+                    isItemActive
+                      ? "text-gdr-dark"
+                      : "text-gdr-dark/60 hover:text-gdr-dark"
                   }`}
-                />
-              </button>
-            ))}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute bottom-0 left-0 h-[1.5px] bg-gdr-beige transition-all duration-350 ${
+                      isItemActive ? "w-full" : "w-0 hover:w-full"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </nav>
 
           {/* CTA & Mobile Toggle */}

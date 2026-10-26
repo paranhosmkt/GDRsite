@@ -11,13 +11,14 @@ import { getArticleBySlug } from "../data/articlesData";
  */
 export default function MaterialRouteHandler() {
   const { slug } = useParams<{ slug: string }>();
+  const cleanSlug = slug ? slug.trim().replace(/\/+$/, "") : undefined;
 
   // Check if there is an article matching this slug
-  const article = slug ? getArticleBySlug(slug) : undefined;
+  const article = cleanSlug ? getArticleBySlug(cleanSlug) : undefined;
   if (article) {
     return <ArticlePage />;
   }
 
   // Otherwise, route to MaterialsPage focusing on this specific material ID or slug
-  return <MaterialsPage targetMaterialId={slug} />;
+  return <MaterialsPage targetMaterialId={cleanSlug} />;
 }
