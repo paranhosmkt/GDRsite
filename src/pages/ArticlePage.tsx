@@ -52,13 +52,29 @@ export default function ArticlePage() {
       element.setAttribute("content", content);
     };
 
+    setMetaTag("property", "og:site_name", "Gouvêa dos Reis Advogados");
     setMetaTag("property", "og:title", articleTitle);
     setMetaTag("property", "og:description", articleSummary);
     setMetaTag("property", "og:image", articleImage);
+    setMetaTag("property", "og:image:secure_url", articleImage);
     setMetaTag("property", "og:image:width", "1200");
     setMetaTag("property", "og:image:height", "630");
+    setMetaTag("property", "og:image:type", "image/jpeg");
     setMetaTag("property", "og:type", "article");
     setMetaTag("property", "og:url", window.location.href);
+
+    // Microdata and image_src for WhatsApp & Google
+    setMetaTag("itemprop", "name", articleTitle);
+    setMetaTag("itemprop", "description", articleSummary);
+    setMetaTag("itemprop", "image", articleImage);
+
+    let linkImageSrc = document.querySelector('link[rel="image_src"]');
+    if (!linkImageSrc) {
+      linkImageSrc = document.createElement("link");
+      linkImageSrc.setAttribute("rel", "image_src");
+      document.head.appendChild(linkImageSrc);
+    }
+    linkImageSrc.setAttribute("href", articleImage);
 
     setMetaTag("name", "twitter:card", "summary_large_image");
     setMetaTag("name", "twitter:title", articleTitle);

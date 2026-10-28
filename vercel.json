@@ -21,6 +21,28 @@
       "destination": "/uploads/:match*"
     },
     {
+      "source": "/artigo/:slug*",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|WhatsApp|Facebot|Twitterbot|LinkedInBot|TelegramBot|Slackbot|Discordbot).*"
+        }
+      ],
+      "destination": "/api/article-meta?slug=:slug"
+    },
+    {
+      "source": "/materiais/:slug*",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|WhatsApp|Facebot|Twitterbot|LinkedInBot|TelegramBot|Slackbot|Discordbot).*"
+        }
+      ],
+      "destination": "/api/article-meta?slug=:slug"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
