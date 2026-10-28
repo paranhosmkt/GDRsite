@@ -204,6 +204,21 @@ export interface SanityMaterial {
 
 export const localDefaultMaterials: SanityMaterial[] = [
   {
+    id: "a-fim-escala-6x1",
+    category: "artigos",
+    categoryLabel: "Artigo",
+    subcategory: "Trabalhista",
+    title: "Fim da Escala 6x1: O Impacto da Emenda Constitucional 141 na Gestão, nos Custos e na Sobrevivência das Empresas",
+    description: "Análise técnica sobre a Emenda Constitucional 141, o fim da escala 6x1, os reflexos de custos sem redução salarial, turnos 12x36, NR-1 e as estratégias preventivas para empresas.",
+    badge: "Destaque Trabalhista",
+    date: "2026",
+    author: "Dr. Murilo Gouvêa dos Reis e Dr. Mauro de Morais",
+    readTimeOrDuration: "9 min de leitura",
+    imageUrl: "https://res.cloudinary.com/sejeqnlu/image/upload/f_auto/q_auto/Gemini_Generated_Image_mj9hm9mj9hm9mj9h.jpg",
+    slug: "fim-da-escala-6x1-impacto-emenda-constitucional-141-empresas",
+    videoEmbed: "https://www.youtube.com/watch?v=kUKd9CMQAOc"
+  },
+  {
     id: "a-corretor-associado",
     category: "artigos",
     categoryLabel: "Artigo",
@@ -1121,7 +1136,12 @@ export const localDefaultMaterials: SanityMaterial[] = [
 export async function getMaterials(): Promise<SanityMaterial[]> {
   const localData = await fetchLocalCMSData<{ materials: SanityMaterial[] }>("materials.json");
   if (localData?.materials && localData.materials.length > 0) {
-    return localData.materials;
+    const existingIds = new Set(localData.materials.map((m) => m.id));
+    const existingSlugs = new Set(localData.materials.map((m) => m.slug).filter(Boolean));
+    const missingItems = localDefaultMaterials.filter(
+      (item) => !existingIds.has(item.id) && (!item.slug || !existingSlugs.has(item.slug))
+    );
+    return [...missingItems, ...localData.materials];
   }
 
   const query = `*[_type == "material"] | order(date desc) {
@@ -1138,7 +1158,16 @@ export async function getMaterials(): Promise<SanityMaterial[]> {
     "imageUrl": image.asset->url
   }`;
   
-  return fetchSanityData<SanityMaterial[]>(query, localDefaultMaterials);
+  const sanityResult = await fetchSanityData<SanityMaterial[]>(query, localDefaultMaterials);
+  if (sanityResult && sanityResult.length > 0) {
+    const existingIds = new Set(sanityResult.map((m) => m.id));
+    const existingSlugs = new Set(sanityResult.map((m) => m.slug).filter(Boolean));
+    const missingItems = localDefaultMaterials.filter(
+      (item) => !existingIds.has(item.id) && (!item.slug || !existingSlugs.has(item.slug))
+    );
+    return [...missingItems, ...sanityResult];
+  }
+  return localDefaultMaterials;
 }
 
 /**

@@ -19,6 +19,12 @@ import {
 import { getArticleBySlug, ARTICLES_DATA, ArticleAuthor } from "../data/articlesData";
 import { findMaterialByIdOrSlug } from "../lib/sanity";
 
+function getYouTubeEmbedUrl(url?: string): string | null {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+}
+
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
   const [copied, setCopied] = useState(false);
@@ -369,6 +375,49 @@ export default function ArticlePage() {
                 {article.conclusion}
               </p>
             </section>
+          )}
+
+          {/* Full Debate Video Player / Embed */}
+          {article.youtubeVideoUrl && getYouTubeEmbedUrl(article.youtubeVideoUrl) && (
+            <div className="mt-10 bg-gdr-dark text-white rounded-sm overflow-hidden shadow-md border border-gdr-beige/30">
+              <div className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 bg-black/30">
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <Play className="w-4 h-4 ml-0.5 fill-current" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-gdr-beige block">
+                      Assista ao debate completo na íntegra
+                    </span>
+                    <span className="text-xs sm:text-sm font-serif font-bold text-white">
+                      {article.youtubeVideoTitle || "Debate AEMFLO CDL & Gouvêa dos Reis Advogados"}
+                    </span>
+                  </div>
+                </div>
+                <a
+                  href={article.youtubeVideoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 text-xs text-gdr-beige hover:text-white uppercase tracking-wider font-semibold transition-colors"
+                >
+                  <span>Abrir no YouTube</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+              <div className="relative w-full aspect-video bg-black">
+                <iframe
+                  src={getYouTubeEmbedUrl(article.youtubeVideoUrl)!}
+                  title={article.youtubeVideoTitle || article.title}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="p-3 sm:p-4 bg-white/[0.04] text-[11px] text-white/70 flex items-center justify-between">
+                <span>Transmissão oficial do debate sobre a EC 141 e o fim da escala 6x1</span>
+                <span className="text-gdr-beige font-medium">GDR &bull; AEMFLO CDL</span>
+              </div>
+            </div>
           )}
 
           {/* References Section */}

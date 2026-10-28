@@ -45,6 +45,164 @@ export interface ArticleData {
 
 export const ARTICLES_DATA: ArticleData[] = [
   {
+    id: "a-fim-escala-6x1",
+    slug: "fim-da-escala-6x1-impacto-emenda-constitucional-141-empresas",
+    category: "artigos",
+    categoryLabel: "Artigo",
+    subcategory: "Trabalhista",
+    title: "Fim da Escala 6x1: O Impacto da Emenda Constitucional 141 na Gestão, nos Custos e na Sobrevivência das Empresas",
+    lead: "A aprovação da Emenda Constitucional nº 141 colocou o mercado corporativo brasileiro diante de um dos cenários de transição operacional mais complexos das últimas décadas. Ao instituir o fim do modelo de trabalho 6x1 e redesenhar os limites de jornada e descanso semanal, a nova legislação impõe uma transformação imediata que vai muito além do departamento pessoal: trata-se de uma verdadeira reforma de gestão empresarial.",
+    description: "Análise técnica sobre a Emenda Constitucional 141, o fim da escala 6x1, os reflexos de custos sem redução salarial, turnos 12x36, NR-1 e as estratégias preventivas para empresas.",
+    badge: "Destaque Trabalhista",
+    date: "2026",
+    author: "Dr. Murilo Gouvêa dos Reis e Dr. Mauro de Morais",
+    authorRole: "Advogados Especialistas em Direito do Trabalho e Gestão Corporativa",
+    authorBio: "Dr. Murilo Gouvêa dos Reis é Mestre em Relações Internacionais, especialista em Direito do Trabalho e Sócio-Diretor Geral do GDR. Dr. Mauro de Morais é Pós-graduado em Direito e Processo do Trabalho e especialista em defesa patronal e consultoria trabalhista empresarial.",
+    authorImage: "https://cdn.sanity.io/images/xkc900rm/production/9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960.jpg",
+    authors: [
+      {
+        name: "Dr. Murilo Gouvêa dos Reis",
+        role: "Advogado Trabalhista e Empresarial • Sócio-Diretor Geral",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/9729452190d4d3869eecafefbc3c9db5a230e50d-2640x3960.jpg",
+        bio: "Mestre em Relações Internacionais e Especialista em Direito do Trabalho. Formado pela International Academy for Leadership (Alemanha). Sócio-Diretor Geral do Gouvêa dos Reis Advogados com atuação destacada em relações governamentais e consultoria estratégica corporativa.",
+        email: "murilo@gdr.adv.br"
+      },
+      {
+        name: "Dr. Mauro de Morais",
+        role: "Advogado Trabalhista • Defesa Patronal e Consultoria",
+        image: "https://cdn.sanity.io/images/xkc900rm/production/1620b08205fc2eefe21cb6ac6c3b0f45d2e5cd8b-2640x2654.jpg",
+        bio: "Bacharel em Direito pela PUCRS e Pós-graduado em Direito do Trabalho, Processo do Trabalho e Seguridade Social pela Fundação Escola Superior do Ministério Público (FMP). Atua na seara trabalhista contenciosa e consultiva do Gouvêa dos Reis Advogados.",
+        email: "mauro@gdr.adv.br"
+      }
+    ],
+    readTimeOrDuration: "9 min de leitura",
+    imageUrl: "https://res.cloudinary.com/sejeqnlu/image/upload/f_auto/q_auto/Gemini_Generated_Image_mj9hm9mj9hm9mj9h.jpg",
+    youtubeVideoUrl: "https://www.youtube.com/watch?v=kUKd9CMQAOc",
+    youtubeVideoTitle: "Debate AEMFLO CDL & GDR: Fim da Escala 6x1 e a Emenda Constitucional 141",
+    whatsappMessage: "Olá! Li o artigo sobre 'Fim da Escala 6x1 e a Emenda Constitucional 141' no portal GDR e gostaria de orientações jurídicas trabalhistas para a minha empresa.",
+    sections: [
+      {
+        content: [
+          "A aprovação da Emenda Constitucional nº 141 colocou o mercado corporativo brasileiro diante de um dos cenários de transição operacional mais complexos das últimas décadas. Ao instituir o fim do modelo de trabalho 6x1 e redesenhar os limites de jornada e descanso semanal, a nova legislação impõe uma transformação imediata que vai muito além do departamento pessoal: trata-se de uma verdadeira reforma de gestão empresarial.",
+          "Em debate promovido pela AEMFLO CDL em parceria com o escritório Gouvêa dos Reis Advogados, analisamos as repercussões técnicas, os riscos trabalhistas e os desafios matemáticos que empresários de todos os portes precisarão enfrentar nos próximos meses."
+        ]
+      },
+      {
+        heading: "A Armadilha dos Prazos: 42 ou 40 Horas Semanais?",
+        content: [
+          "O primeiro ponto crítico da Emenda Constitucional reside na transição da jornada de 44 para 40 horas semanais. Diferente do que muitos gestores presumiram, a passagem para uma jornada intermediária de 42 horas não é automática.",
+          "A legislação estabeleceu uma regra condicionante:"
+        ],
+        bullets: [
+          {
+            title: "Com Acordo ou Convenção Coletiva",
+            text: "A empresa pode adotar o patamar de 42 horas semanais durante um período de transição de 12 meses."
+          },
+          {
+            title: "Sem Negociação Coletiva",
+            text: "Caso o sindicato dos trabalhadores recuse o diálogo ou a negociação não seja formalizada até 16 de dezembro, a jornada cai diretamente para 40 horas semanais já a partir de 17 de dezembro."
+          }
+        ],
+        callout: {
+          title: "Atenção ao Calendário Patronal",
+          text: "Essa dinâmica transfere um poder substancial para as assembleias sindicais em um prazo extremamente exíguo — cerca de 45 a 60 dias —, coincidindo justamente com o pico sazonal do comércio e da indústria para o encerramento do ano e as festas de Natal."
+        }
+      },
+      {
+        heading: "A Matemática da Folha: Redução de Horas sem Redução Salarial",
+        content: [
+          "A Constituição veda expressamente a redução salarial nominal. Consequentemente, ao diminuir a carga horária de 44 para 42 ou 40 horas mantendo o mesmo vencimento fixo, ocorre uma elevação direta do valor da hora trabalhada.",
+          "Esse incremento no custo-hora gera um efeito em cascata na saúde financeira da organização:"
+        ],
+        bullets: [
+          {
+            title: "Horas Extras e Adicionais",
+            text: "Todas as horas suplementares passam a ser calculadas sobre a nova base horária majorada."
+          },
+          {
+            title: "Reflexos em Encargos",
+            text: "Férias, 13º salário, FGTS e verbas rescisórias sofrem reajuste proporcional ao novo custo unitário de trabalho."
+          },
+          {
+            title: "Duplo Descanso Semanal Remunerado (DSR)",
+            text: "A ampliação para no mínimo dois dias de descanso semanal impacta inclusive colaboradores sob regimes de meio período ou 36 horas semanais (como jornadas de 6h diárias de segunda a sexta-feira). O segundo dia de folga, que antes não integrava o cálculo de remuneração de DSR, passa a compor a folha, elevando os desembolsos já no fechamento de janeiro."
+          }
+        ],
+        callout: {
+          title: "Impacto Imediato na Margem",
+          text: "Sem aumento compensatório de produtividade, a margem de contribuição operacional das empresas encolhe de imediato."
+        }
+      },
+      {
+        heading: "Ruptura de Escalas Contínuas e o Desafio do Turno 12x36",
+        content: [
+          "Setores essenciais que operam de forma ininterrupta — como área hospitalar, hotelaria, segurança patrimonial, vigilância, transporte e indústrias de ciclo contínuo — sofrem um impacto estrutural direto.",
+          "A consagrada escala 12x36, que culmina em médias alternadas incompatíveis com o novo teto de 40 horas, passa a exigir autorização e modelagem sindical estrita para continuar válida. Na indústria têxtil, plástica e metalúrgica, onde turnos de revezamento operavam em regime de 3 equipes, a matemática da jornada semanal obrigará a inserção de uma quarta equipe completa de trabalho — um custo fixo que muitas operações não possuem capacidade de absorver, somado à escassez crônica de mão de obra qualificada no mercado interno."
+        ]
+      },
+      {
+        heading: "O Hipersuficiente e o Efeito Acelerador da \"Pejotização\"",
+        content: [
+          "Como mecanismo de compensação e desregulamentação, a emenda consagrou um enquadramento expresso para a figura do trabalhador hipersuficiente: profissionais com curso superior completo que percebam remuneração igual ou superior a R$ 21.000 mensais.",
+          "Esses colaboradores deixam de se submeter ao controle formal de jornada e ao regime de horas extras, passando a responder diretamente pela entrega de resultados — de forma análoga aos cargos de gestão e confiança do artigo 62 da CLT.",
+          "Para os demais níveis da organização, contudo, a rigidez do controle horário empurra as empresas para duas rotas inescapáveis:"
+        ],
+        bullets: [
+          {
+            title: "Revisão Estrutural de Contratos B2B (PJ)",
+            text: "Aceleração de contratos com pessoas jurídicas legítimas para funções técnicas, comerciais externas e consultorias com autonomia real."
+          },
+          {
+            title: "Redução dos Pisos de Contratação",
+            text: "Empresas que antes contratavam acima do piso da categoria tendem a puxar os salários de entrada para o patamar mínimo normativo, buscando mitigar a perda das 4 horas semanais de produção."
+          }
+        ]
+      },
+      {
+        heading: "A Sinergia Mandatória entre NR-1 e Gestão por Resultados",
+        content: [
+          "Diante da impossibilidade de estender a jornada, o foco das organizações volta-se para a produtividade e a gestão por metas e desempenho. No entanto, qualquer tentativa de exigir a mesma produção em menos dias de trabalho esbarra na Norma Regulamentadora nº 1 (NR-1) e na obrigatoriedade do gerenciamento de riscos psicossociais.",
+          "Metas agressivas desprovidas de suporte ergonômico, psicológico ou de adequação de processos podem configurar sobrecarga ilícita, abrindo precedentes para autuações do Ministério do Trabalho e Emprego (MTE) e passivos por doenças ocupacionais (como síndrome de burnout e transtornos de ansiedade).",
+          "Assim, o Programa de Gerenciamento de Riscos (PGR) e as análises ergonômicas da NR-1 precisam dialogar diretamente com as políticas de remuneração variável e comissão da empresa. Não é possível desenhar metas operacionais sem antes auditar os impactos psicossociais mapeados pela medicina e segurança do trabalho."
+        ]
+      },
+      {
+        heading: "Plano de Ação Preventivo para o Empresariado",
+        content: [
+          "Para mitigar contingências fiscais e passivos trabalhistas antes da entrada em vigor das penalidades, as lideranças devem priorizar:"
+        ],
+        bullets: [
+          {
+            title: "Auditoria de Folha e Escalas",
+            text: "Mapear todas as funções operacionais e verificar quais postos de trabalho dependem do sábado ou da compensação semanal de 48 minutos diários."
+          },
+          {
+            title: "Abertura Imediata de Negociação Sindical",
+            text: "Envolver as assessorias jurídicas patronais para buscar acordos de adesão às 42 horas, evitando o enquadramento compulsório direto em 40 horas."
+          },
+          {
+            title: "Readequação da NR-1 e Matriz de Produtividade",
+            text: "Alinhar as metas de produtividade aos programas de saúde e ergonomia corporativa."
+          },
+          {
+            title: "Governança em Demissões e Reestruturações",
+            text: "Evitar dispensas coletivas ou cortes de postos de trabalho em escala sem o devido alinhamento com a representação laboral, sob risco de ações anulatórias e pedidos de reintegração judicial."
+          }
+        ]
+      }
+    ],
+    recommendationBox: {
+      title: "Auditoria e Planejamento Trabalhista Preventivo",
+      text: "O escritório Gouvêa dos Reis Advogados presta assessoria jurídica patronal em modelagem de escalas, acordos coletivos e adequação de jornadas para resguardar a operação e a rentabilidade do seu negócio."
+    },
+    references: [
+      "Constituição Federal da República Federativa do Brasil de 1988 — Artigo 7º e Emenda Constitucional nº 141.",
+      "Consolidação das Leis do Trabalho (CLT) — Artigos 58, 59-A, 62 e 507-A (Trabalhador Hipersuficiente).",
+      "Ministério do Trabalho e Emprego (MTE) — Norma Regulamentadora nº 1 (NR-1) e Gerenciamento de Riscos Psicossociais.",
+      "Debate institucional AEMFLO CDL & Gouvêa dos Reis Advogados (2026)."
+    ]
+  },
+  {
     id: "a-corretor-associado",
     slug: "corretor-associado-na-pratica-seguranca-juridica-e-gestao-preventiva-para-imobiliarias",
     category: "artigos",

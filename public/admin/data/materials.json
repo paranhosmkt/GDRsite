@@ -1,6 +1,21 @@
 {
   "materials": [
     {
+      "id": "a-fim-escala-6x1",
+      "category": "artigos",
+      "categoryLabel": "Artigo",
+      "subcategory": "Trabalhista",
+      "title": "Fim da Escala 6x1: O Impacto da Emenda Constitucional 141 na Gestão, nos Custos e na Sobrevivência das Empresas",
+      "description": "Análise técnica sobre a Emenda Constitucional 141, o fim da escala 6x1, os reflexos de custos sem redução salarial, turnos 12x36, NR-1 e as estratégias preventivas para empresas.",
+      "badge": "Destaque Trabalhista",
+      "date": "2026",
+      "author": "Dr. Murilo Gouvêa dos Reis e Dr. Mauro de Morais",
+      "readTimeOrDuration": "9 min de leitura",
+      "imageUrl": "https://res.cloudinary.com/sejeqnlu/image/upload/f_auto/q_auto/Gemini_Generated_Image_mj9hm9mj9hm9mj9h.jpg",
+      "slug": "fim-da-escala-6x1-impacto-emenda-constitucional-141-empresas",
+      "videoEmbed": "https://www.youtube.com/watch?v=kUKd9CMQAOc"
+    },
+    {
       "id": "a-corretor-associado",
       "category": "artigos",
       "categoryLabel": "Artigo",
